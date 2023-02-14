@@ -1,0 +1,2516 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CATS2-OpenApi开放接口",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "产品相关接口"
+    },
+    {
+      "name": "资金相关接口"
+    },
+    {
+      "name": "消息相关接口"
+    },
+    {
+      "name": "交易相关接口"
+    }
+  ],
+  "paths": {
+    "/openApi/c/global/config.app.AppSymbolDubboService.getSymbolList": {
+      "post": {
+        "summary": "产品搜索",
+        "x-apifox-folder": "产品相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "产品相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20126794-run"
+      }
+    },
+    "/openApi/c/global/config.app.AppSymbolDubboService.getSymbolBaseList": {
+      "post": {
+        "summary": "产品基础信息",
+        "x-apifox-folder": "产品相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "产品相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20304936-run"
+      }
+    },
+    "/openApi/c/global/tradeapi.app.OrderApiService.addMarketOrder": {
+      "post": {
+        "summary": "交易下单",
+        "x-apifox-folder": "交易相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "交易相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20305987-run"
+      }
+    },
+    "/openApi/c/global/tradeapi.app.OrderApiService.addOrder": {
+      "post": {
+        "summary": "现货杠杆交易",
+        "x-apifox-folder": "交易相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "交易相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "登录token",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20305988-run"
+      }
+    },
+    "/openApi/c/global/tradeapi.app.OrderApiService.addRepaymentOrder": {
+      "post": {
+        "summary": "跨币种还款(杠杆)",
+        "x-apifox-folder": "交易相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "交易相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "登录token",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20349057-run"
+      }
+    },
+    "/openApi/c/global/tradeapi.app.OrderApiService.updateOrder": {
+      "post": {
+        "summary": "设置止损止盈",
+        "x-apifox-folder": "交易相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "交易相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "6000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20349569-run"
+      }
+    },
+    "/openApi/c/global/tradeapi.app.OrderApiService.closePboOrder": {
+      "post": {
+        "summary": "取消预埋单",
+        "x-apifox-folder": "交易相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "交易相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}+1",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20351254-run"
+      }
+    },
+    "/openApi/c/global/tradeapi.app.PositionApiService.updateOccupyTheMargin": {
+      "post": {
+        "summary": "修改仓位占用保证金",
+        "x-apifox-folder": "交易相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "交易相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}+1",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20352599-run"
+      }
+    },
+    "/openApi/c/global/tradeapi.app.PositionApiService.updateCrossLevelNum": {
+      "post": {
+        "summary": "修改仓位杠杆倍数",
+        "x-apifox-folder": "交易相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "交易相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}+1",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20352771-run"
+      }
+    },
+    "/openApi/c/global/tradeapi.app.OrderApiService.setCrossLevelNum": {
+      "post": {
+        "summary": "设置杠杆倍数",
+        "x-apifox-folder": "交易相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "交易相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}+1",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20352798-run"
+      }
+    },
+    "/openApi/c/global/fund.app.WithdrawAppDubboService.createWithdrawProposal": {
+      "post": {
+        "summary": "提现",
+        "x-apifox-folder": "资金相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "资金相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "登录token",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20353029-run"
+      }
+    },
+    "/openApi/c/global/fund.app.DepositAppDubboService.capitalTransfer": {
+      "post": {
+        "summary": "转账",
+        "x-apifox-folder": "资金相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "资金相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "登录token",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20353030-run"
+      }
+    },
+    "/openApi/c/global/config.app.AppSymbolDubboService.getSymbolDetail": {
+      "post": {
+        "summary": "产品详情",
+        "x-apifox-folder": "产品相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "产品相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20412063-run"
+      }
+    },
+    "/openApi/c/global/message.app.PlatFormMessageTempApiService.getPlatformTempParentTypeList": {
+      "post": {
+        "summary": "站内信类型查询",
+        "x-apifox-folder": "消息相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "消息相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "60000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20413204-run"
+      }
+    },
+    "/openApi/c/global/config.app.ParamDubboService.getPage": {
+      "post": {
+        "summary": "玩法参数查询",
+        "x-apifox-folder": "产品相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "产品相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {},
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": []
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20415015-run"
+      }
+    },
+    "/openApi/c/global/config.app.AppDictDubboService.getListByParentCode": {
+      "post": {
+        "summary": "获取基础字典列表",
+        "x-apifox-folder": "产品相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "产品相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20417401-run"
+      }
+    },
+    "/openApi/c/global/fund.app.DepositAppDubboService.getDepositExchangeRate": {
+      "post": {
+        "summary": "获取客户存款货币对汇率",
+        "x-apifox-folder": "资金相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "资金相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "登录token",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-20443452-run"
+      }
+    },
+    "/openApi/c/global/tradeapi.app.OrderApiService.queryOrderPage": {
+      "post": {
+        "summary": "查询订单",
+        "x-apifox-folder": "交易相关接口",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "交易相关接口"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "header",
+            "description": "时间戳",
+            "required": true,
+            "example": "{{mock_timestamp}}",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "apiKey",
+            "in": "header",
+            "description": "通过平台申请的api_key",
+            "required": true,
+            "example": "{{apikey}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "recvWindow",
+            "in": "header",
+            "description": "时间空窗",
+            "required": false,
+            "example": "5000",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "in": "header",
+            "description": "签名，签名规则",
+            "required": true,
+            "example": "{{sign}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "登录token",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version ",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerGroupId": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerGroupId"
+                ]
+              },
+              "example": {
+                "customerGroupId": "0"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/983555/apis/api-22200925-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
