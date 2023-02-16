@@ -1,0 +1,1128 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "资金账户API",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "资金服务相关"
+    }
+  ],
+  "paths": {
+    "/global/fund.admin.CustomerAdjustProposalAdminDubboService.addCustomerAdjustProposal": {
+      "post": {
+        "summary": "各玩法额度调整",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerAdjustProposalAdminDubboService.addCustomerAdjustProposal",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "accountId": {
+                    "type": "number",
+                    "description": "账户id"
+                  },
+                  "accountCurrency": {
+                    "type": "string",
+                    "description": "账户币种编码"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法id，可填1、2、3、5"
+                  },
+                  "businessType": {
+                    "type": "integer",
+                    "description": "固定值 4: 4=额度调整-赠金"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "description": "金额，可填正负数，整数加额，负数减额"
+                  },
+                  "withdraw": {
+                    "type": "boolean",
+                    "description": "赠金是否可提取， true：可提，false：不可提\n（amount如果为负数，设置不可提将会同时减掉账户不可提金额科目）"
+                  },
+                  "remark": {
+                    "type": "string",
+                    "description": "备注"
+                  }
+                },
+                "required": [
+                  "customerNo",
+                  "accountId",
+                  "accountCurrency",
+                  "tradeType",
+                  "businessType",
+                  "amount",
+                  "withdraw",
+                  "remark"
+                ],
+                "x-apifox-orders": [
+                  "customerNo",
+                  "accountId",
+                  "accountCurrency",
+                  "tradeType",
+                  "businessType",
+                  "amount",
+                  "withdraw",
+                  "remark"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "{{customer}}",
+                "accountId": 2354122,
+                "accountCurrency": "{{currency}}",
+                "tradeType": 1,
+                "businessType": 4,
+                "amount": 1000,
+                "withdraw": true,
+                "remark": "赠金调整"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-12276599-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.operationBonus": {
+      "post": {
+        "summary": "现货发放/扣回赠金",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.operationBonus\n\n**accountId 变成非必填",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "鉴权token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法类型；目前只支持现货玩法"
+                  },
+                  "accountId": {
+                    "type": "string",
+                    "description": "帐户ID"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  },
+                  "activityId": {
+                    "type": "string",
+                    "description": "活动记录ID"
+                  },
+                  "currencyBonus": {
+                    "type": "string",
+                    "description": "赠金币种"
+                  },
+                  "bonus": {
+                    "type": "number",
+                    "description": "赠金金额"
+                  },
+                  "activityCustomerNo": {
+                    "type": "string",
+                    "description": "活动帐户"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型，1.发放，2.扣回"
+                  }
+                },
+                "required": [
+                  "customerNo",
+                  "companyId",
+                  "activityId",
+                  "activityCustomerNo",
+                  "bonus",
+                  "currencyBonus",
+                  "type",
+                  "tradeType"
+                ],
+                "x-apifox-ignore-properties": [],
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "accountId",
+                  "companyId",
+                  "activityId",
+                  "currencyBonus",
+                  "bonus",
+                  "activityCustomerNo",
+                  "type"
+                ]
+              },
+              "example": {
+                "customerNo": "{{customer}}",
+                "companyId": "{{company}}",
+                "activityId": "87",
+                "activityCustomerNo": "",
+                "bonus": 58,
+                "currencyBonus": "",
+                "type": 52,
+                "tradeType": 5,
+                "accountId": "40"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-13533421-run"
+      }
+    },
+    "/global/fund.admin.CompanyPaymentConfigAdminDubboServiceImpl.queryCompanyPaymentConfigPage": {
+      "post": {
+        "summary": "获取公司存款支付通道【下游接口不存在】",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "bizType=fund.admin.CompanyPaymentConfigAdminDubboServiceImpl.queryCompanyPaymentConfigPage",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  },
+                  "current": {
+                    "type": "integer",
+                    "description": "当前页，默认1"
+                  },
+                  "size": {
+                    "type": "integer",
+                    "description": "每页显示多少行，默认20"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "current",
+                  "size"
+                ],
+                "required": [
+                  "companyId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": "{{company}}",
+                "current": 1,
+                "size": 20
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "异常示例",
+                    "value": {
+                      "msg": "下游接口不存在",
+                      "trace": "t-8142d05-53e4-d92j-8487687-1668768865",
+                      "code": "GATEWAY_CODE_010",
+                      "data": "message.admin.VerificationApiService.queryVerificationByPage",
+                      "bizCode": "G"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50220385-run"
+      }
+    },
+    "/global/fund.admin.CustomerFundAdminDubboService.getExchangeRate": {
+      "post": {
+        "summary": "批量获取充值提现汇率",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerFundAdminDubboService.getExchangeRate",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司ID"
+                  },
+                  "currencyMap": {
+                    "type": "object",
+                    "properties": {
+                      "BTC": {
+                        "type": "string"
+                      },
+                      "BNB": {
+                        "type": "string"
+                      }
+                    },
+                    "description": "key:来源货币 value:兑换货币",
+                    "x-apifox-orders": [
+                      "BTC",
+                      "BNB"
+                    ],
+                    "required": [
+                      "BTC",
+                      "BNB"
+                    ],
+                    "x-apifox-ignore-properties": []
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型：1.充值 2.提现"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "currencyMap",
+                  "type"
+                ],
+                "required": [
+                  "companyId",
+                  "type",
+                  "currencyMap"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": "{{company}}",
+                "type": 1,
+                "currencyMap": {
+                  "BTC": "USDT",
+                  "BNB": "USDT"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-7e3s5yi-y18svvj-68bj9lv1-5z5i-1668770226",
+                      "code": "0",
+                      "data": [
+                        {
+                          "targetCurrency": "USDT",
+                          "rate": 16755.38,
+                          "formulaSymbol": "multiply",
+                          "targetDigits": 4,
+                          "sourceCurrency": "BTC",
+                          "class": "com.cats.fund.api.dto.ExchangeRateConvertDto",
+                          "sourceDigits": 8
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 69,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50222136-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.lockTradeAccount": {
+      "post": {
+        "summary": "锁定客户指定玩法账户的转入转出功能",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.lockTradeAccount",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型:1=转入,2=转出,3=转入转出"
+                  },
+                  "lockTime": {
+                    "type": "number",
+                    "description": "锁定时长，单位秒，不传则使用平台默认值"
+                  },
+                  "lockEndTime": {
+                    "type": "number",
+                    "description": "锁定截至时间-时间戳，不传则使用平台默认值：优先使用lockEndTime"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type",
+                  "lockTime",
+                  "lockEndTime"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "86000020",
+                "tradeType": 5,
+                "companyId": "{{company}}",
+                "type": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-pi33x33-1b94r-9x5c-38183s2-1668770770",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 54,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50222519-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.unlockTradeAccount": {
+      "post": {
+        "summary": "解锁客户指定玩法账户的转入转出功能",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.unlockTradeAccount",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型:1=转入,2=转出,3=转入转出"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "required": [
+                  "customerNo",
+                  "type",
+                  "companyId",
+                  "tradeType"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "86000020",
+                "type": 1,
+                "companyId": "{{company}}",
+                "tradeType": 5
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-7sga7o-6d29n-pbsk-wt4mpb3-1668771006",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 3,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50222668-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.queryOneLockTradeAccount": {
+      "post": {
+        "summary": "单个查询客户锁定状态",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "说明：锁定状态单个查询：客户指定玩法账户的转入转出功能，只查询指定类型（转入转出）的\nversion=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.queryOneLockTradeAccount",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型:1=转入,2=转出,3=转入转出"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "86000020",
+                "tradeType": 5,
+                "companyId": "{{company}}",
+                "type": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-npfw73-5i09153-vxf6745-dqip8-1668771342",
+                      "code": "0",
+                      "data": false,
+                      "bizCode": "",
+                      "tm": 1,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50223743-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.queryTradeTypeLockTradeAccount": {
+      "post": {
+        "summary": "批量查询客户锁定状态",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "说明：锁定状态查询，一个玩法的全部：客户指定玩法账户的转入转出功能\nversion=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.queryTradeTypeLockTradeAccount",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "86000020",
+                "tradeType": 5,
+                "companyId": "{{company}}"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-gooy7-y1fg9-663j2h-426tq-1668771452",
+                      "code": "0",
+                      "data": [
+                        {
+                          "lockStatus": false,
+                          "type": 1,
+                          "class": "com.cats.fund.api.dto.CustomerQueryTradeTypeLockTradeAccountDto"
+                        },
+                        {
+                          "lockStatus": false,
+                          "type": 2,
+                          "class": "com.cats.fund.api.dto.CustomerQueryTradeTypeLockTradeAccountDto"
+                        },
+                        {
+                          "lockStatus": false,
+                          "type": 3,
+                          "class": "com.cats.fund.api.dto.CustomerQueryTradeTypeLockTradeAccountDto"
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 3,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50223815-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "交易场景API",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "合约交易相关"
+    },
+    {
+      "name": "杠杆交易相关"
+    },
+    {
+      "name": "现货交易相关"
+    },
+    {
+      "name": "股票交易相关"
+    }
+  ],
+  "paths": {
+    "/global/config.admin.AdminSymbolDubboService.getSymbolDetail": {
+      "post": {
+        "summary": "获取单个产品详情",
+        "x-apifox-folder": "合约交易相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail",
+        "tags": [
+          "合约交易相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司Id"
+                  },
+                  "symbolId": {
+                    "type": "number",
+                    "description": "产品Id"
+                  },
+                  "tradeType": {
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "symbolId",
+                  "tradeType"
+                ],
+                "required": [
+                  "companyId",
+                  "symbolId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": "{{company}}",
+                "symbolId": 1,
+                "tradeType": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-62911602-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

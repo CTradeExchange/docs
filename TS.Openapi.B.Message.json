@@ -1,0 +1,657 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "消息事件API",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "消息服务相关"
+    }
+  ],
+  "paths": {
+    "/global/message.admin.VerificationAdminService.queryCodeSendStatus": {
+      "post": {
+        "summary": "查询验证码状态",
+        "x-apifox-folder": "消息服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "消息服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "bizType": {
+                    "type": "string",
+                    "title": "业务类型",
+                    "description": "EMAIL_COMMON_VERIFICATION_CODE-邮件通用验证码； EMAIL_LOGIN_VERIFICATION_CODE-邮件登录验证码； EMAIL_REGISTER_VERIFICATION_CODE-邮件注册验证码 EMAIL_PASSWORD_VERIFICATION_CODE-邮件忘记密码验证码  SMS_COMMON_VERIFICATION_CODE-短信通用验证码； SMS_LOGIN_VERIFICATION_CODE-短信登录验证码； SMS_REGISTER_VERIFICATION_CODE-短信注册验证码 SMS_PASSWORD_VERIFICATION_CODE-短信忘记密码验证码"
+                  },
+                  "toUser": {
+                    "type": "string",
+                    "title": "接收人"
+                  },
+                  "code": {
+                    "type": "string",
+                    "title": "验证码"
+                  },
+                  "sendToken": {
+                    "type": "string",
+                    "title": "发送票据",
+                    "description": "C端发送验证码接口返回token"
+                  }
+                },
+                "required": [
+                  "bizType",
+                  "toUser",
+                  "code",
+                  "sendToken"
+                ],
+                "x-apifox-orders": [
+                  "bizType",
+                  "toUser",
+                  "code",
+                  "sendToken"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "title": "系统通用返回码",
+                      "description": "0-成功，其他异常"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "返回信息"
+                    },
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "全局链路标志信息"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "bizType": {
+                          "type": "string",
+                          "title": "业务类型"
+                        },
+                        "toUser": {
+                          "type": "string",
+                          "title": "接收人"
+                        },
+                        "sendToken": {
+                          "type": "string",
+                          "title": "发送票据"
+                        },
+                        "code": {
+                          "type": "string",
+                          "title": "验证码"
+                        },
+                        "status": {
+                          "type": "string",
+                          "title": "验证码状态码",
+                          "description": "0-初始化；1-待使用；2-已使用；3-已过期"
+                        },
+                        "name": {
+                          "type": "string",
+                          "title": "验证码状态名称"
+                        },
+                        "desc": {
+                          "type": "string",
+                          "title": "验证码状态描述"
+                        }
+                      },
+                      "required": [
+                        "bizType",
+                        "toUser",
+                        "sendToken",
+                        "code",
+                        "status",
+                        "name",
+                        "desc"
+                      ],
+                      "x-apifox-orders": [
+                        "bizType",
+                        "toUser",
+                        "sendToken",
+                        "code",
+                        "status",
+                        "name",
+                        "desc"
+                      ],
+                      "title": "返回体",
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "required": [
+                    "code",
+                    "msg",
+                    "bizCode",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "x-apifox-orders": [
+                    "code",
+                    "msg",
+                    "bizCode",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-39968807-run"
+      }
+    },
+    "/global/message.admin.VerificationApiService.verifyCodeCheck": {
+      "post": {
+        "summary": "验证验证码【下游接口不存在】",
+        "x-apifox-folder": "消息服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=message.admin.VerificationApiService.verifyCodeCheck",
+        "tags": [
+          "消息服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司Id"
+                  },
+                  "customerId": {
+                    "type": "number",
+                    "description": "客户Id"
+                  },
+                  "bizType": {
+                    "type": "string",
+                    "description": "业务类型。 EMAIL_COMMON_VERIFICATION_CODE-邮件通用验证码； EMAIL_LOGIN_VERIFICATION_CODE-邮件登录验证码； EMAIL_REGISTER_VERIFICATION_CODE-邮件注册验证码 EMAIL_PASSWORD_VERIFICATION_CODE-邮件忘记密码验证码  SMS_COMMON_VERIFICATION_CODE-短信通用验证码； SMS_LOGIN_VERIFICATION_CODE-短信登录验证码； SMS_REGISTER_VERIFICATION_CODE-短信注册验证码 SMS_PASSWORD_VERIFICATION_CODE-短信忘记密码验证码"
+                  },
+                  "toUser": {
+                    "type": "string",
+                    "description": "接收人"
+                  },
+                  "sendToken": {
+                    "type": "string",
+                    "description": "发送票据。由C端接口1.9.1、发送验证码接口返回"
+                  },
+                  "code": {
+                    "type": "string",
+                    "description": "验证码（仅可使用一次，与verifyCodeToken必须至少有一个有值）"
+                  },
+                  "verifyCodeToken": {
+                    "type": "string",
+                    "description": "验证票据。由首次验证验证码后返回。（与code必须至少有一个有值，如与code同时有值，仅验证此字段）"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "customerId",
+                  "bizType",
+                  "toUser",
+                  "sendToken",
+                  "code",
+                  "verifyCodeToken"
+                ],
+                "required": [
+                  "companyId",
+                  "bizType",
+                  "toUser",
+                  "sendToken"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": "{{company}}",
+                "bizType": "SMS_LOGIN_VERIFICATION_CODE",
+                "toUser": "+86 13429837996",
+                "sendToken": "67eb19b8-a84f-442d-bd80-4ebbb2d48e99"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50216440-run"
+      }
+    },
+    "/global/message.admin.VerificationApiService.queryVerificationByPage": {
+      "post": {
+        "summary": "分页获取验证码列表【下游接口不存在】",
+        "x-apifox-folder": "消息服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=message.admin.VerificationApiService.queryVerificationByPage",
+        "tags": [
+          "消息服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司Id"
+                  },
+                  "bizType": {
+                    "type": "string",
+                    "description": "业务类型。 EMAIL_COMMON_VERIFICATION_CODE-邮件通用验证码； EMAIL_LOGIN_VERIFICATION_CODE-邮件登录验证码； EMAIL_REGISTER_VERIFICATION_CODE-邮件注册验证码 EMAIL_PASSWORD_VERIFICATION_CODE-邮件忘记密码验证码  SMS_COMMON_VERIFICATION_CODE-短信通用验证码； SMS_LOGIN_VERIFICATION_CODE-短信登录验证码； SMS_REGISTER_VERIFICATION_CODE-短信注册验证码 SMS_PASSWORD_VERIFICATION_CODE-短信忘记密码验证码"
+                  },
+                  "toUser": {
+                    "type": "string",
+                    "description": "接收人"
+                  },
+                  "status": {
+                    "type": "integer",
+                    "description": "状态。1-待使用；2-已使用；"
+                  },
+                  "sendType": {
+                    "type": "integer",
+                    "description": "发送方式。1-邮件；2-短信；"
+                  },
+                  "current": {
+                    "type": "integer",
+                    "description": "当前页"
+                  },
+                  "size": {
+                    "type": "integer",
+                    "description": "每页条数"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "bizType",
+                  "toUser",
+                  "status",
+                  "sendType",
+                  "current",
+                  "size"
+                ],
+                "required": [
+                  "companyId",
+                  "bizType",
+                  "sendType",
+                  "status",
+                  "toUser",
+                  "current",
+                  "size"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": "{{company}}",
+                "bizType": "SMS_LOGIN_VERIFICATION_CODE",
+                "sendType": 2,
+                "status": 1,
+                "toUser": "+86 13429839411",
+                "current": 1,
+                "size": 20
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50219915-run"
+      }
+    },
+    "/global/message.admin.PlatFormMessageThirdSendAdminService.add": {
+      "post": {
+        "summary": "向客户发送站内信",
+        "x-apifox-folder": "消息服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=message.admin.PlatFormMessageThirdSendAdminService.add",
+        "tags": [
+          "消息服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "language": {
+                    "type": "string",
+                    "description": "语种: zh-CN、en-US"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "标题"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "内容"
+                  },
+                  "showType": {
+                    "type": "integer",
+                    "description": "弹窗类型EnumShowType:0无动作,1弹窗"
+                  },
+                  "refreshType": {
+                    "type": "integer",
+                    "description": "刷新类型EnumRefreshType:0无动作,1仓位,2挂单,3资金,4踢出,5挂单仓位,6挂单资金"
+                  },
+                  "customerId": {
+                    "type": "number",
+                    "description": "客户ID"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司Id"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "description": "跟踪码。最好有，方便定位问题"
+                  }
+                },
+                "x-apifox-orders": [
+                  "language",
+                  "title",
+                  "content",
+                  "showType",
+                  "refreshType",
+                  "customerId",
+                  "customerNo",
+                  "companyId",
+                  "tradeType",
+                  "trace"
+                ],
+                "required": [
+                  "language",
+                  "title",
+                  "content",
+                  "showType",
+                  "refreshType",
+                  "customerId",
+                  "customerNo",
+                  "companyId",
+                  "tradeType"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "language": "en-US",
+                "title": "Quota adjustment",
+                "content": "Your Spot Account has been adjusted 10.0000 USDT through Amount adjustments_bonus at 2022-11-18 19:09:52.",
+                "showType": 1,
+                "refreshType": 0,
+                "customerId": 21,
+                "customerNo": "86000020",
+                "companyId": "{{company}}",
+                "tradeType": 5
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-1c3t57-r4137-0rx3h7-ux290rmq-1668772832",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 20,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50224963-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

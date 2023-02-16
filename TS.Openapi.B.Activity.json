@@ -1,0 +1,1148 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "活动场景API",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "新客投教活动"
+    }
+  ],
+  "paths": {
+    "/global/fund.admin.CustomerAdjustProposalAdminDubboService.addCustomerAdjustProposal": {
+      "post": {
+        "summary": "赠金发放/回扣",
+        "x-apifox-folder": "新客投教活动",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "bizType=fund.admin.CustomerAdjustProposalAdminDubboService.addCustomerAdjustProposal",
+        "tags": [
+          "新客投教活动"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "",
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "accountId": {
+                    "description": "账户id",
+                    "type": "integer"
+                  },
+                  "accountCurrency": {
+                    "type": "string",
+                    "description": "发送赠金的币种"
+                  },
+                  "tradeType": {
+                    "description": "玩法类型：1是合约全仓",
+                    "type": "integer"
+                  },
+                  "businessType": {
+                    "description": "固定值4",
+                    "type": "integer"
+                  },
+                  "amount": {
+                    "description": "发放赠金数量，正数是发放赠金，负数是回扣赠金",
+                    "type": "number"
+                  },
+                  "withdraw": {
+                    "type": "boolean",
+                    "description": "固定true"
+                  },
+                  "remark": {
+                    "description": "选填",
+                    "type": "string"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "accountId",
+                  "accountCurrency",
+                  "tradeType",
+                  "businessType",
+                  "amount",
+                  "withdraw",
+                  "remark"
+                ],
+                "required": [
+                  "customerNo",
+                  "accountCurrency",
+                  "tradeType",
+                  "businessType",
+                  "amount",
+                  "withdraw"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": "{\r\n    \"customerNo\": \"{{customerNo}}\",\r\n    \"accountId\": {{accountId}},\r\n    \"accountCurrency\": \"USDT\",\r\n    \"tradeType\": 1,\r\n    \"businessType\": 4,\r\n    \"amount\": 5,\r\n    \"withdraw\": true,\r\n    \"remark\": \"test\"\r\n}"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例 ",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-7vgm5-bu0337-blbkp-024w3k84-1660120108",
+                      "code": "0",
+                      "data": true,
+                      "bizCode": "",
+                      "tm": 189,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-33703987-run"
+      }
+    },
+    "/global/tradeapi.admin.OrderAdminApiService.cancelPboOrder": {
+      "post": {
+        "summary": "取消预埋单",
+        "x-apifox-folder": "新客投教活动",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "bizType=tradeapi.admin.OrderAdminApiService.cancelPboOrder",
+        "tags": [
+          "新客投教活动"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "",
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "description": "交易玩法:合约全仓是1",
+                    "type": "integer"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "customerId": {
+                    "description": "客户Id",
+                    "type": "integer"
+                  },
+                  "customerGroupId": {
+                    "description": "客户组Id",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "tradeType",
+                  "customerNo",
+                  "customerId",
+                  "customerGroupId"
+                ],
+                "required": [
+                  "tradeType",
+                  "customerNo",
+                  "customerId",
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "tradeType": 1,
+                "customerNo": "86000188",
+                "customerId": 189,
+                "customerGroupId": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-jgl2h-s5ndh-338f8-5bdi0al-1660127057",
+                      "code": "0",
+                      "data": [
+                        "CATS:PROORDER:1_1557311743581831168"
+                      ],
+                      "bizCode": "",
+                      "tm": 349,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-33712981-run"
+      }
+    },
+    "/global/tradeapi.admin.OrderAdminApiService.forcedOrder": {
+      "post": {
+        "summary": "批量手动平仓",
+        "x-apifox-folder": "新客投教活动",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "bizType=tradeapi.admin.OrderAdminApiService.forcedOrder",
+        "tags": [
+          "新客投教活动"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "",
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "description": "交易玩法",
+                    "type": "integer"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "customerId": {
+                    "description": "客户id",
+                    "type": "integer"
+                  },
+                  "customerGroupId": {
+                    "description": "客户组编号",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "tradeType",
+                  "customerNo",
+                  "customerId",
+                  "customerGroupId"
+                ],
+                "required": [
+                  "tradeType",
+                  "customerNo",
+                  "customerId",
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "tradeType": 1,
+                "customerNo": "86000188",
+                "customerId": 189,
+                "customerGroupId": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-s5h66nh-c4727g1-hbkt0rxn-189w-1660127124",
+                      "code": "0",
+                      "data": {
+                        "tradeVolume": "1.0",
+                        "symbolId": 2,
+                        "orderId": 116130,
+                        "fee": "-16.980600",
+                        "openOrClose": 2,
+                        "openPrice": "1697.01",
+                        "takeProfit": null,
+                        "positionId": 2022081000376,
+                        "interest": "0.000000",
+                        "openDirection": 1,
+                        "stopLoss": null,
+                        "executePrice": "1698.06",
+                        "digits": 2,
+                        "symbolName": "ETH/USDT",
+                        "profit": "-1.050000",
+                        "direction": 1
+                      },
+                      "bizCode": "",
+                      "tm": 295,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-33713424-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.lockTradeAccount": {
+      "post": {
+        "summary": "锁定划转",
+        "x-apifox-folder": "新客投教活动",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "bizType=fund.admin.CustomerActivityBonusAdminDubboService.lockTradeAccount",
+        "tags": [
+          "新客投教活动"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "",
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "description": "交易玩法",
+                    "type": "integer"
+                  },
+                  "companyId": {
+                    "type": "integer",
+                    "description": "公司id"
+                  },
+                  "type": {
+                    "description": "类型:1=转入,2=转出,3=转入转出",
+                    "type": "integer"
+                  },
+                  "lockTime": {
+                    "type": "integer",
+                    "description": "锁定时长，单位秒，不传则使用平台默认值"
+                  },
+                  "lockEndTime": {
+                    "type": "integer",
+                    "description": "锁定截至时间-时间戳，不传则使用平台默认值：优先使用lockEndTime"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type",
+                  "lockTime",
+                  "lockEndTime"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "proident",
+                "tradeType": 78,
+                "companyId": "{{company}}",
+                "type": 24
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-9jrx4-7xr6-kv3q630-b8ifcvi3-1660127587",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 4,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-33714805-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.unlockTradeAccount": {
+      "post": {
+        "summary": "解锁划转",
+        "x-apifox-folder": "新客投教活动",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "bizType=fund.admin.CustomerActivityBonusAdminDubboService.unlockTradeAccount",
+        "tags": [
+          "新客投教活动"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "",
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "description": "交易玩法",
+                    "type": "integer"
+                  },
+                  "companyId": {
+                    "description": "公司id",
+                    "type": "integer"
+                  },
+                  "type": {
+                    "description": "类型:1=转入,2=转出,3=转入转出",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": "{\n    \"customerNo\": \"{{customerNo}}\",\n    \"tradeType\": 1,\n    \"companyId\": {{company}},\n    \"type\": 3\n}"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-1vt1006-5sr1g55n-q3pl3-e9jg38ji-1660127628",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 4,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-33717123-run"
+      }
+    },
+    "/global/customer.admin.CustomerAdminApiService.queryAccountList": {
+      "post": {
+        "summary": "查询客户余额",
+        "x-apifox-folder": "新客投教活动",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "bizType=customer.admin.CustomerAdminApiService.queryAccountList",
+        "tags": [
+          "新客投教活动"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "",
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "description": "交易玩法",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "{{customerNo}}",
+                "tradeType": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例 ",
+                    "value": "余额用balance字段\n{\n    \"msg\": \"Success\",\n    \"fail\": false,\n    \"trace\": \"t-23uee2-go44-se70u4w7-jyx6bvb-1660187117\",\n    \"code\": \"0\",\n    \"data\": [\n        {\n            \"netAssets\": \"47.319290\",\n            \"available\": \"47.319290\",\n            \"remark\": null,\n            \"type\": 1,\n            \"equity\": \"47.319290\",\n            \"firstDepositTime\": 1646123635909,\n            \"lockMargin\": \"0.000000\",\n            \"balance\": \"47.319290\",\n            \"interest\": \"0.000000\",\n            \"customerId\": 189,\n            \"liabilities\": \"0.000000\",\n            \"currency\": \"USDT\",\n            \"activateStatus\": 2,\n            \"withdrawAmount\": \"0.000000\",\n            \"profit\": \"0\",\n            \"tradeType\": 1,\n            \"wholeWarehouseBalance\": null,\n            \"freeMargin\": \"0\",\n            \"margin\": \"0\",\n            \"firstWithdrawTime\": null,\n            \"activateTime\": 1646123635934,\n            \"frozen\": \"0.000000\",\n            \"wholeWarehouseRate\": null,\n            \"accountId\": 1003496,\n            \"openAccountStatus\": true,\n            \"companyId\": 1,\n            \"liabilitiesPrincipal\": \"0.000000\",\n            \"interestProportion\": null,\n            \"createTime\": 1646123590664,\n            \"lockAmount\": \"0.000000\",\n            \"marginRadio\": null,\n            \"notWithdrawAmount\": \"10000000.000000\",\n            \"availableLoan\": null,\n            \"digits\": 6,\n            \"customerNo\": \"86000188\",\n            \"status\": 2,\n            \"assetsId\": 1\n        }\n    ],\n    \"bizCode\": \"C\",\n    \"tm\": 18737968,\n    \"msgParams\": null,\n    \"ok\": true\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-33841735-run"
+      }
+    },
+    "/global/message.admin.PlatFormMessageThirdSendAdminService.add": {
+      "post": {
+        "summary": "向客户发站内信",
+        "x-apifox-folder": "新客投教活动",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "bizType=message.admin.PlatFormMessageThirdSendAdminService.add",
+        "tags": [
+          "新客投教活动"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "",
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "description": "交易玩法",
+                    "type": "integer"
+                  },
+                  "language": {
+                    "type": "string",
+                    "description": "语种（zh-HK，en-US，zh-CN），根据实际填写即可"
+                  },
+                  "content": {
+                    "type": "string",
+                    "description": "内容，长度未限制"
+                  },
+                  "title": {
+                    "type": "string",
+                    "description": "标题，长度为100个字符"
+                  },
+                  "showType": {
+                    "type": "integer",
+                    "description": "弹窗类型EnumShowType:0无动作,1弹窗"
+                  },
+                  "refreshType": {
+                    "type": "integer",
+                    "description": "刷新类型EnumRefreshType:0无动作,1仓位,2挂单,3资金,4踢出,5挂单仓位,6挂单资金"
+                  },
+                  "customerId": {
+                    "type": "integer",
+                    "description": "客户ID"
+                  },
+                  "companyId": {
+                    "type": "integer",
+                    "description": "公司ID"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "language",
+                  "content",
+                  "title",
+                  "showType",
+                  "refreshType",
+                  "customerId",
+                  "companyId"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "showType",
+                  "title",
+                  "content",
+                  "language",
+                  "companyId",
+                  "customerId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": "{\n    \"customerNo\": \"{{customerNo}}\",\n    \"tradeType\": 1,\n    \"language\": \"en-US\",\n    \"content\": \"HHAHHAHHAHHAHHAHHAHHA\",\n    \"title\": \"CESHTEST\",\n    \"showType\": 0,\n    \"refreshType\": 1,\n    \"customerId\": {{customerId}},\n    \"companyId\": {{company}}\n}"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例 ",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-f7l5w542-o2c8p9-l8810-l1gpm-1660189534",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 2,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-33864643-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.queryOneLockTradeAccount": {
+      "post": {
+        "summary": "锁定状态单个查询",
+        "x-apifox-folder": "新客投教活动",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "bizType=fund.admin.CustomerActivityBonusAdminDubboService.queryOneLockTradeAccount",
+        "tags": [
+          "新客投教活动"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "",
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "description": "交易玩法",
+                    "type": "integer"
+                  },
+                  "companyId": {
+                    "description": "公司id",
+                    "type": "integer"
+                  },
+                  "type": {
+                    "description": "类型:1=转入,2=转出,3=转入转出",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": "{\n    \"customerNo\": \"{{customerNo}}\",\n    \"tradeType\": 1,\n    \"companyId\": {{company}},\n    \"type\": 3\n}"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-34422195-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.queryTradeTypeLockTradeAccount": {
+      "post": {
+        "summary": "锁定状态查询",
+        "x-apifox-folder": "新客投教活动",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "bizType=fund.admin.CustomerActivityBonusAdminDubboService.queryTradeTypeLockTradeAccount",
+        "tags": [
+          "新客投教活动"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "",
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "description": "交易玩法",
+                    "type": "integer"
+                  },
+                  "companyId": {
+                    "description": "公司id",
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": "{\n    \"customerNo\": \"{{customerNo}}\",\n    \"tradeType\": 1,\n    \"companyId\": {{company}}\n}"
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例 ",
+                    "value": "lockStatus：是否被锁定，true被锁定\r\n{\r\n    \"msg\": \"Success\",\r\n    \"fail\": false,\r\n    \"trace\": \"t-c88b6-no22of4-2je3o88-t6o3s5-1660556892\",\r\n    \"code\": \"0\",\r\n    \"data\": [\r\n        {\r\n            \"lockStatus\": false,\r\n            \"type\": 1,\r\n            \"class\": \"com.cats.fund.api.dto.CustomerQueryTradeTypeLockTradeAccountDto\"\r\n        },\r\n        {\r\n            \"lockStatus\": false,\r\n            \"type\": 2,\r\n            \"class\": \"com.cats.fund.api.dto.CustomerQueryTradeTypeLockTradeAccountDto\"\r\n        },\r\n        {\r\n            \"lockStatus\": true,\r\n            \"type\": 3,\r\n            \"class\": \"com.cats.fund.api.dto.CustomerQueryTradeTypeLockTradeAccountDto\"\r\n        }\r\n    ],\r\n    \"bizCode\": \"\",\r\n    \"tm\": 54,\r\n    \"msgParams\": null,\r\n    \"ok\": true,\r\n    \"class\": \"com.cats.common.core.base.vo.BaseResult\"\r\n}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-34422623-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}

@@ -1,0 +1,738 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "交易场景API",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "交易服务相关"
+    }
+  ],
+  "paths": {
+    "/global/tradeapi.admin.OrderAdminApiService.cancelPboOrder": {
+      "post": {
+        "summary": "批量取消预埋单",
+        "x-apifox-folder": "交易服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "group=tradeApi\nversion=0.0.1\nbizType=tradeapi.admin.OrderAdminApiService.cancelPboOrder",
+        "tags": [
+          "交易服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "接口分组",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "交易玩法"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "customerId": {
+                    "type": "integer",
+                    "description": "客户Id"
+                  },
+                  "customerGroupId": {
+                    "type": "integer",
+                    "description": "客户组Id"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "description": "全局链路唯一标志"
+                  }
+                },
+                "x-apifox-orders": [
+                  "tradeType",
+                  "customerNo",
+                  "customerId",
+                  "customerGroupId",
+                  "trace"
+                ],
+                "required": [
+                  "tradeType",
+                  "customerNo",
+                  "customerId",
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "tradeType": 1,
+                "customerNo": "86000020",
+                "customerId": 21,
+                "customerGroupId": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-2wrm8-8eq82jj-uo22f7-dze1q865-1668773417",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 5,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50225842-run"
+      }
+    },
+    "/global/tradeapi.admin.OrderAdminApiService.forcedOrder": {
+      "post": {
+        "summary": "批量平仓",
+        "x-apifox-folder": "交易服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "group=tradeApi\nversion=0.0.1\nbizType=tradeapi.admin.OrderAdminApiService.forcedOrder",
+        "tags": [
+          "交易服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "接口分组",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "交易玩法"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "customerId": {
+                    "type": "integer",
+                    "description": "客户Id"
+                  },
+                  "customerGroupId": {
+                    "type": "integer",
+                    "description": "客户组Id"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "description": "全局链路唯一标志"
+                  }
+                },
+                "x-apifox-orders": [
+                  "tradeType",
+                  "customerNo",
+                  "customerId",
+                  "customerGroupId",
+                  "trace"
+                ],
+                "required": [
+                  "tradeType",
+                  "customerNo",
+                  "customerId",
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "tradeType": 1,
+                "customerNo": "86000020",
+                "customerId": 21,
+                "customerGroupId": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-y1c7d-758waq-6p2d6ip-8igu-1668773738",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 7,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50226224-run"
+      }
+    },
+    "/global/tradeapi.admin.OrderAdminApiService.queryCapitalFlowList": {
+      "post": {
+        "summary": "资金明细查询",
+        "x-apifox-folder": "交易服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "group=tradeApi\nversion=0.0.1\nbizType=tradeapi.admin.OrderAdminApiService.queryCapitalFlowList",
+        "tags": [
+          "交易服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "接口分组",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerId": {
+                    "type": "string"
+                  },
+                  "customerGroupId": {
+                    "type": "string"
+                  },
+                  "customerNo": {
+                    "type": "string"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "accountId": {
+                    "type": "number",
+                    "description": "账户ID"
+                  },
+                  "accountCurrency": {
+                    "type": "string",
+                    "description": "账户货币"
+                  },
+                  "size": {
+                    "type": "integer",
+                    "description": "每页条数"
+                  },
+                  "current": {
+                    "type": "integer",
+                    "description": "当前页"
+                  },
+                  "businessType": {
+                    "type": "number",
+                    "description": "业务类型。0-不限制； CFD-全仓： 1-存款；2-取款；3-系统清零；4-额度调整；5-冻结；6-交易；36-划转；42-奖励； CFD-逐仓： 7-存款；8-取款；9-系统清零；10-额度调整；11-冻结；12-交易；13-调整保证金；37-划转；43-奖励； 杠杆： 14-存款；15-取款；16-额度调整；17-冻结；18-交易；19-自动借款；20-手动借款；21-自动还款；22-手动还款；23-借款利息；35-后台还款；38-划转；40-强平还款；44-奖励； ABCC： 24-存款；25-取款；26-额度调整；27-冻结；28-交易；29-自动借款；30-手动借款；31-自动还款；32-手动还款；33-借款利息；34-后台还款；39-划转；41-强平还款；45-奖励； 现货杠杆撮合： 50-存款；51-取款；52-额度调整；53-冻结；54-交易；55-划转；59-奖励； 股票： 601-存款；602-取款；603-额度调整；604-冻结；605-担保品；606-交易；607-借款；608-还款；609-划转；610-利息计算；611-利息结算；612-奖励；613-系统清零；614-公司行动"
+                  },
+                  "status": {
+                    "type": "integer",
+                    "description": "状态。0-不限制；1-初始化；2-处理成功；3-处理失败；"
+                  },
+                  "startTime": {
+                    "type": "number",
+                    "description": "开始时间。13位时间戳；以当天往前推7天"
+                  },
+                  "endTime": {
+                    "type": "number",
+                    "description": "结束时间。13位时间戳；一般为当天"
+                  },
+                  "operate": {
+                    "type": "integer",
+                    "description": "流向。0-不限制；1.增加，2.减少；"
+                  },
+                  "assetsId": {
+                    "type": "number",
+                    "description": "资产Id；"
+                  },
+                  "lang": {
+                    "type": "string",
+                    "description": "语种（zh_CN-中文；en_US-英文。不填或者填错默认中文）；"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerId",
+                  "customerGroupId",
+                  "customerNo",
+                  "tradeType",
+                  "accountId",
+                  "accountCurrency",
+                  "size",
+                  "current",
+                  "businessType",
+                  "status",
+                  "startTime",
+                  "endTime",
+                  "operate",
+                  "assetsId",
+                  "lang"
+                ],
+                "required": [
+                  "tradeType",
+                  "customerNo",
+                  "customerGroupId",
+                  "customerId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "tradeType": 5,
+                "customerNo": "86000020",
+                "customerGroupId": "1",
+                "customerId": "21",
+                "current": 1,
+                "size": 20,
+                "startTime": 1668528000000,
+                "endTime": 1669219199999
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50892525-run"
+      }
+    },
+    "/global/tradeapi.admin.OrderAdminApiService.queryPositionPage": {
+      "post": {
+        "summary": "查看持仓列表",
+        "x-apifox-folder": "交易服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "group=tradeApi\nversion=0.0.1\nbizType=tradeapi.admin.OrderAdminApiService.queryPositionPage",
+        "tags": [
+          "交易服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "group",
+            "in": "header",
+            "description": "接口分组",
+            "required": true,
+            "example": "tradeApi",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID;只有玩法1、2、6才有持仓"
+                  },
+                  "customerId": {
+                    "type": "string",
+                    "description": "客户ID"
+                  },
+                  "customerGroupId": {
+                    "type": "string",
+                    "description": "客户所在客户组ID"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "accountId": {
+                    "type": "number",
+                    "description": "账户ID"
+                  },
+                  "accountCurrency": {
+                    "type": "string",
+                    "description": "账户货币"
+                  },
+                  "status": {
+                    "type": "integer",
+                    "description": "仓位状态。1-持仓中；2-已完成；3-部分平仓；"
+                  },
+                  "orderId": {
+                    "type": "number",
+                    "description": "关联订单ID"
+                  },
+                  "dealId": {
+                    "type": "number",
+                    "description": "关联成交单ID"
+                  },
+                  "symbolId": {
+                    "type": "number",
+                    "description": "产品ID"
+                  },
+                  "sortFieldName": {
+                    "type": "string",
+                    "description": "排序字段名。orderId-订单Id；openTime-执行时间；symbolId-产品Id；pnl-盈亏；"
+                  },
+                  "sortType": {
+                    "type": "string",
+                    "description": "排序方式。asc-升序；desc-降序；（默认desc）"
+                  },
+                  "startTime": {
+                    "type": "number",
+                    "description": "开始时间。13位时间戳；以当天往前推7天"
+                  },
+                  "endTime": {
+                    "type": "number",
+                    "description": "结束时间。13位时间戳；一般为当天"
+                  }
+                },
+                "x-apifox-orders": [
+                  "tradeType",
+                  "customerId",
+                  "customerGroupId",
+                  "customerNo",
+                  "accountId",
+                  "accountCurrency",
+                  "status",
+                  "orderId",
+                  "dealId",
+                  "symbolId",
+                  "sortFieldName",
+                  "sortType",
+                  "startTime",
+                  "endTime"
+                ],
+                "required": [
+                  "tradeType",
+                  "customerId",
+                  "customerGroupId",
+                  "customerNo"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "tradeType": 1,
+                "customerId": "22441",
+                "customerGroupId": "1",
+                "customerNo": "86022441",
+                "accountId": 1291816,
+                "sortType": "desc",
+                "sortFieldName": "openTime"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-00d1c642-3c96-4b00-abcc-ad16569658d4-1669277642254",
+                      "code": "0",
+                      "data": [
+                        {
+                          "symbolId": 810,
+                          "orderId": 21650935,
+                          "dealId": 11971285,
+                          "canReduceMargin": "0.2493",
+                          "openPrice": "5.540",
+                          "remark": null,
+                          "takeProfitDecimal": "0.000",
+                          "closeNum": 0,
+                          "closeFee": "0.0000",
+                          "takeProfit": "0",
+                          "occupyTheMargin": "1.6620",
+                          "interest": "0.0000",
+                          "maintenanceMargin": "0.8310",
+                          "closeVolume": 0,
+                          "openVolume": 1,
+                          "closeTime": 0,
+                          "symbolName": "UNI/USDT_PRD",
+                          "closeAccountDigits": 4,
+                          "openTime": 1669267968638,
+                          "profit": null,
+                          "tradeType": 2,
+                          "direction": 1,
+                          "singleMargin": "16620.0000000000000000",
+                          "margin": null,
+                          "openContractSize": 1,
+                          "resp": null,
+                          "openMargin": "1.6620",
+                          "openNum": 1,
+                          "closeSymbolDigits": 3,
+                          "openFee": "0.2770",
+                          "warningMargin": "1.3296",
+                          "stopLossDecimal": "0.000",
+                          "adjustCrossLevel": "0-0",
+                          "volume": 1,
+                          "openSymbolDigits": 3,
+                          "accountId": 1031768,
+                          "companyId": 360,
+                          "positionId": 2022112423089,
+                          "closeFreeDigits": null,
+                          "stopLoss": "0",
+                          "minVolume": null,
+                          "marginSetType": "1",
+                          "crossLevelNum": 3,
+                          "openAccountDigits": 4,
+                          "closePrice": "0.0000",
+                          "status": "1"
+                        }
+                      ],
+                      "bizCode": "C",
+                      "tm": 16,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50988332-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
