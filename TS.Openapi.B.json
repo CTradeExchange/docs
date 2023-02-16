@@ -394,6 +394,71 @@
                     "msgParams",
                     "ok"
                   ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "code": "0",
+                      "msg": "Success",
+                      "tm": 4,
+                      "data": {
+                        "Language": [
+                          {
+                            "parentId": 162,
+                            "id": 163,
+                            "name": "中文简体",
+                            "displayName": "中文简体",
+                            "nameTw": "中文简体",
+                            "nameEn": "中文简体",
+                            "code": "zh-CN",
+                            "parentCode": "Language",
+                            "sort": 4,
+                            "status": 1,
+                            "revision": 0,
+                            "createBy": "admin",
+                            "createTime": 1636696846289,
+                            "updateBy": "admin",
+                            "updateTime": 1636696846289
+                          },
+                          {
+                            "parentId": 162,
+                            "id": 164,
+                            "name": "English",
+                            "displayName": "English",
+                            "nameTw": "英文",
+                            "nameEn": "en-US",
+                            "code": "en-US",
+                            "parentCode": "Language",
+                            "sort": 2,
+                            "status": 1,
+                            "revision": 1,
+                            "createBy": "admin",
+                            "createTime": 1636696876122,
+                            "updateBy": "test001",
+                            "updateTime": 1639822331173
+                          },
+                          {
+                            "parentId": 162,
+                            "id": 618,
+                            "name": "保加利亚语",
+                            "displayName": "保加利亚语",
+                            "code": "bg-BG",
+                            "parentCode": "Language",
+                            "sort": 35,
+                            "status": 1,
+                            "revision": 0,
+                            "createBy": "michael.ma",
+                            "createTime": 1669188193142,
+                            "updateBy": "michael.ma",
+                            "updateTime": 1669188193142
+                          }
+                        ]
+                      },
+                      "ok": true,
+                      "fail": false
+                    }
+                  }
                 }
               }
             }
