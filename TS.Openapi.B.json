@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "开放接口文档",
+    "title": "CATS2-B端开放接口文档",
     "description": "",
     "version": "1.0.0"
   },
@@ -13,19 +13,7 @@
       "name": "基础数据接口"
     },
     {
-      "name": "基础数据接口/字典接口"
-    },
-    {
-      "name": "基础数据接口/币种接口"
-    },
-    {
-      "name": "基础数据接口/资产列表"
-    },
-    {
       "name": "产品数据接口"
-    },
-    {
-      "name": "产品数据接口/产品基础信息列表"
     },
     {
       "name": "客户组相关接口"
@@ -1152,12 +1140,12 @@
     "/global/config.admin.AdminDictDubboService.getCountryListByParentCode": {
       "post": {
         "summary": "获取国家字典列表",
-        "x-apifox-folder": "基础数据接口/字典接口",
+        "x-apifox-folder": "基础数据接口",
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.admin.AdminDictDubboService.getListByParentCode",
         "tags": [
-          "基础数据接口/字典接口"
+          "基础数据接口"
         ],
         "parameters": [
           {
@@ -2969,13 +2957,13 @@
     },
     "/global/config.admin.AdminDictDubboService.getListByParentCode": {
       "post": {
-        "summary": "获取字典列表",
-        "x-apifox-folder": "基础数据接口/字典接口",
+        "summary": "获取通用字典列表",
+        "x-apifox-folder": "基础数据接口",
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "bizType=config.admin.AdminDictDubboService.getListByParentCode",
         "tags": [
-          "基础数据接口/字典接口"
+          "基础数据接口"
         ],
         "parameters": [
           {
@@ -8932,12 +8920,12 @@
     "/global/config.admin.AdminAssetsDubboService.getAssetsList": {
       "post": {
         "summary": "获取公司币种权限",
-        "x-apifox-folder": "基础数据接口/币种接口",
+        "x-apifox-folder": "基础数据接口",
         "x-apifox-status": "testing",
         "deprecated": false,
         "description": "bizType=config.admin.AdminAssetsDubboService.getAssetsList",
         "tags": [
-          "基础数据接口/币种接口"
+          "基础数据接口"
         ],
         "parameters": [
           {
@@ -11353,13 +11341,13 @@
     },
     "/global/config.admin.AdminAssetsDubboService.getTradeTypeList": {
       "post": {
-        "summary": "获取公司玩法客户组资产权限",
-        "x-apifox-folder": "基础数据接口/资产列表",
+        "summary": "获取公司客户组资产权限",
+        "x-apifox-folder": "基础数据接口",
         "x-apifox-status": "testing",
         "deprecated": false,
         "description": "bizType=config.admin.AdminAssetsDubboService.getTradeTypeList",
         "tags": [
-          "基础数据接口/资产列表"
+          "基础数据接口"
         ],
         "parameters": [
           {
@@ -27895,7 +27883,7 @@
     },
     "/global/config.admin.AdminSymbolDubboService.getSymbolList": {
       "post": {
-        "summary": "获取指定客户组下的产品列表",
+        "summary": "获取客户组产品列表",
         "x-apifox-folder": "产品数据接口",
         "x-apifox-status": "testing",
         "deprecated": false,
@@ -30819,7 +30807,7 @@
     },
     "/global/config.admin.AdminSymbolDubboService.getSymbolGroupList": {
       "post": {
-        "summary": "获取指定公司下产品组列表",
+        "summary": "获取产品组列表",
         "x-apifox-folder": "产品数据接口",
         "x-apifox-status": "testing",
         "deprecated": false,
@@ -30961,13 +30949,13 @@
     },
     "/global/config.admin.AdminSymbolDubboService.getSymbolByCompanyId": {
       "post": {
-        "summary": "获取指定公司下产品基础信息列表",
-        "x-apifox-folder": "产品数据接口/产品基础信息列表",
+        "summary": "获取产品基础信息列表",
+        "x-apifox-folder": "产品数据接口",
         "x-apifox-status": "testing",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=config.admin.AdminSymbolDubboService.getSymbolByCompanyId",
         "tags": [
-          "产品数据接口/产品基础信息列表"
+          "产品数据接口"
         ],
         "parameters": [
           {
@@ -45043,13 +45031,13 @@
     },
     "/global/config.admin.AdminSymbolDubboService.getSymbolTradeTypeByCompanyId": {
       "post": {
-        "summary": "获取指定公司下产品客户组和玩法配置信息",
-        "x-apifox-folder": "产品数据接口/产品基础信息列表",
+        "summary": "获取客户组玩法配置信息",
+        "x-apifox-folder": "产品数据接口",
         "x-apifox-status": "testing",
         "deprecated": false,
         "description": "bizType=config.admin.AdminSymbolDubboService.getSymbolTradeTypeByCompanyId",
         "tags": [
-          "产品数据接口/产品基础信息列表"
+          "产品数据接口"
         ],
         "parameters": [
           {
@@ -45499,7 +45487,7 @@
     },
     "/global/config.admin.AdminSymbolDubboService.getSymbolDetail": {
       "post": {
-        "summary": "获取指定公司下产品信息【下游接口不存在】",
+        "summary": "获取单个产品详情【下游接口不存在】",
         "x-apifox-folder": "产品数据接口",
         "x-apifox-status": "testing",
         "deprecated": false,
@@ -45596,7 +45584,7 @@
     },
     "/global/config.admin.AdminSymbolDubboService.getFundByCompanyId": {
       "post": {
-        "summary": "获取指定公司下基金基础信息列表",
+        "summary": "获取基金信息列表",
         "x-apifox-folder": "产品数据接口",
         "x-apifox-status": "testing",
         "deprecated": false,
