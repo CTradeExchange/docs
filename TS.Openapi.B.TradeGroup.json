@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "CATS2-B端开放接口文档",
+    "title": "交易场景API",
     "description": "",
     "version": "1.0.0"
   },
