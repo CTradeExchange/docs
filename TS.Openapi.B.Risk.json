@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "风险控制API",
+    "title": "CATS2-B端开放接口文档",
     "description": "",
     "version": "1.0.0"
   },
@@ -14,7 +14,298 @@
     }
   ],
   "paths": {
-    "/global/config.admin.AdminSymbolDubboService.getSymbolDetail": {
+    "/global/config.admin.AdminSymbolDubboService.getSymbolDetail1": {
+      "post": {
+        "summary": "单笔最大手数设置",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司Id"
+                  },
+                  "symbolId": {
+                    "type": "number",
+                    "description": "产品Id"
+                  },
+                  "tradeType": {
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "symbolId",
+                  "tradeType"
+                ],
+                "required": [
+                  "companyId",
+                  "symbolId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": "{{company}}",
+                "symbolId": 1,
+                "tradeType": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-62913135-run"
+      }
+    },
+    "/global/config.admin.AdminSymbolDubboService.getSymbolDetail2": {
+      "post": {
+        "summary": "单边最大持仓手数设置",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司Id"
+                  },
+                  "symbolId": {
+                    "type": "number",
+                    "description": "产品Id"
+                  },
+                  "tradeType": {
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "symbolId",
+                  "tradeType"
+                ],
+                "required": [
+                  "companyId",
+                  "symbolId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": "{{company}}",
+                "symbolId": 1,
+                "tradeType": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-62914171-run"
+      }
+    },
+    "/global/config.admin.AdminSymbolDubboService.getSymbolDetail3": {
+      "post": {
+        "summary": "盈亏阀值设置",
+        "x-apifox-folder": "射单风控设置",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail",
+        "tags": [
+          "射单风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司Id"
+                  },
+                  "symbolId": {
+                    "type": "number",
+                    "description": "产品Id"
+                  },
+                  "tradeType": {
+                    "type": "integer"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "symbolId",
+                  "tradeType"
+                ],
+                "required": [
+                  "companyId",
+                  "symbolId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": "{{company}}",
+                "symbolId": 1,
+                "tradeType": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-62914681-run"
+      }
+    },
+    "/global/config.admin.AdminSymbolDubboService.getSymbolDetail4": {
       "post": {
         "summary": "净仓阀值设置",
         "x-apifox-folder": "射单风控设置",
