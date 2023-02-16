@@ -20,7 +20,7 @@
         "x-apifox-folder": "基础风控设置",
         "x-apifox-status": "testing",
         "deprecated": false,
-        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail",
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail1",
         "tags": [
           "基础风控设置"
         ],

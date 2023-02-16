@@ -26,7 +26,7 @@
         "x-apifox-folder": "现货交易相关",
         "x-apifox-status": "testing",
         "deprecated": false,
-        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail",
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail12",
         "tags": [
           "现货交易相关"
         ],
