@@ -2069,8 +2069,58 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseResultBoolean",
-                  "x-apifox-overrides": {}
+                  "x-apifox-overrides": {},
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "boolean",
+                      "description": "数据体"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
                 }
               }
             }
@@ -2246,6 +2296,11 @@
           "value"
         ],
         "x-apifox-folder": "Schemas",
+        "required": [
+          "id",
+          "paramId",
+          "value"
+        ],
         "x-apifox-ignore-properties": []
       },
       "ParamConfigSave": {
@@ -2257,8 +2312,8 @@
           },
           "tradeType": {
             "type": "integer",
-            "format": "int32",
-            "description": "交易玩法"
+            "description": "交易玩法",
+            "format": "int32"
           },
           "customerGroupId": {
             "type": "integer",
@@ -2277,8 +2332,8 @@
           },
           "paramId": {
             "type": "integer",
-            "format": "int64",
-            "description": "参数项"
+            "description": "参数项",
+            "format": "int64"
           },
           "value": {
             "type": "string",
@@ -2295,6 +2350,11 @@
           "value"
         ],
         "x-apifox-folder": "Schemas",
+        "required": [
+          "value",
+          "paramId",
+          "tradeType"
+        ],
         "x-apifox-ignore-properties": []
       },
       "DeleteDto": {
@@ -2302,14 +2362,17 @@
         "properties": {
           "id": {
             "type": "integer",
-            "format": "int64",
-            "description": "记录ID"
+            "description": "记录ID",
+            "format": "int64"
           }
         },
         "x-apifox-orders": [
           "id"
         ],
         "x-apifox-folder": "Schemas",
+        "required": [
+          "id"
+        ],
         "x-apifox-ignore-properties": []
       },
       "BaseResultMarginGroupPageVo": {
@@ -2515,70 +2578,6 @@
       "MarginDto": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
-          "id": {
-            "type": "integer",
-            "format": "int64",
-            "description": "主键id"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "description": "状态 1、2、3、启用、禁用、删除"
-          },
-          "revision": {
-            "type": "integer",
-            "format": "int32",
-            "description": "乐观锁"
-          },
-          "createBy": {
-            "type": "string",
-            "description": "创建人"
-          },
-          "createTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "创建时间"
-          },
-          "updateBy": {
-            "type": "string",
-            "description": "更新人"
-          },
-          "updateTime": {
-            "type": "integer",
-            "format": "int64",
-            "description": "更新时间"
-          },
           "marginGroupId": {
             "type": "integer",
             "format": "int64",
@@ -2609,20 +2608,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
-          "id",
-          "status",
-          "revision",
-          "createBy",
-          "createTime",
-          "updateBy",
-          "updateTime",
           "marginGroupId",
           "type",
           "values",
@@ -2631,6 +2616,14 @@
           "percent"
         ],
         "x-apifox-folder": "Schemas",
+        "required": [
+          "marginGroupId",
+          "type",
+          "values",
+          "rangeLeft",
+          "rangeRight",
+          "percent"
+        ],
         "x-apifox-ignore-properties": []
       },
       "MarginGroupSave": {
@@ -2665,6 +2658,11 @@
           "values"
         ],
         "x-apifox-folder": "Schemas",
+        "required": [
+          "name",
+          "marginDtoList",
+          "type"
+        ],
         "x-apifox-ignore-properties": []
       },
       "BaseResultParamConfigPageVo": {
@@ -2986,37 +2984,6 @@
       "MarginGroupUpdate": {
         "type": "object",
         "properties": {
-          "companyId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "公司ID"
-          },
-          "customerId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "客户ID"
-          },
-          "customerNo": {
-            "type": "string",
-            "description": "客户编号"
-          },
-          "accountId": {
-            "type": "integer",
-            "format": "int64",
-            "description": "账户ID"
-          },
-          "trace": {
-            "type": "string",
-            "description": "跟踪码"
-          },
-          "ip": {
-            "type": "string",
-            "description": "操作ip"
-          },
-          "lang": {
-            "type": "string",
-            "description": "请求语言"
-          },
           "id": {
             "type": "integer",
             "format": "int64",
@@ -3045,13 +3012,6 @@
           }
         },
         "x-apifox-orders": [
-          "companyId",
-          "customerId",
-          "customerNo",
-          "accountId",
-          "trace",
-          "ip",
-          "lang",
           "id",
           "name",
           "marginDtoList",
@@ -3059,6 +3019,10 @@
           "values"
         ],
         "x-apifox-folder": "Schemas",
+        "required": [
+          "id",
+          "type"
+        ],
         "x-apifox-ignore-properties": []
       }
     }
