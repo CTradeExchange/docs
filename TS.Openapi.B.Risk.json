@@ -14,200 +14,6 @@
     }
   ],
   "paths": {
-    "/global/config.admin.AdminSymbolDubboService.getSymbolDetail1": {
-      "post": {
-        "summary": "单笔最大手数设置",
-        "x-apifox-folder": "基础风控设置",
-        "x-apifox-status": "testing",
-        "deprecated": false,
-        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail1",
-        "tags": [
-          "基础风控设置"
-        ],
-        "parameters": [
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "全局链路唯一标志",
-            "required": true,
-            "example": "{{mock_trace}}",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "公司ID",
-            "required": true,
-            "example": "{{company}}",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "description": "B端鉴权后token",
-            "required": true,
-            "example": "{{auto_token}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "companyId": {
-                    "type": "string",
-                    "description": "公司Id"
-                  },
-                  "symbolId": {
-                    "type": "number",
-                    "description": "产品Id"
-                  },
-                  "tradeType": {
-                    "type": "integer"
-                  }
-                },
-                "x-apifox-orders": [
-                  "companyId",
-                  "symbolId",
-                  "tradeType"
-                ],
-                "required": [
-                  "companyId",
-                  "symbolId"
-                ],
-                "x-apifox-ignore-properties": []
-              },
-              "example": {
-                "companyId": "{{company}}",
-                "symbolId": 1,
-                "tradeType": 1
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-62913135-run"
-      }
-    },
-    "/global/config.admin.AdminSymbolDubboService.getSymbolDetail2": {
-      "post": {
-        "summary": "单边最大持仓手数设置",
-        "x-apifox-folder": "基础风控设置",
-        "x-apifox-status": "testing",
-        "deprecated": false,
-        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail",
-        "tags": [
-          "基础风控设置"
-        ],
-        "parameters": [
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "全局链路唯一标志",
-            "required": true,
-            "example": "{{mock_trace}}",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "公司ID",
-            "required": true,
-            "example": "{{company}}",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "description": "B端鉴权后token",
-            "required": true,
-            "example": "{{auto_token}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "companyId": {
-                    "type": "string",
-                    "description": "公司Id"
-                  },
-                  "symbolId": {
-                    "type": "number",
-                    "description": "产品Id"
-                  },
-                  "tradeType": {
-                    "type": "integer"
-                  }
-                },
-                "x-apifox-orders": [
-                  "companyId",
-                  "symbolId",
-                  "tradeType"
-                ],
-                "required": [
-                  "companyId",
-                  "symbolId"
-                ],
-                "x-apifox-ignore-properties": []
-              },
-              "example": {
-                "companyId": "{{company}}",
-                "symbolId": 1,
-                "tradeType": 1
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-62914171-run"
-      }
-    },
     "/global/config.admin.AdminSymbolDubboService.getSymbolDetail3": {
       "post": {
         "summary": "盈亏阀值设置",
@@ -401,9 +207,2864 @@
         },
         "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-62915989-run"
       }
+    },
+    "/global/rtcReport.admin.AdminCompanyQueryService.queryCompanyPnl": {
+      "post": {
+        "summary": "获取各资产总盈亏（合约玩法）",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=rtcReport.admin.AdminCompanyQueryService.queryCompanyPnl",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "title": "公司Id"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "玩法Id"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "title": "追踪码"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "tradeType",
+                  "trace"
+                ],
+                "required": [
+                  "companyId",
+                  "tradeType"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": 1,
+                "tradeType": 1,
+                "trace": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {},
+                      "x-apifox-orders": [],
+                      "title": "数据体",
+                      "description": "一个Map。key：币种Code；value：盈亏",
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "bizCode",
+                    "code",
+                    "tm"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "trace": "test",
+                      "code": "0",
+                      "data": {
+                        "USDT": 7.350726
+                      },
+                      "bizCode": "",
+                      "tm": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-63637273-run"
+      }
+    },
+    "/global/rtcReport.admin.AdminCompanyQueryService.queryCompanySymbolPnl": {
+      "post": {
+        "summary": "获取产品总盈亏（合约玩法）",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=rtcReport.admin.AdminCompanyQueryService.queryCompanySymbolPnl",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "title": "公司Id"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "玩法Id"
+                  },
+                  "symbolIds": {
+                    "type": "string",
+                    "description": "多个Id以,分割",
+                    "title": "产品Id串"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "title": "追踪码"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "tradeType",
+                  "symbolIds",
+                  "trace"
+                ],
+                "required": [
+                  "companyId",
+                  "tradeType",
+                  "symbolIds"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": 1,
+                "tradeType": 1,
+                "symbolIds": "82,56",
+                "trace": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbolId": {
+                            "type": "number",
+                            "title": "产品Id"
+                          },
+                          "symbolName": {
+                            "type": "string",
+                            "title": "产品名称"
+                          },
+                          "symbolCode": {
+                            "type": "string",
+                            "title": "产品编码"
+                          },
+                          "pnl": {
+                            "type": "string",
+                            "title": "盈亏"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "pnl"
+                        ],
+                        "required": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "pnl"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "bizCode",
+                    "code",
+                    "tm"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "trace": "test",
+                      "code": "0",
+                      "data": [
+                        {
+                          "symbolCode": "XAUUSD",
+                          "symbolId": 82,
+                          "symbolName": "XAUUSD",
+                          "pnl": -16.8
+                        },
+                        {
+                          "symbolCode": "AUDJPY",
+                          "symbolId": 56,
+                          "symbolName": "AUDJPY",
+                          "pnl": 0.124122
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 198
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-63888874-run"
+      }
+    },
+    "/global/rtcReport.admin.AdminCompanyQueryService.queryCustomerPnl": {
+      "post": {
+        "summary": "获取客户总盈亏（合约玩法）",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=rtcReport.admin.AdminCompanyQueryService.queryCustomerPnl",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "title": "公司Id"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "玩法Id"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "title": "客户编码"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "title": "追踪码"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "tradeType",
+                  "customerNo",
+                  "trace"
+                ],
+                "required": [
+                  "companyId",
+                  "tradeType",
+                  "customerNo"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": 1,
+                "tradeType": 1,
+                "customerNo": "86087964",
+                "trace": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "currcency": {
+                          "type": "string",
+                          "title": "客户币种"
+                        },
+                        "pnl": {
+                          "type": "string",
+                          "title": "总盈亏"
+                        }
+                      },
+                      "x-apifox-orders": [
+                        "currcency",
+                        "pnl"
+                      ],
+                      "title": "数据体",
+                      "required": [
+                        "currcency",
+                        "pnl"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "bizCode",
+                    "code",
+                    "tm"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "trace": "test",
+                      "code": "0",
+                      "data": {
+                        "currency": "USDT",
+                        "pnl": 7.350726
+                      },
+                      "bizCode": "",
+                      "tm": 0
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-63891426-run"
+      }
+    },
+    "/global/rtcReport.admin.AdminCompanyQueryService.queryCustomerSymbolPnl": {
+      "post": {
+        "summary": "获取客户产品总盈亏（合约玩法）",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=rtcReport.admin.AdminCompanyQueryService.queryCustomerSymbolPnl",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "title": "公司Id"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "玩法Id"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "title": "客户编码"
+                  },
+                  "symbolIds": {
+                    "type": "string",
+                    "description": "多个Id以,分割",
+                    "title": "产品Id串"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "title": "追踪码"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "tradeType",
+                  "customerNo",
+                  "symbolIds",
+                  "trace"
+                ],
+                "required": [
+                  "companyId",
+                  "tradeType",
+                  "symbolIds",
+                  "customerNo"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": 1,
+                "tradeType": 1,
+                "customer": "86087964",
+                "symbolIds": "82,56",
+                "trace": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbolId": {
+                            "type": "number",
+                            "title": "产品Id"
+                          },
+                          "symbolName": {
+                            "type": "string",
+                            "title": "产品名称"
+                          },
+                          "symbolCode": {
+                            "type": "string",
+                            "title": "产品编码"
+                          },
+                          "pnl": {
+                            "type": "string",
+                            "title": "盈亏"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "pnl"
+                        ],
+                        "required": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "pnl"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "bizCode",
+                    "code",
+                    "tm"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "trace": "test",
+                      "code": "0",
+                      "data": [
+                        {
+                          "symbolCode": "XAUUSD",
+                          "symbolId": 82,
+                          "symbolName": "XAUUSD",
+                          "pnl": -16.8
+                        },
+                        {
+                          "symbolCode": "AUDJPY",
+                          "symbolId": 56,
+                          "symbolName": "AUDJPY",
+                          "pnl": 0.124122
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 198
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-63892486-run"
+      }
+    },
+    "/global/rtcReport.admin.AdminCompanyQueryService.queryCompanySymbolNetPosition": {
+      "post": {
+        "summary": "获取产品净持仓数量",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=rtcReport.admin.AdminCompanyQueryService.queryCompanySymbolNetPosition",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "title": "公司Id"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "玩法Id"
+                  },
+                  "symbolIds": {
+                    "type": "string",
+                    "description": "多个Id以,分割",
+                    "title": "产品Id串"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "title": "追踪码"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "tradeType",
+                  "symbolIds",
+                  "trace"
+                ],
+                "required": [
+                  "companyId",
+                  "tradeType",
+                  "symbolIds"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": 1,
+                "tradeType": 1,
+                "symbolIds": "82,56",
+                "trace": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbolId": {
+                            "type": "number",
+                            "title": "产品Id"
+                          },
+                          "symbolName": {
+                            "type": "string",
+                            "title": "产品名称"
+                          },
+                          "symbolCode": {
+                            "type": "string",
+                            "title": "产品编码"
+                          },
+                          "netPositionNum": {
+                            "type": "string",
+                            "title": "净持仓数量",
+                            "description": "正为买，负为卖"
+                          },
+                          "netPositionVolume": {
+                            "type": "string",
+                            "title": "净持仓手数",
+                            "description": "正为买，负为卖"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "netPositionNum",
+                          "netPositionVolume"
+                        ],
+                        "required": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "netPositionNum",
+                          "netPositionVolume"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "bizCode",
+                    "code",
+                    "tm"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "trace": "test",
+                      "code": "0",
+                      "data": [
+                        {
+                          "symbolCode": "XAUUSD",
+                          "symbolId": 82,
+                          "symbolName": "XAUUSD",
+                          "netPositionNum": "1",
+                          "netPositionVolume": "1"
+                        },
+                        {
+                          "symbolCode": "AUDJPY",
+                          "symbolId": 56,
+                          "symbolName": "AUDJPY",
+                          "netPositionNum": "1",
+                          "netPositionVolume": "1"
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 198
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-63892722-run"
+      }
+    },
+    "/global/rtcReport.admin.AdminCompanyQueryService.queryCompanySymbolPosition": {
+      "post": {
+        "summary": "获取产品持仓数量",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=rtcReport.admin.AdminCompanyQueryService.queryCompanySymbolPosition",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "title": "公司Id"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "玩法Id"
+                  },
+                  "symbolIds": {
+                    "type": "string",
+                    "description": "多个Id以,分割",
+                    "title": "产品Id串"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "title": "追踪码"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "tradeType",
+                  "symbolIds",
+                  "trace"
+                ],
+                "required": [
+                  "companyId",
+                  "tradeType",
+                  "symbolIds"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": 1,
+                "tradeType": 1,
+                "symbolIds": "82,56",
+                "trace": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbolId": {
+                            "type": "number",
+                            "title": "产品Id"
+                          },
+                          "symbolName": {
+                            "type": "string",
+                            "title": "产品名称"
+                          },
+                          "symbolCode": {
+                            "type": "string",
+                            "title": "产品编码"
+                          },
+                          "buyNum": {
+                            "type": "string",
+                            "title": "买方向数量"
+                          },
+                          "buyVolume": {
+                            "type": "string",
+                            "title": "买方向手数"
+                          },
+                          "sellNum": {
+                            "type": "string",
+                            "title": "卖方向数量"
+                          },
+                          "sellVolume": {
+                            "type": "string",
+                            "title": "卖方向手数"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "buyNum",
+                          "buyVolume",
+                          "sellNum",
+                          "sellVolume"
+                        ],
+                        "required": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "buyNum",
+                          "buyVolume",
+                          "sellNum",
+                          "sellVolume"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "bizCode",
+                    "code",
+                    "tm"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "trace": "test",
+                      "code": "0",
+                      "data": [
+                        {
+                          "symbolCode": "XAUUSD",
+                          "symbolId": 82,
+                          "symbolName": "XAUUSD",
+                          "buyNum": "1",
+                          "buyVolume": "1",
+                          "sellNum": "0",
+                          "sellVolume": "0"
+                        },
+                        {
+                          "symbolCode": "AUDJPY",
+                          "symbolId": 56,
+                          "symbolName": "AUDJPY",
+                          "buyNum": "0",
+                          "buyVolume": "0",
+                          "sellNum": "1",
+                          "sellVolume": "1"
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 198
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-63893494-run"
+      }
+    },
+    "/global/rtcReport.admin.AdminCompanyQueryService.queryCustomerSymbolNetPosition": {
+      "post": {
+        "summary": "获取客户产品净持仓数量",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=rtcReport.admin.AdminCompanyQueryService.queryCustomerSymbolNetPosition",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "title": "公司Id"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "玩法Id"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "title": "客户编码"
+                  },
+                  "symbolIds": {
+                    "type": "string",
+                    "description": "多个Id以,分割",
+                    "title": "产品Id串"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "title": "追踪码"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "tradeType",
+                  "customerNo",
+                  "symbolIds",
+                  "trace"
+                ],
+                "required": [
+                  "companyId",
+                  "tradeType",
+                  "symbolIds",
+                  "customerNo"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": 1,
+                "tradeType": 1,
+                "symbolIds": "82,56",
+                "customerNo": "86087964",
+                "trace": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbolId": {
+                            "type": "number",
+                            "title": "产品Id"
+                          },
+                          "symbolName": {
+                            "type": "string",
+                            "title": "产品名称"
+                          },
+                          "symbolCode": {
+                            "type": "string",
+                            "title": "产品编码"
+                          },
+                          "netPositionNum": {
+                            "type": "string",
+                            "title": "净持仓数量",
+                            "description": "正为买，负为卖"
+                          },
+                          "netPositionVolume": {
+                            "type": "string",
+                            "title": "净持仓手数",
+                            "description": "正为买，负为卖"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "netPositionNum",
+                          "netPositionVolume"
+                        ],
+                        "required": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "netPositionNum",
+                          "netPositionVolume"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "bizCode",
+                    "code",
+                    "tm"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "trace": "test",
+                      "code": "0",
+                      "data": [
+                        {
+                          "symbolCode": "XAUUSD",
+                          "symbolId": 82,
+                          "symbolName": "XAUUSD",
+                          "netPositionNum": "1",
+                          "netPositionVolume": "1"
+                        },
+                        {
+                          "symbolCode": "AUDJPY",
+                          "symbolId": 56,
+                          "symbolName": "AUDJPY",
+                          "netPositionNum": "1",
+                          "netPositionVolume": "1"
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 198
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-63894217-run"
+      }
+    },
+    "/global/rtcReport.admin.AdminCompanyQueryService.queryCustomerSymbolPosition": {
+      "post": {
+        "summary": "获取客户产品持仓数量",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=rtcReport.admin.AdminCompanyQueryService.queryCustomerSymbolPosition",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "title": "公司Id"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "title": "玩法Id"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "title": "客户编码"
+                  },
+                  "symbolIds": {
+                    "type": "string",
+                    "description": "多个Id以,分割",
+                    "title": "产品Id串"
+                  },
+                  "trace": {
+                    "type": "string",
+                    "title": "追踪码"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "tradeType",
+                  "customerNo",
+                  "symbolIds",
+                  "trace"
+                ],
+                "required": [
+                  "companyId",
+                  "tradeType",
+                  "symbolIds",
+                  "customerNo"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "companyId": 1,
+                "tradeType": 1,
+                "symbolIds": "82,56",
+                "customerNo": "86087964",
+                "trace": "test"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbolId": {
+                            "type": "number",
+                            "title": "产品Id"
+                          },
+                          "symbolName": {
+                            "type": "string",
+                            "title": "产品名称"
+                          },
+                          "symbolCode": {
+                            "type": "string",
+                            "title": "产品编码"
+                          },
+                          "buyNum": {
+                            "type": "string",
+                            "title": "买方向数量"
+                          },
+                          "buyVolume": {
+                            "type": "string",
+                            "title": "买方向手数"
+                          },
+                          "sellNum": {
+                            "type": "string",
+                            "title": "卖方向数量"
+                          },
+                          "sellVolume": {
+                            "type": "string",
+                            "title": "卖方向手数"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "buyNum",
+                          "buyVolume",
+                          "sellNum",
+                          "sellVolume"
+                        ],
+                        "required": [
+                          "symbolId",
+                          "symbolName",
+                          "symbolCode",
+                          "buyNum",
+                          "buyVolume",
+                          "sellNum",
+                          "sellVolume"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "bizCode",
+                    "code",
+                    "tm"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "trace": "test",
+                      "code": "0",
+                      "data": [
+                        {
+                          "symbolCode": "XAUUSD",
+                          "symbolId": 82,
+                          "symbolName": "XAUUSD",
+                          "buyNum": "1",
+                          "buyVolume": "1",
+                          "sellNum": "0",
+                          "sellVolume": "0"
+                        },
+                        {
+                          "symbolCode": "AUDJPY",
+                          "symbolId": 56,
+                          "symbolName": "AUDJPY",
+                          "buyNum": "0",
+                          "buyVolume": "0",
+                          "sellNum": "1",
+                          "sellVolume": "1"
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 198
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-63894224-run"
+      }
+    },
+    "/global/config.admin.AdminMarginConfigService.updateParamConf": {
+      "post": {
+        "summary": "更新保证金配置记录",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "BaseResult updateParamConf(com.cats.config.api.dto.open.OpenMarginGroupUpdateDto)",
+        "operationId": "updateParamConf",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91Update",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBoolean",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-64381875-run"
+      }
+    },
+    "/global/config.admin.AdminTradeConfigService.pageView": {
+      "post": {
+        "summary": "查询交易玩法记录",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "BaseResult pageView(com.cats.common.core.base.dto.OrderPageDto)",
+        "operationId": "pageView",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderPageDto",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVo%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-64381876-run"
+      }
+    },
+    "/global/config.admin.AdminMarginConfigService.saveParamConf": {
+      "post": {
+        "summary": "新增保证金配置记录",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "BaseResult saveParamConf(com.cats.config.api.dto.open.OpenMarginGroupSaveDto)",
+        "operationId": "saveParamConf",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91Save",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBoolean",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-64381877-run"
+      }
+    },
+    "/global/config.admin.AdminMarginConfigService.pageView": {
+      "post": {
+        "summary": "查询保证金配置记录",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "BaseResult pageView(com.cats.common.core.base.dto.OrderPageDto)",
+        "operationId": "pageView",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrderPageDto",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVo%E4%BF%9D%E8%AF%81%E9%87%91%E7%BB%84",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-64381878-run"
+      }
+    },
+    "/global/config.admin.AdminMarginConfigService.removeParamConf": {
+      "post": {
+        "summary": "删除保证金配置记录",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "BaseResult removeParamConf(com.cats.config.api.dto.open.BaseIdDto)",
+        "operationId": "removeParamConf",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/%E5%88%A0%E9%99%A4%E8%AE%B0%E5%BD%95",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBoolean",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-64381879-run"
+      }
+    },
+    "/global/config.admin.AdminTradeConfigService.saveParamConf": {
+      "post": {
+        "summary": "新增交易玩法记录",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "BaseResult saveParamConf(com.cats.config.api.dto.open.SaveParamDto)",
+        "operationId": "saveParamConf",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AESave",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBoolean",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-64381880-run"
+      }
+    },
+    "/global/config.admin.AdminTradeConfigService.removeParamConf": {
+      "post": {
+        "summary": "删除交易玩法记录",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "BaseResult removeParamConf(com.cats.config.api.dto.open.BaseIdDto)",
+        "operationId": "removeParamConf",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/%E5%88%A0%E9%99%A4%E8%AE%B0%E5%BD%95",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBoolean",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-64381881-run"
+      }
+    },
+    "/global/config.admin.AdminTradeConfigService.updateParamConf": {
+      "post": {
+        "summary": "更新交易玩法记录",
+        "x-apifox-folder": "基础风控设置",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "BaseResult updateParamConf(com.cats.config.api.dto.open.UpdateParamDto)",
+        "operationId": "updateParamConf",
+        "tags": [
+          "基础风控设置"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AEUpdate",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBoolean",
+                  "x-apifox-overrides": {}
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-64381882-run"
+      }
     }
   },
   "components": {
-    "schemas": {}
+    "schemas": {
+      "产品参数配置Update": {
+        "type": "object",
+        "properties": {
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "记录ID"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "交易玩法"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品"
+          },
+          "symbolGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品组"
+          },
+          "paramId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "参数项"
+          },
+          "value": {
+            "type": "string",
+            "description": "参数值"
+          }
+        },
+        "x-apifox-orders": [
+          "customerNo",
+          "id",
+          "tradeType",
+          "customerGroupId",
+          "symbolId",
+          "symbolGroupId",
+          "paramId",
+          "value"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "产品参数配置Save": {
+        "type": "object",
+        "properties": {
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "交易玩法"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品"
+          },
+          "symbolGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品组"
+          },
+          "paramId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "参数项"
+          },
+          "value": {
+            "type": "string",
+            "description": "参数值"
+          }
+        },
+        "x-apifox-orders": [
+          "customerNo",
+          "tradeType",
+          "customerGroupId",
+          "symbolId",
+          "symbolGroupId",
+          "paramId",
+          "value"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "删除记录": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "记录ID"
+          }
+        },
+        "x-apifox-orders": [
+          "id"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultBasePageVo保证金组": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/BasePageVo%E4%BF%9D%E8%AF%81%E9%87%91%E7%BB%84"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BasePageVo保证金组": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "description": "结果列表",
+            "items": {
+              "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91%E7%BB%84"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "总数"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          }
+        },
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "保证金组": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "name": {
+            "type": "string",
+            "description": "名称"
+          },
+          "marginDtoList": {
+            "type": "array",
+            "description": "明细",
+            "items": {
+              "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91"
+            }
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "description": "类型"
+          },
+          "values": {
+            "type": "string",
+            "description": "数值"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "name",
+          "marginDtoList",
+          "type",
+          "values"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "保证金": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "marginGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "保证金组ID"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "description": "类型"
+          },
+          "values": {
+            "type": "string",
+            "description": "数值"
+          },
+          "rangeLeft": {
+            "type": "number",
+            "format": "double",
+            "description": "范围开始"
+          },
+          "rangeRight": {
+            "type": "number",
+            "format": "double",
+            "description": "范围结束"
+          },
+          "percent": {
+            "type": "number",
+            "description": "万分比"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "marginGroupId",
+          "type",
+          "values",
+          "rangeLeft",
+          "rangeRight",
+          "percent"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "保证金Save": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "名称"
+          },
+          "marginDtoList": {
+            "type": "array",
+            "description": "明细",
+            "items": {
+              "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91"
+            }
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "description": "类型"
+          },
+          "values": {
+            "type": "string",
+            "description": "数值"
+          }
+        },
+        "x-apifox-orders": [
+          "name",
+          "marginDtoList",
+          "type",
+          "values"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultBasePageVo产品参数配置": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/BasePageVo%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BasePageVo产品参数配置": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "description": "结果列表",
+            "items": {
+              "$ref": "#/components/schemas/%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "总数"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          }
+        },
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "产品参数配置": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "交易玩法 1、2、3、4、CFDMM、CFDWBW、SPOT、FUTURES"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组 0表示全部组"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品 0表示全部产品"
+          },
+          "symbolGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品组 0表示全部组"
+          },
+          "paramId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "参数项"
+          },
+          "value": {
+            "type": "string",
+            "description": "参数值"
+          },
+          "isInherit": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否继承 1继承，2不继承，默认是1白标可以继承，可以对参数修改"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "tradeType",
+          "customerGroupId",
+          "symbolId",
+          "symbolGroupId",
+          "paramId",
+          "value",
+          "isInherit"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "OrderPageDto": {
+        "type": "object",
+        "properties": {
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "orders": {
+            "type": "array",
+            "description": "排序字段列表",
+            "items": {
+              "$ref": "#/components/schemas/FieldOrderDto"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "size",
+          "current",
+          "orders"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FieldOrderDto": {
+        "type": "object",
+        "properties": {
+          "column": {
+            "type": "string",
+            "description": "排序字段列"
+          },
+          "asc": {
+            "type": "boolean",
+            "description": "顺序方式"
+          }
+        },
+        "x-apifox-orders": [
+          "column",
+          "asc"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultBoolean": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "type": "boolean",
+            "description": "数据体"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "保证金Update": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "记录ID"
+          },
+          "name": {
+            "type": "string",
+            "description": "名称"
+          },
+          "marginDtoList": {
+            "type": "array",
+            "description": "明细",
+            "items": {
+              "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91"
+            }
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "description": "类型"
+          },
+          "values": {
+            "type": "string",
+            "description": "数值"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "name",
+          "marginDtoList",
+          "type",
+          "values"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      }
+    }
   }
 }
