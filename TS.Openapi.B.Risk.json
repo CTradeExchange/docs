@@ -1939,7 +1939,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "BaseResult pageView(com.cats.common.core.base.dto.OrderPageDto)",
-        "operationId": "pageView",
+        "operationId": "config.admin.AdminTradeConfigService.pageView",
         "tags": [
           "基础风控设置"
         ],
@@ -2015,7 +2015,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "BaseResult pageView(com.cats.common.core.base.dto.OrderPageDto)",
-        "operationId": "pageView",
+        "operationId": "config.admin.AdminMarginConfigService.pageView",
         "tags": [
           "基础风控设置"
         ],
