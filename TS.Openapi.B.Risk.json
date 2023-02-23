@@ -1910,7 +1910,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91Update",
+                "$ref": "#/components/schemas/MarginGroupUpdate",
                 "x-apifox-overrides": {}
               }
             }
@@ -1960,7 +1960,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseResultBasePageVo%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE",
+                  "$ref": "#/components/schemas/BaseResultParamConfigPageVo",
                   "x-apifox-overrides": {}
                 }
               }
@@ -1986,7 +1986,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91Save",
+                "$ref": "#/components/schemas/MarginGroupSave",
                 "x-apifox-overrides": {}
               }
             }
@@ -2036,7 +2036,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BaseResultBasePageVo%E4%BF%9D%E8%AF%81%E9%87%91%E7%BB%84",
+                  "$ref": "#/components/schemas/BaseResultMarginGroupPageVo",
                   "x-apifox-overrides": {}
                 }
               }
@@ -2062,7 +2062,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/%E5%88%A0%E9%99%A4%E8%AE%B0%E5%BD%95",
+                "$ref": "#/components/schemas/DeleteDto",
                 "x-apifox-overrides": {}
               }
             }
@@ -2100,7 +2100,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AESave",
+                "$ref": "#/components/schemas/ParamConfigSave",
                 "x-apifox-overrides": {}
               }
             }
@@ -2138,7 +2138,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/%E5%88%A0%E9%99%A4%E8%AE%B0%E5%BD%95",
+                "$ref": "#/components/schemas/DeleteDto",
                 "x-apifox-overrides": {}
               }
             }
@@ -2176,7 +2176,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AEUpdate",
+                "$ref": "#/components/schemas/ParamConfigUpdate",
                 "x-apifox-overrides": {}
               }
             }
@@ -2201,7 +2201,7 @@
   },
   "components": {
     "schemas": {
-      "产品参数配置Update": {
+      "ParamConfigUpdate": {
         "type": "object",
         "properties": {
           "customerNo": {
@@ -2256,7 +2256,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "产品参数配置Save": {
+      "ParamConfigSave": {
         "type": "object",
         "properties": {
           "customerNo": {
@@ -2305,7 +2305,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "删除记录": {
+      "DeleteDto": {
         "type": "object",
         "properties": {
           "id": {
@@ -2320,7 +2320,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "BaseResultBasePageVo保证金组": {
+      "BaseResultMarginGroupPageVo": {
         "type": "object",
         "properties": {
           "bizCode": {
@@ -2349,7 +2349,7 @@
             "description": "返回描述中占位符参数串，多个参数间以,分割"
           },
           "data": {
-            "$ref": "#/components/schemas/BasePageVo%E4%BF%9D%E8%AF%81%E9%87%91%E7%BB%84"
+            "$ref": "#/components/schemas/MarginGroupPageVo"
           },
           "ok": {
             "type": "boolean"
@@ -2372,14 +2372,15 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "BasePageVo保证金组": {
+      "MarginGroupPageVo": {
         "type": "object",
         "properties": {
           "records": {
             "type": "array",
             "description": "结果列表",
             "items": {
-              "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91%E7%BB%84"
+              "$ref": "#/components/schemas/MarginGroupDto",
+              "x-apifox-overrides": {}
             }
           },
           "total": {
@@ -2407,7 +2408,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "保证金组": {
+      "MarginGroupDto": {
         "type": "object",
         "properties": {
           "companyId": {
@@ -2482,7 +2483,8 @@
             "type": "array",
             "description": "明细",
             "items": {
-              "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91"
+              "$ref": "#/components/schemas/MarginDto",
+              "x-apifox-overrides": {}
             }
           },
           "type": {
@@ -2518,7 +2520,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "保证金": {
+      "MarginDto": {
         "type": "object",
         "properties": {
           "companyId": {
@@ -2639,7 +2641,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "保证金Save": {
+      "MarginGroupSave": {
         "type": "object",
         "properties": {
           "name": {
@@ -2650,7 +2652,8 @@
             "type": "array",
             "description": "明细",
             "items": {
-              "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91"
+              "$ref": "#/components/schemas/MarginDto",
+              "x-apifox-overrides": {}
             }
           },
           "type": {
@@ -2672,7 +2675,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "BaseResultBasePageVo产品参数配置": {
+      "BaseResultParamConfigPageVo": {
         "type": "object",
         "properties": {
           "bizCode": {
@@ -2701,7 +2704,7 @@
             "description": "返回描述中占位符参数串，多个参数间以,分割"
           },
           "data": {
-            "$ref": "#/components/schemas/BasePageVo%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"
+            "$ref": "#/components/schemas/ParamConfigPageVo"
           },
           "ok": {
             "type": "boolean"
@@ -2724,14 +2727,14 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "BasePageVo产品参数配置": {
+      "ParamConfigPageVo": {
         "type": "object",
         "properties": {
           "records": {
             "type": "array",
             "description": "结果列表",
             "items": {
-              "$ref": "#/components/schemas/%E4%BA%A7%E5%93%81%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"
+              "$ref": "#/components/schemas/ParamConfig"
             }
           },
           "total": {
@@ -2759,7 +2762,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "产品参数配置": {
+      "ParamConfig": {
         "type": "object",
         "properties": {
           "companyId": {
@@ -2988,7 +2991,7 @@
         "x-apifox-folder": "Schemas",
         "x-apifox-ignore-properties": []
       },
-      "保证金Update": {
+      "MarginGroupUpdate": {
         "type": "object",
         "properties": {
           "companyId": {
@@ -3035,7 +3038,8 @@
             "type": "array",
             "description": "明细",
             "items": {
-              "$ref": "#/components/schemas/%E4%BF%9D%E8%AF%81%E9%87%91"
+              "$ref": "#/components/schemas/MarginDto",
+              "x-apifox-overrides": {}
             }
           },
           "type": {
