@@ -550,7 +550,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerApiWebService.page\n登录之后可以访问",
-        "operationId": "page",
+        
         "tags": [
           "客户开放API"
         ],
@@ -1505,7 +1505,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerOptionalWebApiService.delete\n登录之后可以访问",
-        "operationId": "delete",
+        
         "tags": [
           "客户自选产品"
         ],
@@ -3369,7 +3369,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerWalletWebApiService.delete\n登录之后可以访问",
-        "operationId": "delete",
+        
         "tags": [
           "客户钱包管理"
         ],
