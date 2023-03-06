@@ -1,7 +1,7 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "CATS2-H5API",
+    "title": "消息接口",
     "description": "",
     "version": "1.0.0"
   },
