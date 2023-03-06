@@ -1365,7 +1365,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerOptionalWebApiService.add\n登录之后可以访问",
-        "operationId": "add",
+        
         "tags": [
           "客户自选产品"
         ],
@@ -3135,7 +3135,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerWalletWebApiService.add\n登录之后可以访问",
-        "operationId": "add",
+        
         "tags": [
           "客户钱包管理"
         ],
@@ -10276,7 +10276,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.WithdrawBankWebApiService.add\n登录之后可以访问",
-        "operationId": "add",
+        
         "tags": [
           "客户银行卡管理"
         ],
