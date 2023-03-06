@@ -1,0 +1,5165 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "基础接口",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "基础数据"
+    }
+  ],
+  "paths": {
+    "/global/config.app.AppDictDubboService.getCountryListByParentCode": {
+      "post": {
+        "summary": "国家地区根据code查询",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=config.app.AppDictDubboService.getCountryListByParentCode\n国家地区根据code查询\n游客可访问",
+        "operationId": "getCountryListByParentCode",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "x-apifox-refs": {},
+                "properties": {
+                  "parentCode": {
+                    "type": "string",
+                    "description": "国家代码"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "名称，可以搜索"
+                  }
+                },
+                "x-apifox-orders": [
+                  "parentCode",
+                  "name"
+                ],
+                "required": [
+                  "parentCode"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "数据体",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "parentId": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "上级ID"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "主键id"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "国家地区名称"
+                          },
+                          "displayName": {
+                            "type": "string",
+                            "description": "显示名称（前端显示）"
+                          },
+                          "code": {
+                            "type": "string",
+                            "description": "国家代码"
+                          },
+                          "parentCode": {
+                            "type": "string",
+                            "description": "上级代码"
+                          },
+                          "nationalCode": {
+                            "type": "string",
+                            "description": "国家简称"
+                          },
+                          "countryCode": {
+                            "type": "string",
+                            "description": "国家区号"
+                          },
+                          "extend": {
+                            "type": "string",
+                            "description": "扩展属性"
+                          },
+                          "sort": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "排序"
+                          },
+                          "status": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "状态 1、2、3、启用、禁用、删除"
+                          },
+                          "createTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "创建时间"
+                          },
+                          "updateTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "更新时间"
+                          },
+                          "hasLeaf": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "是否有子节点"
+                          },
+                          "childs": {
+                            "type": "array",
+                            "description": "子节点数据",
+                            "items": {
+                              "$ref": "#/components/schemas/CountryDictVo"
+                            }
+                          }
+                        },
+                        "x-apifox-refs": {},
+                        "x-apifox-orders": [
+                          "parentId",
+                          "id",
+                          "name",
+                          "displayName",
+                          "code",
+                          "parentCode",
+                          "nationalCode",
+                          "countryCode",
+                          "extend",
+                          "sort",
+                          "status",
+                          "createTime",
+                          "updateTime",
+                          "hasLeaf",
+                          "childs"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      }
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924947-run"
+      }
+    },
+    "/global/config.app.AppDictDubboService.getCountryListByParentId": {
+      "post": {
+        "summary": "国家地区根据ID查询",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=config.app.AppDictDubboService.getCountryListByParentId\n国家地区根据ID查询\n游客可访问",
+        "operationId": "getCountryListByParentId",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "x-apifox-refs": {},
+                "properties": {
+                  "parentId": {
+                    "type": "string",
+                    "description": "父级ID"
+                  }
+                },
+                "x-apifox-orders": [
+                  "parentId"
+                ],
+                "required": [
+                  "parentId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-apifox-overrides": {},
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "数据体",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "parentId": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "上级ID"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "主键id"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "国家地区名称"
+                          },
+                          "displayName": {
+                            "type": "string",
+                            "description": "显示名称（前端显示）"
+                          },
+                          "code": {
+                            "type": "string",
+                            "description": "国家代码"
+                          },
+                          "parentCode": {
+                            "type": "string",
+                            "description": "上级代码"
+                          },
+                          "nationalCode": {
+                            "type": "string",
+                            "description": "国家简称"
+                          },
+                          "countryCode": {
+                            "type": "string",
+                            "description": "国家区号"
+                          },
+                          "extend": {
+                            "type": "string",
+                            "description": "扩展属性"
+                          },
+                          "sort": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "排序"
+                          },
+                          "status": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "状态 1、2、3、启用、禁用、删除"
+                          },
+                          "createTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "创建时间"
+                          },
+                          "updateTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "更新时间"
+                          },
+                          "hasLeaf": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "是否有子节点"
+                          },
+                          "childs": {
+                            "type": "array",
+                            "description": "子节点数据",
+                            "items": {
+                              "$ref": "#/components/schemas/CountryDictVo"
+                            }
+                          }
+                        },
+                        "x-apifox-refs": {},
+                        "x-apifox-orders": [
+                          "parentId",
+                          "id",
+                          "name",
+                          "displayName",
+                          "code",
+                          "parentCode",
+                          "nationalCode",
+                          "countryCode",
+                          "extend",
+                          "sort",
+                          "status",
+                          "createTime",
+                          "updateTime",
+                          "hasLeaf",
+                          "childs"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      }
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924948-run"
+      }
+    },
+    "/global/config.app.AppDictDubboService.getListByParentCode": {
+      "post": {
+        "summary": "字典基于code查询",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=config.app.AppDictDubboService.getListByParentCode\n字典基于code查询\n游客可访问",
+        "operationId": "getListByParentCode",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "x-apifox-refs": {},
+                "properties": {
+                  "parentCode": {
+                    "type": "string",
+                    "description": "字典代码"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "名称，可以搜索"
+                  }
+                },
+                "required": [
+                  "parentCode"
+                ],
+                "x-apifox-orders": [
+                  "parentCode",
+                  "name"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "parentCode": "USDT"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "数据体",
+                      "items": {
+                        "type": "object",
+                        "x-apifox-refs": {},
+                        "x-apifox-orders": [
+                          "parentId",
+                          "id",
+                          "name",
+                          "displayName",
+                          "code",
+                          "parentCode",
+                          "sort",
+                          "showType",
+                          "extend",
+                          "status",
+                          "createTime",
+                          "updateTime",
+                          "hasLeaf"
+                        ],
+                        "properties": {
+                          "parentId": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "上级ID"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "主键id"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "字典名称"
+                          },
+                          "displayName": {
+                            "type": "string",
+                            "description": "显示名称(前端显示)"
+                          },
+                          "code": {
+                            "type": "string",
+                            "description": "字典代码"
+                          },
+                          "parentCode": {
+                            "type": "string",
+                            "description": "上级代码"
+                          },
+                          "sort": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "排序"
+                          },
+                          "showType": {
+                            "type": "string",
+                            "description": "字典显示类型"
+                          },
+                          "extend": {
+                            "type": "string",
+                            "description": "扩展属性"
+                          },
+                          "status": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "状态 1、2、3、启用、禁用、删除"
+                          },
+                          "createTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "创建时间"
+                          },
+                          "updateTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "更新时间"
+                          },
+                          "hasLeaf": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "是否有子节点"
+                          }
+                        },
+                        "x-apifox-ignore-properties": []
+                      }
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-484ynk7-j6o8-t3kglk-yiv7i-1677742871",
+                      "code": "0",
+                      "data": [
+                        {
+                          "code": "Tron(TRC20)",
+                          "displayName": "Tron",
+                          "updateTime": 1675995340948,
+                          "sort": 1,
+                          "nameEn": null,
+                          "parentId": 469,
+                          "revision": 5,
+                          "extend": "",
+                          "nameTw": null,
+                          "createBy": "admin",
+                          "createTime": 1673440493544,
+                          "parentCode": "USDT",
+                          "updateBy": "admin",
+                          "name": "Tron",
+                          "showType": null,
+                          "id": 1300,
+                          "hasLeaf": 0,
+                          "status": 1
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 3,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924949-run"
+      }
+    },
+    "/global/config.app.AppAssetsDubboService.getAssetsList": {
+      "post": {
+        "summary": "资产代码数据",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=config.app.AppAssetsDubboService.getAssetsList\n获取平台支持的全部资产列表数据\n游客可访问",
+        "operationId": "getAssetsList",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "资产类型 0、全部资产1、通用资产 2、基金资产 默认0"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultListAssets"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924950-run"
+      }
+    },
+    "/global/config.app.AppDictDubboService.getListByParentId": {
+      "post": {
+        "summary": "字典基于ID查询",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=config.app.AppDictDubboService.getListByParentId\n字典基于parentId查询\n游客可访问",
+        "operationId": "getListByParentId",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "x-apifox-refs": {},
+                "properties": {
+                  "parentId": {
+                    "type": "integer",
+                    "description": "父级ID"
+                  }
+                },
+                "required": [
+                  "parentId"
+                ],
+                "x-apifox-orders": [
+                  "parentId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "parentId": "1"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-apifox-overrides": {},
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "数据体",
+                      "items": {
+                        "type": "object",
+                        "x-apifox-refs": {},
+                        "x-apifox-orders": [
+                          "parentId",
+                          "id",
+                          "name",
+                          "displayName",
+                          "code",
+                          "parentCode",
+                          "sort",
+                          "showType",
+                          "extend",
+                          "status",
+                          "createTime",
+                          "updateTime",
+                          "hasLeaf"
+                        ],
+                        "properties": {
+                          "parentId": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "上级ID"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "主键id"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "字典名称"
+                          },
+                          "displayName": {
+                            "type": "string",
+                            "description": "显示名称（前端显示这个字段）"
+                          },
+                          "code": {
+                            "type": "string",
+                            "description": "字典代码"
+                          },
+                          "parentCode": {
+                            "type": "string",
+                            "description": "上级代码"
+                          },
+                          "sort": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "排序"
+                          },
+                          "showType": {
+                            "type": "string",
+                            "description": "字典显示类型"
+                          },
+                          "extend": {
+                            "type": "string",
+                            "description": "扩展属性"
+                          },
+                          "status": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "状态 1、2、3、启用、禁用、删除"
+                          },
+                          "createTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "创建时间"
+                          },
+                          "updateTime": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "更新时间"
+                          },
+                          "hasLeaf": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "是否有子节点"
+                          }
+                        },
+                        "x-apifox-ignore-properties": []
+                      }
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-r62nh7-n75987-jljj4-43kv-1677554114",
+                      "code": "0",
+                      "data": [
+                        {
+                          "code": "Blockchain_explorer_txid",
+                          "displayName": "区块链网络地址",
+                          "updateTime": 1676458887694,
+                          "sort": 1,
+                          "nameEn": null,
+                          "parentId": 0,
+                          "revision": 1,
+                          "extend": "Blockchain_explorer_txid",
+                          "nameTw": null,
+                          "createBy": "admin",
+                          "createTime": 1676450014034,
+                          "updateBy": "admin",
+                          "parentCode": "0",
+                          "name": "区块链网络地址",
+                          "showType": null,
+                          "id": 1274,
+                          "hasLeaf": 1,
+                          "status": 1
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 5,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924951-run"
+      }
+    },
+    "/global/config.app.AppSymbolDubboService.getEquityPremiumRate": {
+      "post": {
+        "summary": "基金净值和溢价率查询",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "查询净值和溢价率",
+        "operationId": "getEquityPremiumRate",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "symbolId",
+                  "currencyCode",
+                  "profitCurrency"
+                ],
+                "properties": {
+                  "symbolId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "产品ID。与currencyCode必须存在一个，均存在以该字段值为准"
+                  },
+                  "currencyCode": {
+                    "type": "string",
+                    "description": "基金代币编码(与symbolId必须存在一个，均存在以symbolId值为准)"
+                  },
+                  "profitCurrency": {
+                    "type": "string",
+                    "description": "目标资产编码"
+                  }
+                },
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultQueryEquityPremiumRateVo",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "异常示例",
+                    "value": {
+                      "msg": "入参获取异常",
+                      "fail": true,
+                      "trace": "x-35n54-1g7tsptm-q80rq7m7-09a856-1677568294",
+                      "code": "10000",
+                      "data": "config.app.AppSymbolDubboService.getEquityPremiumRate",
+                      "bizCode": "C",
+                      "tm": 2,
+                      "msgParams": null,
+                      "ok": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924952-run"
+      }
+    },
+    "/global/config.app.AppSymbolDubboService.findFundPage": {
+      "post": {
+        "summary": "基金简要信息查询",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "分页查询基金列表数据",
+        "operationId": "findFundPage",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "description": "当前页。默认1",
+                    "type": "integer"
+                  },
+                  "size": {
+                    "description": "每页条数。默认20",
+                    "type": "integer"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "搜索名称"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "current",
+                  "size",
+                  "name"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVoOpenFundsVo",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-96nr82-sv8ir-qc3q-95iw-1677567338",
+                      "code": "0",
+                      "data": {
+                        "total": 4,
+                        "current": 1,
+                        "size": 20,
+                        "records": [
+                          {
+                            "canPurchase": 1,
+                            "yearDays": 365,
+                            "shareTokenDigits": null,
+                            "redemptionCurrencySetting": [
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": 0.01,
+                                "currencyName": "USDT",
+                                "redemptionFeeProportion": 0.001,
+                                "currencyCode": "USDT"
+                              },
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": 0.01,
+                                "currencyName": null,
+                                "redemptionFeeProportion": 0.002,
+                                "currencyCode": "self"
+                              }
+                            ],
+                            "settlementCustomerNo": "86000336",
+                            "shareToken": 116,
+                            "managerName": "CATHY",
+                            "purchaseType": 2,
+                            "fundType": "INDEX",
+                            "operationMode": 2,
+                            "minRedemptionNum": null,
+                            "upDate": "2022-05-10",
+                            "customerId": 336,
+                            "preShare": "1000",
+                            "purchaseCurrencySetting": [
+                              {
+                                "currencyName": "USDT",
+                                "purchaseFeeProportion": 0.001,
+                                "minPurchaseAmount": null,
+                                "minPurchaseNum": 0.01,
+                                "currencyCode": "USDT"
+                              },
+                              {
+                                "currencyName": null,
+                                "purchaseFeeProportion": 0.002,
+                                "minPurchaseAmount": null,
+                                "minPurchaseNum": 0.01,
+                                "currencyCode": "self"
+                              }
+                            ],
+                            "introduction": "HAHAHAHHAHAHAHAHAHAHHAHAHAHAHAHAHHAHAHAHAHAHAHHAHAHAHAHAHAHHAHAHA",
+                            "fundCurrencyList": null,
+                            "settlementCustomerId": 337,
+                            "dailySettlementTime": 335,
+                            "purchaseFeeProportion": 0,
+                            "canRedemption": 1,
+                            "trackIndex": 2672,
+                            "settlementCompanyId": 360,
+                            "shareTokenCode": "qa001",
+                            "fundId": 270,
+                            "companyId": 360,
+                            "redemptionFeeProportion": 0,
+                            "trackIndexOut": null,
+                            "managementFee": 0.01,
+                            "newShare": "380227.580",
+                            "fundName": "QA001",
+                            "customerNo": "86000335"
+                          },
+                          {
+                            "canPurchase": 1,
+                            "yearDays": 365,
+                            "shareTokenDigits": null,
+                            "redemptionCurrencySetting": [
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": 0.1,
+                                "currencyName": "USDT",
+                                "redemptionFeeProportion": 0.01,
+                                "currencyCode": "USDT"
+                              },
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": 0.1,
+                                "currencyName": null,
+                                "redemptionFeeProportion": 0.02,
+                                "currencyCode": "self"
+                              }
+                            ],
+                            "settlementCustomerNo": "86000161",
+                            "shareToken": 111,
+                            "managerName": "CATHY",
+                            "purchaseType": 2,
+                            "fundType": "Index Fund",
+                            "operationMode": 2,
+                            "minRedemptionNum": 0.1,
+                            "upDate": "2022-01-01",
+                            "customerId": 273,
+                            "preShare": "350000",
+                            "purchaseCurrencySetting": [
+                              {
+                                "currencyName": "USDT",
+                                "purchaseFeeProportion": 0.01,
+                                "minPurchaseAmount": 10,
+                                "minPurchaseNum": 0.1,
+                                "currencyCode": "USDT"
+                              },
+                              {
+                                "currencyName": null,
+                                "purchaseFeeProportion": 0.02,
+                                "minPurchaseAmount": null,
+                                "minPurchaseNum": 0.01,
+                                "currencyCode": "self"
+                              }
+                            ],
+                            "introduction": "In 2017, our team successfully pioneered the first tokenized crypto-only index fund, which used the seed funding to buy the underlying crypto assets. There are no broker fees, no exit fees, no minimum investment and full control over your assets. Full blockchain transparency.",
+                            "fundCurrencyList": null,
+                            "settlementCustomerId": 162,
+                            "dailySettlementTime": 232,
+                            "purchaseFeeProportion": 0,
+                            "canRedemption": 1,
+                            "trackIndex": 1563,
+                            "settlementCompanyId": 360,
+                            "shareTokenCode": "V10",
+                            "fundId": 80,
+                            "companyId": 360,
+                            "redemptionFeeProportion": 0,
+                            "trackIndexOut": null,
+                            "managementFee": 0.02,
+                            "newShare": "391365.08",
+                            "fundName": "V10 Index Fund111",
+                            "customerNo": "86000272"
+                          },
+                          {
+                            "canPurchase": 1,
+                            "yearDays": null,
+                            "shareTokenDigits": null,
+                            "redemptionCurrencySetting": [
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": null,
+                                "currencyName": "USDT",
+                                "redemptionFeeProportion": null,
+                                "currencyCode": "USDT"
+                              }
+                            ],
+                            "settlementCustomerNo": "86001102",
+                            "shareToken": 127,
+                            "managerName": "CATHY",
+                            "purchaseType": 2,
+                            "fundType": "INDEX",
+                            "operationMode": 2,
+                            "minRedemptionNum": 1,
+                            "upDate": "2022-03-01",
+                            "customerId": 1102,
+                            "preShare": "300000",
+                            "purchaseCurrencySetting": [
+                              {
+                                "currencyName": "USDT",
+                                "purchaseFeeProportion": null,
+                                "minPurchaseAmount": 1,
+                                "minPurchaseNum": null,
+                                "currencyCode": "USDT"
+                              }
+                            ],
+                            "introduction": "22233311133",
+                            "fundCurrencyList": null,
+                            "settlementCustomerId": 1103,
+                            "dailySettlementTime": null,
+                            "purchaseFeeProportion": 0.01,
+                            "canRedemption": 1,
+                            "trackIndex": 1563,
+                            "settlementCompanyId": 360,
+                            "shareTokenCode": "QA004",
+                            "fundId": 170,
+                            "companyId": 360,
+                            "redemptionFeeProportion": 0.01,
+                            "trackIndexOut": null,
+                            "managementFee": null,
+                            "newShare": "10010176.14",
+                            "fundName": "QA004 FUND",
+                            "customerNo": "86001101"
+                          },
+                          {
+                            "canPurchase": 1,
+                            "yearDays": null,
+                            "shareTokenDigits": null,
+                            "redemptionCurrencySetting": [
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": null,
+                                "currencyName": "USDT",
+                                "redemptionFeeProportion": null,
+                                "currencyCode": "USDT"
+                              }
+                            ],
+                            "settlementCustomerNo": "86001048",
+                            "shareToken": 126,
+                            "managerName": "CATHY",
+                            "purchaseType": 2,
+                            "fundType": "INDEX",
+                            "operationMode": 2,
+                            "minRedemptionNum": 5,
+                            "upDate": "2022-03-01",
+                            "customerId": 1050,
+                            "preShare": "350000",
+                            "purchaseCurrencySetting": [
+                              {
+                                "currencyName": "USDT",
+                                "purchaseFeeProportion": null,
+                                "minPurchaseAmount": 5,
+                                "minPurchaseNum": null,
+                                "currencyCode": "USDT"
+                              }
+                            ],
+                            "introduction": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+                            "fundCurrencyList": null,
+                            "settlementCustomerId": 1049,
+                            "dailySettlementTime": null,
+                            "purchaseFeeProportion": 0.01,
+                            "canRedemption": 1,
+                            "trackIndex": 1563,
+                            "settlementCompanyId": 360,
+                            "shareTokenCode": "QA003",
+                            "fundId": 168,
+                            "companyId": 360,
+                            "redemptionFeeProportion": 0.02,
+                            "trackIndexOut": null,
+                            "managementFee": null,
+                            "newShare": "350018.47",
+                            "fundName": "QA003-FUND",
+                            "customerNo": "86001049"
+                          }
+                        ]
+                      },
+                      "bizCode": "",
+                      "tm": 168,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924953-run"
+      }
+    },
+    "/global/config.app.AppSymbolDubboService.findFundPageWithRealTimeInfo": {
+      "post": {
+        "summary": "基金详细信息查询",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "基金详细信息分页查询（带实时信息）",
+        "operationId": "findFundPageWithRealTimeInfo",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "properties": {
+                  "current": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "当前页。默认1"
+                  },
+                  "size": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "每页条数。默认20"
+                  },
+                  "name": {
+                    "description": "产品名称。支持模糊匹配",
+                    "type": "string"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "current",
+                  "size",
+                  "name"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVoOpenFundsVo",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-q72xki8-js43-s6c8dp-j1y3b-1677567565",
+                      "code": "0",
+                      "data": {
+                        "total": 4,
+                        "current": 1,
+                        "size": 20,
+                        "records": [
+                          {
+                            "canPurchase": 1,
+                            "marketPrice": "446.3875",
+                            "yearDays": 365,
+                            "redemptionCurrencySetting": [
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": 0.01,
+                                "currencyName": "USDT",
+                                "redemptionFeeProportion": 0.001,
+                                "currencyCode": "USDT"
+                              },
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": 0.01,
+                                "currencyName": null,
+                                "redemptionFeeProportion": 0.002,
+                                "currencyCode": "self"
+                              }
+                            ],
+                            "netValueChangeQuote": "0.00%",
+                            "settlementCustomerNo": "86000336",
+                            "shareToken": 116,
+                            "managerName": "CATHY",
+                            "purchaseType": 2,
+                            "fundType": "INDEX",
+                            "operationMode": 2,
+                            "minRedemptionNum": null,
+                            "upDate": "2022-05-10",
+                            "customerId": 336,
+                            "preShare": "1000",
+                            "purchaseCurrencySetting": [
+                              {
+                                "currencyName": "USDT",
+                                "purchaseFeeProportion": 0.001,
+                                "minPurchaseAmount": null,
+                                "minPurchaseNum": 0.01,
+                                "currencyCode": "USDT"
+                              },
+                              {
+                                "currencyName": null,
+                                "purchaseFeeProportion": 0.002,
+                                "minPurchaseAmount": null,
+                                "minPurchaseNum": 0.01,
+                                "currencyCode": "self"
+                              }
+                            ],
+                            "introduction": "HAHAHAHHAHAHAHAHAHAHHAHAHAHAHAHAHHAHAHAHAHAHAHHAHAHAHAHAHAHHAHAHA",
+                            "settlementCustomerId": 337,
+                            "dailySettlementTime": 335,
+                            "totalBalance": "1664144877.0021",
+                            "purchaseFeeProportion": 0,
+                            "netValue": "4376.7074",
+                            "canRedemption": 1,
+                            "trackIndex": 2672,
+                            "settlementCompanyId": 360,
+                            "shareTokenCode": "qa001",
+                            "fundId": 270,
+                            "companyId": 360,
+                            "redemptionFeeProportion": 0,
+                            "trackIndexOut": null,
+                            "managementFee": 0.01,
+                            "newShare": "380227.580",
+                            "fundName": "QA001",
+                            "currencyCode": "USDT",
+                            "customerNo": "86000335",
+                            "marketPriceChangeQuote": "0.00%"
+                          },
+                          {
+                            "canPurchase": 1,
+                            "marketPrice": "8.6838",
+                            "yearDays": 365,
+                            "redemptionCurrencySetting": [
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": 0.1,
+                                "currencyName": "USDT",
+                                "redemptionFeeProportion": 0.01,
+                                "currencyCode": "USDT"
+                              },
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": 0.1,
+                                "currencyName": null,
+                                "redemptionFeeProportion": 0.02,
+                                "currencyCode": "self"
+                              }
+                            ],
+                            "netValueChangeQuote": "-0.06%",
+                            "settlementCustomerNo": "86000161",
+                            "shareToken": 111,
+                            "managerName": "CATHY",
+                            "purchaseType": 2,
+                            "fundType": "Index Fund",
+                            "operationMode": 2,
+                            "minRedemptionNum": 0.1,
+                            "upDate": "2022-01-01",
+                            "customerId": 273,
+                            "preShare": "350000",
+                            "purchaseCurrencySetting": [
+                              {
+                                "currencyName": "USDT",
+                                "purchaseFeeProportion": 0.01,
+                                "minPurchaseAmount": 10,
+                                "minPurchaseNum": 0.1,
+                                "currencyCode": "USDT"
+                              },
+                              {
+                                "currencyName": null,
+                                "purchaseFeeProportion": 0.02,
+                                "minPurchaseAmount": null,
+                                "minPurchaseNum": 0.01,
+                                "currencyCode": "self"
+                              }
+                            ],
+                            "introduction": "In 2017, our team successfully pioneered the first tokenized crypto-only index fund, which used the seed funding to buy the underlying crypto assets. There are no broker fees, no exit fees, no minimum investment and full control over your assets. Full blockchain transparency.",
+                            "settlementCustomerId": 162,
+                            "dailySettlementTime": 232,
+                            "totalBalance": "6777080.4243",
+                            "purchaseFeeProportion": 0,
+                            "netValue": "17.3165",
+                            "canRedemption": 1,
+                            "trackIndex": 1563,
+                            "settlementCompanyId": 360,
+                            "shareTokenCode": "V10",
+                            "fundId": 80,
+                            "companyId": 360,
+                            "redemptionFeeProportion": 0,
+                            "trackIndexOut": null,
+                            "managementFee": 0.02,
+                            "newShare": "391365.08",
+                            "fundName": "V10 Index Fund111",
+                            "currencyCode": "USDT",
+                            "customerNo": "86000272",
+                            "marketPriceChangeQuote": "0.00%"
+                          },
+                          {
+                            "canPurchase": 1,
+                            "marketPrice": "0",
+                            "yearDays": null,
+                            "redemptionCurrencySetting": [
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": null,
+                                "currencyName": "USDT",
+                                "redemptionFeeProportion": null,
+                                "currencyCode": "USDT"
+                              }
+                            ],
+                            "netValueChangeQuote": "0.00%",
+                            "settlementCustomerNo": "86001102",
+                            "shareToken": 127,
+                            "managerName": "CATHY",
+                            "purchaseType": 2,
+                            "fundType": "INDEX",
+                            "operationMode": 2,
+                            "minRedemptionNum": 1,
+                            "upDate": "2022-03-01",
+                            "customerId": 1102,
+                            "preShare": "300000",
+                            "purchaseCurrencySetting": [
+                              {
+                                "currencyName": "USDT",
+                                "purchaseFeeProportion": null,
+                                "minPurchaseAmount": 1,
+                                "minPurchaseNum": null,
+                                "currencyCode": "USDT"
+                              }
+                            ],
+                            "introduction": "22233311133",
+                            "settlementCustomerId": 1103,
+                            "dailySettlementTime": null,
+                            "totalBalance": "10311481.9211",
+                            "purchaseFeeProportion": 0.01,
+                            "netValue": "1.0301",
+                            "canRedemption": 1,
+                            "trackIndex": 1563,
+                            "settlementCompanyId": 360,
+                            "shareTokenCode": "QA004",
+                            "fundId": 170,
+                            "companyId": 360,
+                            "redemptionFeeProportion": 0.01,
+                            "trackIndexOut": null,
+                            "managementFee": null,
+                            "newShare": "10010176.14",
+                            "fundName": "QA004 FUND",
+                            "currencyCode": "USDT",
+                            "customerNo": "86001101",
+                            "marketPriceChangeQuote": "-"
+                          },
+                          {
+                            "canPurchase": 1,
+                            "marketPrice": "0",
+                            "yearDays": null,
+                            "redemptionCurrencySetting": [
+                              {
+                                "minRedemptionAmount": null,
+                                "minRedemptionNum": null,
+                                "currencyName": "USDT",
+                                "redemptionFeeProportion": null,
+                                "currencyCode": "USDT"
+                              }
+                            ],
+                            "netValueChangeQuote": "0.00%",
+                            "settlementCustomerNo": "86001048",
+                            "shareToken": 126,
+                            "managerName": "CATHY",
+                            "purchaseType": 2,
+                            "fundType": "INDEX",
+                            "operationMode": 2,
+                            "minRedemptionNum": 5,
+                            "upDate": "2022-03-01",
+                            "customerId": 1050,
+                            "preShare": "350000",
+                            "purchaseCurrencySetting": [
+                              {
+                                "currencyName": "USDT",
+                                "purchaseFeeProportion": null,
+                                "minPurchaseAmount": 5,
+                                "minPurchaseNum": null,
+                                "currencyCode": "USDT"
+                              }
+                            ],
+                            "introduction": "1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111",
+                            "settlementCustomerId": 1049,
+                            "dailySettlementTime": null,
+                            "totalBalance": "370019.5346",
+                            "purchaseFeeProportion": 0.01,
+                            "netValue": "1.0571",
+                            "canRedemption": 1,
+                            "trackIndex": 1563,
+                            "settlementCompanyId": 360,
+                            "shareTokenCode": "QA003",
+                            "fundId": 168,
+                            "companyId": 360,
+                            "redemptionFeeProportion": 0.02,
+                            "trackIndexOut": null,
+                            "managementFee": null,
+                            "newShare": "350018.47",
+                            "fundName": "QA003-FUND",
+                            "currencyCode": "USDT",
+                            "customerNo": "86001049",
+                            "marketPriceChangeQuote": "-"
+                          }
+                        ]
+                      },
+                      "bizCode": "",
+                      "tm": 540,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924954-run"
+      }
+    },
+    "/global/config.app.AppSymbolDubboService.getFundInfo": {
+      "post": {
+        "summary": "基金详细信息",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "获取基金详细信息",
+        "operationId": "getFundInfo",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "properties": {
+                  "fundId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "基金ID"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "fundId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultOpenFundsVo",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-064821ac-4bcc-48a2-9c56-a5804f7ab766-1677566865076",
+                      "code": "0",
+                      "data": {
+                        "canPurchase": 1,
+                        "yearDays": 365,
+                        "shareTokenDigits": 6,
+                        "redemptionCurrencySetting": [
+                          {
+                            "minRedemptionAmount": null,
+                            "minRedemptionNum": 3,
+                            "currencyName": "USDT",
+                            "redemptionFeeProportion": 0,
+                            "currencyCode": "USDT"
+                          },
+                          {
+                            "minRedemptionAmount": null,
+                            "minRedemptionNum": 3,
+                            "currencyName": null,
+                            "redemptionFeeProportion": 0,
+                            "currencyCode": "self"
+                          }
+                        ],
+                        "settlementCustomerNo": "86000040",
+                        "shareToken": 64,
+                        "managerName": null,
+                        "purchaseType": 2,
+                        "fundType": null,
+                        "operationMode": 2,
+                        "minRedemptionNum": 500,
+                        "upDate": "2022-05-10",
+                        "customerId": 40,
+                        "preShare": "2000",
+                        "purchaseCurrencySetting": [
+                          {
+                            "currencyName": "USDT",
+                            "purchaseFeeProportion": 0,
+                            "minPurchaseAmount": 5000,
+                            "minPurchaseNum": 5,
+                            "currencyCode": "USDT"
+                          },
+                          {
+                            "currencyName": null,
+                            "purchaseFeeProportion": 0,
+                            "minPurchaseAmount": null,
+                            "minPurchaseNum": 5,
+                            "currencyCode": "self"
+                          }
+                        ],
+                        "introduction": "V10 index fund contains the top 10 cryptocurrencies, the underlying assets are adjusted by monthly according to their average daily volume within the past 120 days. It reflects the overall trend in cryptocurrency with asset transparency. With V10, you won't miss out on the fast-growing market.",
+                        "fundCurrencyList": [
+                          {
+                            "currencyName": "MATIC",
+                            "weight": "1.238902%",
+                            "currencyCode": "MATIC"
+                          },
+                          {
+                            "currencyName": "USDT",
+                            "weight": "0.183337%",
+                            "currencyCode": "USDT"
+                          },
+                          {
+                            "currencyName": "DOGE",
+                            "weight": "2.001659%",
+                            "currencyCode": "DOGE"
+                          },
+                          {
+                            "currencyName": "XRP",
+                            "weight": "2.130794%",
+                            "currencyCode": "XRP"
+                          },
+                          {
+                            "currencyName": "BTC",
+                            "weight": "65.762574%",
+                            "currencyCode": "BTC"
+                          },
+                          {
+                            "currencyName": "LTC",
+                            "weight": "1.376322%",
+                            "currencyCode": "LTC"
+                          },
+                          {
+                            "currencyName": "LINK",
+                            "weight": "0.746966%",
+                            "currencyCode": "LINK"
+                          },
+                          {
+                            "currencyName": "SOL",
+                            "weight": "2.268261%",
+                            "currencyCode": "SOL"
+                          },
+                          {
+                            "currencyName": "BNB",
+                            "weight": "1.903673%",
+                            "currencyCode": "BNB"
+                          },
+                          {
+                            "currencyName": "ETH",
+                            "weight": "21.557723%",
+                            "currencyCode": "ETH"
+                          },
+                          {
+                            "currencyName": "ADA",
+                            "weight": "0.829790%",
+                            "currencyCode": "ADA"
+                          }
+                        ],
+                        "settlementCustomerId": 41,
+                        "dailySettlementTime": 0,
+                        "purchaseFeeProportion": 0,
+                        "canRedemption": 1,
+                        "trackIndex": 365,
+                        "settlementCompanyId": 14,
+                        "shareTokenCode": "V10",
+                        "companyId": 14,
+                        "fundId": 88,
+                        "redemptionFeeProportion": 0,
+                        "managementFee": 0,
+                        "trackIndexOut": null,
+                        "newShare": "2001.000006",
+                        "fundName": "V10",
+                        "customerNo": "86000039"
+                      },
+                      "bizCode": "",
+                      "tm": 65,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  },
+                  "2": {
+                    "summary": "异常示例",
+                    "value": {
+                      "msg": "System error",
+                      "fail": true,
+                      "trace": "x-5f15b0-6thqc8q-xh3c2-s79bcxk-1677566752",
+                      "code": "300",
+                      "data": "config.app.AppSymbolDubboService.getFundInfo",
+                      "bizCode": "",
+                      "tm": 4,
+                      "msgParams": null,
+                      "ok": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924955-run"
+      }
+    },
+    "/global/config.app.AppSymbolDubboService.getFundInfoByCustomerNo": {
+      "post": {
+        "summary": "基金详细信息查询-基金经理",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "根据基金经理获取基金详情\n",
+        "operationId": "getFundInfoByCustomerNo",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "en-US",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "customerNo"
+                ],
+                "required": [
+                  "customerNo"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultOpenFundsVo",
+                  "x-apifox-overrides": {}
+                },
+                "examples": {
+                  "1": {
+                    "summary": "异常示例",
+                    "value": {
+                      "msg": "System error",
+                      "fail": true,
+                      "trace": "x-o15020-u0jbkce-nb9ubv6-so3hd8v-1677634799",
+                      "code": "300",
+                      "data": "config.app.AppSymbolDubboService.getFundInfoByCustomerNo",
+                      "bizCode": "",
+                      "tm": 6,
+                      "msgParams": null,
+                      "ok": false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924956-run"
+      }
+    },
+    "/global/config.app.AppSymbolDubboService.getSymbolBaseList": {
+      "post": {
+        "summary": "产品简要数据",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolBaseList\n查询产品信息，包括基础产品以及简要交易参数，例如小数位、成交模式等信息\n游客可访问",
+        "operationId": "getSymbolBaseList",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SearchSymbolBaseDto",
+                "x-apifox-overrides": {}
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultListSymbolInfoVo"
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-qfx13-8z5850-mf4l657-gkqbn-1677563999",
+                      "code": "0",
+                      "data": [
+                        {
+                          "symbolId": 1061,
+                          "pointRatio": 0,
+                          "customerGroupIds": null,
+                          "dealMode": 4,
+                          "baseCurrency": "DOGE",
+                          "bidSpread": "0",
+                          "labels": "cryptocurrency",
+                          "symbolGroupIds": null,
+                          "enableShortLoan": 0,
+                          "symbolCode": "DOGE/USDT-BN-TG",
+                          "fundId": null,
+                          "etf": false,
+                          "enableLongLoan": 0,
+                          "dividend": 0,
+                          "profitCurrency": "USDT",
+                          "symbolName": "DOGE/USDT-BN-TG",
+                          "sortNum": 292,
+                          "symbolDigits": 4,
+                          "askSpread": "0",
+                          "tradeType": 5
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 955,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924957-run"
+      }
+    },
+    "/global/config.app.AppSymbolDubboService.getSymbolDetail": {
+      "post": {
+        "summary": "产品详细数据",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolDetail\n获取产品配置详细交易参数\n游客可访问",
+        "operationId": "getSymbolDetail",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID，通过环境变量获取",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "随机跟踪码UUID",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "登录token",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "语言",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "玩法ID"
+                  },
+                  "symbolId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "产品ID"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "tradeType",
+                  "symbolId"
+                ],
+                "required": [
+                  "tradeType",
+                  "symbolId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-apifox-overrides": {},
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "tradeType": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "玩法"
+                        },
+                        "symbolId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "产品Id"
+                        },
+                        "symbolName": {
+                          "type": "string",
+                          "description": "产品名称"
+                        },
+                        "symbolCode": {
+                          "type": "string",
+                          "description": "产品代码"
+                        },
+                        "baseCurrency": {
+                          "type": "string",
+                          "description": "基础货币"
+                        },
+                        "profitCurrency": {
+                          "type": "string",
+                          "description": "盈亏货币"
+                        },
+                        "symbolDigits": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "产品小数位"
+                        },
+                        "numberDigits": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "数量小数位"
+                        },
+                        "priceBreadth": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "价格广度"
+                        },
+                        "earlyWarningProportion": {
+                          "type": "number",
+                          "description": "预警比例"
+                        },
+                        "askSpread": {
+                          "type": "number",
+                          "description": "ASK点差"
+                        },
+                        "bidSpread": {
+                          "type": "number",
+                          "description": "BID点差"
+                        },
+                        "marginType": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "保证金计算公式"
+                        },
+                        "marginInfo": {
+                          "x-apifox-overrides": {},
+                          "description": "保证金信息",
+                          "type": "object",
+                          "properties": {
+                            "type": {
+                              "type": "string",
+                              "description": "类型(1:保证金比例，2：杠杆范围)"
+                            },
+                            "values": {
+                              "type": "string",
+                              "description": "数值"
+                            },
+                            "marginVoList": {
+                              "type": "array",
+                              "description": "明细",
+                              "items": {
+                                "type": "object",
+                                "x-apifox-refs": {
+                                  "01GTKEESNJDQCQZGKC6RGATERC": {
+                                    "$ref": "#/components/schemas/MarginInfo",
+                                    "x-apifox-overrides": {
+                                      "type": {
+                                        "type": "string",
+                                        "description": "类型类型(1:保证金比例，2：杠杆范围)"
+                                      }
+                                    },
+                                    "required": []
+                                  }
+                                },
+                                "x-apifox-orders": [
+                                  "01GTKEESNJDQCQZGKC6RGATERC"
+                                ],
+                                "properties": {
+                                  "id": {
+                                    "type": "string",
+                                    "description": "保证金ID"
+                                  },
+                                  "groupId": {
+                                    "type": "integer",
+                                    "format": "int64",
+                                    "description": "保证金组ID"
+                                  },
+                                  "type": {
+                                    "type": "string",
+                                    "description": "类型类型(1:保证金比例，2：杠杆范围)"
+                                  },
+                                  "values": {
+                                    "type": "string",
+                                    "description": "数值"
+                                  },
+                                  "rangeLeft": {
+                                    "type": "number",
+                                    "description": "范围开始"
+                                  },
+                                  "rangeRight": {
+                                    "type": "number",
+                                    "description": "范围结束"
+                                  },
+                                  "percent": {
+                                    "type": "number",
+                                    "description": "万分比"
+                                  }
+                                },
+                                "x-apifox-ignore-properties": [
+                                  "id",
+                                  "groupId",
+                                  "type",
+                                  "values",
+                                  "rangeLeft",
+                                  "rangeRight",
+                                  "percent"
+                                ]
+                              }
+                            }
+                          },
+                          "x-apifox-refs": {},
+                          "x-apifox-orders": [
+                            "type",
+                            "values",
+                            "marginVoList"
+                          ],
+                          "x-apifox-ignore-properties": []
+                        },
+                        "dailyMarginSet": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/MarginSet",
+                            "x-apifox-overrides": {}
+                          },
+                          "description": "平日保证金层级"
+                        },
+                        "holidayMarginSet": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/MarginSet",
+                            "x-apifox-overrides": {}
+                          },
+                          "description": "假期保证金层级"
+                        },
+                        "weekendMarginSet": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/MarginSet",
+                            "x-apifox-overrides": {}
+                          },
+                          "description": "周末保证金层级"
+                        },
+                        "beforeHolidayMarginSet": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/MarginSet",
+                            "x-apifox-overrides": {}
+                          },
+                          "description": "假期前保证金比例"
+                        },
+                        "beforeWeekendMarginSet": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/MarginSet",
+                            "x-apifox-overrides": {}
+                          },
+                          "description": "周末前保证金比例"
+                        },
+                        "usedMarginSet": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/MarginSet",
+                            "x-apifox-overrides": {}
+                          },
+                          "description": "当前使用保证金比例"
+                        },
+                        "tradeTimeList": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/TradeTime",
+                            "x-apifox-overrides": {}
+                          },
+                          "description": "交易时间"
+                        },
+                        "quoteTimeList": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/QuoteTime",
+                            "x-apifox-overrides": {}
+                          },
+                          "description": "行情时间"
+                        },
+                        "holidayTimeList": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/HolidayTime",
+                            "x-apifox-overrides": {}
+                          },
+                          "description": "假期时间"
+                        },
+                        "weekendLeadTime": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "周末提前时间（分）"
+                        },
+                        "holidayLeadTime": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "假期提前时间（分）"
+                        },
+                        "contractSize": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "合约大小"
+                        },
+                        "pointRatio": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "大点比率"
+                        },
+                        "volumeStep": {
+                          "type": "number",
+                          "description": "手数步长"
+                        },
+                        "minVolume": {
+                          "type": "number",
+                          "description": "单边最小手数"
+                        },
+                        "maxVolume": {
+                          "type": "number",
+                          "description": "单边最大手数"
+                        },
+                        "stopLossMinPoint": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "止损最小距离"
+                        },
+                        "stopLossMaxPoint": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "止损最大距离"
+                        },
+                        "buyInterest": {
+                          "type": "number",
+                          "description": "买入隔夜利息"
+                        },
+                        "sellInterest": {
+                          "type": "number",
+                          "description": "卖出隔夜利息"
+                        },
+                        "priceMaxLimit": {
+                          "type": "number",
+                          "description": "限价最大距离"
+                        },
+                        "priceMinLimit": {
+                          "type": "number",
+                          "description": "限价最小距离"
+                        },
+                        "eodTime": {
+                          "type": "string",
+                          "description": "结息时间"
+                        },
+                        "feeMethod": {
+                          "type": "string",
+                          "description": "手续费收取方式"
+                        },
+                        "feeFormula": {
+                          "type": "string",
+                          "description": "手续费计算公式"
+                        },
+                        "feeRate": {
+                          "type": "number",
+                          "description": "手续费率"
+                        },
+                        "fee": {
+                          "type": "number",
+                          "description": "手续费"
+                        },
+                        "startTime": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "产品开始时间"
+                        },
+                        "endTime": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "产品到期时间"
+                        },
+                        "leverRatio": {
+                          "type": "string",
+                          "description": "杠杆倍数"
+                        },
+                        "borrowingLimitRatio": {
+                          "type": "number",
+                          "description": "限制借款比例"
+                        },
+                        "multipleFreezeRatio": {
+                          "type": "number",
+                          "description": "多冻比例"
+                        },
+                        "transferLimitRatio": {
+                          "type": "number",
+                          "description": "限制划出资产比例"
+                        },
+                        "borrowInterestList": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/BorrowInterest"
+                          },
+                          "description": "借款利息"
+                        },
+                        "borrowLimitList": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/BorrowLimit"
+                          },
+                          "description": "借款限额"
+                        },
+                        "borrowStatusList": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/BorrowStatus"
+                          },
+                          "description": "借款产品"
+                        },
+                        "totalCredit": {
+                          "type": "number",
+                          "description": "总授信"
+                        },
+                        "dealMode": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "成交模式"
+                        },
+                        "etf": {
+                          "type": "boolean",
+                          "description": "是否是ETF"
+                        },
+                        "fundId": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "关联基金ID"
+                        },
+                        "tradeEnable": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "是否可交易"
+                        },
+                        "newShare": {
+                          "type": "string",
+                          "description": "最新份额"
+                        },
+                        "labels": {
+                          "type": "string",
+                          "description": "标签"
+                        },
+                        "labelList": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/DictVO"
+                          },
+                          "description": "标签列表"
+                        },
+                        "minTradeUnit": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "最小交易单位（股/每手）"
+                        },
+                        "tradeDirection": {
+                          "type": "string",
+                          "description": "交易方向"
+                        },
+                        "wholeYearDays": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "全年天数"
+                        },
+                        "accountReset": {
+                          "type": "string",
+                          "description": "账户清零"
+                        },
+                        "accountPositionTotalVolumes": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "账户持仓总手数"
+                        },
+                        "withdrawalRatio": {
+                          "type": "number",
+                          "description": "取款比例"
+                        },
+                        "enableShortLoan": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "是否可融券"
+                        },
+                        "enableLongLoan": {
+                          "type": "integer",
+                          "format": "int32",
+                          "description": "是否可融资"
+                        },
+                        "accountDayLeverageRatio": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "账户日内杠杆倍数"
+                        },
+                        "accountOvernightLeverageRatio": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "账户日内杠杆倍数"
+                        },
+                        "buyMaxPositionVolumes": {
+                          "type": "number",
+                          "description": "买入最大持仓手数"
+                        },
+                        "sellMaxPositionVolumes": {
+                          "type": "number",
+                          "description": "卖出最大持仓手数"
+                        },
+                        "minFee": {
+                          "type": "number",
+                          "description": "最低手续费金额"
+                        },
+                        "maxFee": {
+                          "type": "number",
+                          "description": "最高手续费金额"
+                        },
+                        "daytimeBuyInitMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "daytimeBuyRemainingMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "daytimeBuyAlarmMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "daytimeSellInitMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "daytimeSellRemainingMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "daytimeSellAlarmMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "overnightBuyInitMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "overnightBuyRemainingMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "overnightBuyAlarmMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "overnightSellInitMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "overnightSellRemainingMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "overnightSellAlarmMarginRatio": {
+                          "$ref": "#/components/schemas/MarginSet",
+                          "x-apifox-overrides": {}
+                        },
+                        "overnightInAdvance": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "隔夜提前时间（分）"
+                        },
+                        "longLoanYearRatio": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/BorrowAssetsInterest"
+                          },
+                          "description": "融资年利息率"
+                        },
+                        "shortLoanYearRatio": {
+                          "type": "number",
+                          "description": "融券年利息率"
+                        },
+                        "liquidationFormula": {
+                          "type": "string",
+                          "description": "强平计算公式"
+                        },
+                        "netAssetCurrency": {
+                          "type": "string",
+                          "description": "净资产币种"
+                        },
+                        "limitOrderMaxVolume": {
+                          "type": "integer",
+                          "format": "int64",
+                          "description": "限价订单最大数量"
+                        },
+                        "enableReverseTrade": {
+                          "type": "string",
+                          "description": "是否支持反方向同时交易"
+                        },
+                        "dividendFee": {
+                          "type": "number",
+                          "description": "派息费用(按比例)"
+                        },
+                        "minDividendFee": {
+                          "type": "number",
+                          "description": "最低派息费用"
+                        },
+                        "corporateActionCode": {
+                          "type": "string",
+                          "description": "公司行动临时代码"
+                        },
+                        "dividendFutureInfos": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/DividendInfo"
+                          },
+                          "description": "公司未来行动"
+                        },
+                        "dividendPastInfos": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/DividendInfo"
+                          },
+                          "description": "公司过去行动"
+                        },
+                        "stockStatus": {
+                          "type": "string",
+                          "description": "股票状态（TRADING/CLOSED）"
+                        }
+                      },
+                      "x-apifox-refs": {},
+                      "x-apifox-orders": [
+                        "tradeType",
+                        "symbolId",
+                        "symbolName",
+                        "symbolCode",
+                        "baseCurrency",
+                        "profitCurrency",
+                        "symbolDigits",
+                        "numberDigits",
+                        "priceBreadth",
+                        "earlyWarningProportion",
+                        "askSpread",
+                        "bidSpread",
+                        "marginType",
+                        "marginInfo",
+                        "dailyMarginSet",
+                        "holidayMarginSet",
+                        "weekendMarginSet",
+                        "beforeHolidayMarginSet",
+                        "beforeWeekendMarginSet",
+                        "usedMarginSet",
+                        "tradeTimeList",
+                        "quoteTimeList",
+                        "holidayTimeList",
+                        "weekendLeadTime",
+                        "holidayLeadTime",
+                        "contractSize",
+                        "pointRatio",
+                        "volumeStep",
+                        "minVolume",
+                        "maxVolume",
+                        "stopLossMinPoint",
+                        "stopLossMaxPoint",
+                        "buyInterest",
+                        "sellInterest",
+                        "priceMaxLimit",
+                        "priceMinLimit",
+                        "eodTime",
+                        "feeMethod",
+                        "feeFormula",
+                        "feeRate",
+                        "fee",
+                        "startTime",
+                        "endTime",
+                        "leverRatio",
+                        "borrowingLimitRatio",
+                        "multipleFreezeRatio",
+                        "transferLimitRatio",
+                        "borrowInterestList",
+                        "borrowLimitList",
+                        "borrowStatusList",
+                        "totalCredit",
+                        "dealMode",
+                        "etf",
+                        "fundId",
+                        "tradeEnable",
+                        "newShare",
+                        "labels",
+                        "labelList",
+                        "minTradeUnit",
+                        "tradeDirection",
+                        "wholeYearDays",
+                        "accountReset",
+                        "accountPositionTotalVolumes",
+                        "withdrawalRatio",
+                        "enableShortLoan",
+                        "enableLongLoan",
+                        "accountDayLeverageRatio",
+                        "accountOvernightLeverageRatio",
+                        "buyMaxPositionVolumes",
+                        "sellMaxPositionVolumes",
+                        "minFee",
+                        "maxFee",
+                        "daytimeBuyInitMarginRatio",
+                        "daytimeBuyRemainingMarginRatio",
+                        "daytimeBuyAlarmMarginRatio",
+                        "daytimeSellInitMarginRatio",
+                        "daytimeSellRemainingMarginRatio",
+                        "daytimeSellAlarmMarginRatio",
+                        "overnightBuyInitMarginRatio",
+                        "overnightBuyRemainingMarginRatio",
+                        "overnightBuyAlarmMarginRatio",
+                        "overnightSellInitMarginRatio",
+                        "overnightSellRemainingMarginRatio",
+                        "overnightSellAlarmMarginRatio",
+                        "overnightInAdvance",
+                        "longLoanYearRatio",
+                        "shortLoanYearRatio",
+                        "liquidationFormula",
+                        "netAssetCurrency",
+                        "limitOrderMaxVolume",
+                        "enableReverseTrade",
+                        "dividendFee",
+                        "minDividendFee",
+                        "corporateActionCode",
+                        "dividendFutureInfos",
+                        "dividendPastInfos",
+                        "stockStatus"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-1751c-o767es-mxt8e-23ui-1677565011",
+                      "code": "0",
+                      "data": {
+                        "weekendLeadTime": null,
+                        "marginInfo": null,
+                        "longLoanYearRatio": null,
+                        "withdrawalRatio": null,
+                        "maxFee": null,
+                        "accountDayLeverageRatio": 0,
+                        "eodTime": null,
+                        "tradeEnable": 1,
+                        "holidayLeadTime": null,
+                        "priceMinLimit": null,
+                        "accountOvernightLeverageRatio": 0,
+                        "feeMethod": null,
+                        "accountPositionTotalVolumes": 0,
+                        "askSpread": null,
+                        "sellInterest": null,
+                        "daytimeBuyAlarmMarginRatio": null,
+                        "netAssetCurrency": null,
+                        "daytimeSellInitMarginRatio": null,
+                        "enableReverseTrade": null,
+                        "minFee": null,
+                        "labels": null,
+                        "borrowInterestList": null,
+                        "overnightSellRemainingMarginRatio": null,
+                        "dailyMarginSet": null,
+                        "numberDigits": 2,
+                        "symbolId": null,
+                        "dealMode": 3,
+                        "stopLossMinPoint": null,
+                        "wholeYearDays": 0,
+                        "beforeWeekendMarginSet": null,
+                        "feeRate": 0.01,
+                        "usedMarginSet": null,
+                        "earlyWarningProportion": 0.002,
+                        "tradeTimeList": [
+                          {
+                            "dayOfWeek": 7,
+                            "startTime": 0,
+                            "endTime": 1439
+                          },
+                          {
+                            "dayOfWeek": 4,
+                            "startTime": 0,
+                            "endTime": 1439
+                          },
+                          {
+                            "dayOfWeek": 6,
+                            "startTime": 0,
+                            "endTime": 1380
+                          },
+                          {
+                            "dayOfWeek": 1,
+                            "startTime": 0,
+                            "endTime": 1439
+                          },
+                          {
+                            "dayOfWeek": 3,
+                            "startTime": 0,
+                            "endTime": 1439
+                          },
+                          {
+                            "dayOfWeek": 5,
+                            "startTime": 0,
+                            "endTime": 1439
+                          },
+                          {
+                            "dayOfWeek": 2,
+                            "startTime": 0,
+                            "endTime": 1440
+                          }
+                        ],
+                        "startTime": null,
+                        "contractSize": null,
+                        "tradeType": 5,
+                        "daytimeSellAlarmMarginRatio": null,
+                        "buyMaxPositionVolumes": null,
+                        "accountReset": null,
+                        "symbolCode": null,
+                        "labelList": null,
+                        "fundId": null,
+                        "volumeStep": 1,
+                        "holidayTimeList": [
+                          {
+                            "startTime": 1629279900334,
+                            "endTime": 1629280200334
+                          }
+                        ],
+                        "leverRatio": "1",
+                        "marginType": 0,
+                        "newShare": null,
+                        "minVolume": 1,
+                        "endTime": null,
+                        "priceBreadth": 5,
+                        "corporateActionCode": null,
+                        "minTradeUnit": 0,
+                        "overnightSellAlarmMarginRatio": null,
+                        "borrowStatusList": null,
+                        "fee": null,
+                        "daytimeBuyRemainingMarginRatio": null,
+                        "borrowingLimitRatio": 0.009,
+                        "etf": false,
+                        "stockStatus": null,
+                        "dividendFutureInfos": null,
+                        "symbolName": null,
+                        "shortLoanYearRatio": null,
+                        "stopLossMaxPoint": null,
+                        "daytimeBuyInitMarginRatio": null,
+                        "overnightSellInitMarginRatio": null,
+                        "buyInterest": null,
+                        "priceMaxLimit": null,
+                        "sellMaxPositionVolumes": null,
+                        "minDividendFee": null,
+                        "dividendPastInfos": null,
+                        "bidSpread": null,
+                        "liquidationFormula": null,
+                        "multipleFreezeRatio": 0.01,
+                        "beforeHolidayMarginSet": null,
+                        "overnightBuyRemainingMarginRatio": null,
+                        "overnightInAdvance": 0,
+                        "profitCurrency": null,
+                        "transferLimitRatio": 0,
+                        "daytimeSellRemainingMarginRatio": null,
+                        "overnightBuyAlarmMarginRatio": null,
+                        "symbolDigits": 1,
+                        "limitOrderMaxVolume": 0,
+                        "overnightBuyInitMarginRatio": null,
+                        "baseCurrency": null,
+                        "enableShortLoan": 0,
+                        "borrowLimitList": null,
+                        "quoteTimeList": [
+                          {
+                            "dayOfWeek": 4,
+                            "startTime": 0,
+                            "endTime": 1440
+                          },
+                          {
+                            "dayOfWeek": 2,
+                            "startTime": 0,
+                            "endTime": 1440
+                          },
+                          {
+                            "dayOfWeek": 5,
+                            "startTime": 0,
+                            "endTime": 1440
+                          },
+                          {
+                            "dayOfWeek": 7,
+                            "startTime": 0,
+                            "endTime": 1440
+                          },
+                          {
+                            "dayOfWeek": 1,
+                            "startTime": 0,
+                            "endTime": 1440
+                          },
+                          {
+                            "dayOfWeek": 3,
+                            "startTime": 0,
+                            "endTime": 1440
+                          },
+                          {
+                            "dayOfWeek": 6,
+                            "startTime": 0,
+                            "endTime": 1440
+                          }
+                        ],
+                        "pointRatio": 0,
+                        "totalCredit": null,
+                        "maxVolume": 1,
+                        "feeFormula": "1",
+                        "tradeDirection": null,
+                        "dividendFee": null,
+                        "weekendMarginSet": null,
+                        "enableLongLoan": 0,
+                        "holidayMarginSet": null
+                      },
+                      "bizCode": "",
+                      "tm": 27,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924959-run"
+      }
+    },
+    "/global/config.app.AppSymbolDubboService.getSymbolList": {
+      "post": {
+        "summary": "产品基础数据",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "bizType=config.app.AppSymbolDubboService.getSymbolList\n查询基础产品信息，支持客户组以及产品名称/code模糊查询\n游客可访问",
+        "operationId": "getSymbolList",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "lang",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "zh-CN",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "",
+            "required": false,
+            "example": "{{LoginResult.data.token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "x-apifox-overrides": {},
+                "type": "object",
+                "properties": {
+                  "tradeType": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "玩法ID"
+                  },
+                  "customerGroupId": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "客户组ID"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "产品名称或者Code"
+                  }
+                },
+                "x-apifox-refs": {},
+                "x-apifox-orders": [
+                  "tradeType",
+                  "customerGroupId",
+                  "name"
+                ],
+                "required": [
+                  "tradeType",
+                  "customerGroupId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "x-apifox-overrides": {},
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "description": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "type": "array",
+                      "description": "数据体",
+                      "items": {
+                        "x-apifox-overrides": {},
+                        "type": "object",
+                        "x-apifox-refs": {},
+                        "x-apifox-orders": [
+                          "id",
+                          "status",
+                          "name",
+                          "code",
+                          "baseCurrency",
+                          "profitCurrency",
+                          "sourceId",
+                          "tradeTypes"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "integer",
+                            "format": "int64",
+                            "description": "主键id"
+                          },
+                          "status": {
+                            "type": "integer",
+                            "format": "int32",
+                            "description": "状态 1、2、3、启用、禁用、删除"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "交易产品名称"
+                          },
+                          "code": {
+                            "type": "string",
+                            "description": "交易产品代码"
+                          },
+                          "baseCurrency": {
+                            "type": "string",
+                            "description": "基础货币"
+                          },
+                          "profitCurrency": {
+                            "type": "string",
+                            "description": "盈利货币"
+                          },
+                          "sourceId": {
+                            "type": "string",
+                            "description": "行情源"
+                          },
+                          "tradeTypes": {
+                            "type": "string",
+                            "description": "支持玩法数组"
+                          }
+                        },
+                        "x-apifox-ignore-properties": []
+                      }
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    }
+                  },
+                  "x-apifox-refs": {},
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data",
+                    "ok",
+                    "fail"
+                  ],
+                  "x-apifox-ignore-properties": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "游客_成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "x-6320jq-ngjyr-99cmjy51-y7q16p-1677564664",
+                      "code": "0",
+                      "data": [
+                        {
+                          "sourceId": "UNISWAP_V3_USDC_WETH",
+                          "code": "USDC_WETH",
+                          "tradeTypes": null,
+                          "etf": false,
+                          "name": "USDC_WETH",
+                          "profitCurrency": "ETH",
+                          "id": 6327,
+                          "baseCurrency": "USDC",
+                          "status": 1
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 4,
+                      "msgParams": null,
+                      "ok": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-64924960-run"
+      }
+    },
+    "/geoip/country": {
+      "get": {
+        "summary": "获取当前服务时间",
+        "x-apifox-folder": "基础数据",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "获取当前服务时间",
+        "tags": [
+          "基础数据"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "string",
+                      "description": "系统通用返回码。0-成功，其他异常"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "description": "返回信息"
+                    },
+                    "bizCode": {
+                      "type": "string",
+                      "description": "模块标识码"
+                    },
+                    "tm": {
+                      "type": "string",
+                      "description": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "description": "全局链路标志信息"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "description": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "data": {
+                      "description": "时间戳，13位",
+                      "type": "integer"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "code",
+                    "msg",
+                    "bizCode",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "required": [
+                    "code",
+                    "msg",
+                    "bizCode",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "data"
+                  ],
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65732847-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DividendInfo": {
+        "type": "object",
+        "properties": {
+          "dividendSymbolName": {
+            "type": "string",
+            "description": "派息股票名称"
+          },
+          "dividendCurrency": {
+            "type": "string",
+            "description": "派息币种"
+          },
+          "dividendDate": {
+            "type": "integer",
+            "format": "int64",
+            "description": "行动日期"
+          },
+          "dividendLeft": {
+            "type": "string",
+            "description": "行动类型参数值"
+          },
+          "dividendRight": {
+            "type": "string",
+            "description": "行动类型参数值"
+          },
+          "dividendActionType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "行动类型"
+          },
+          "actionInfo": {
+            "type": "string",
+            "description": "行动信息"
+          }
+        },
+        "x-apifox-orders": [
+          "dividendSymbolName",
+          "dividendCurrency",
+          "dividendDate",
+          "dividendLeft",
+          "dividendRight",
+          "dividendActionType",
+          "actionInfo"
+        ],
+        "x-apifox-folder": "Schemas",
+        "description": "公司行动",
+        "x-apifox-ignore-properties": []
+      },
+      "BorrowAssetsInterest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID"
+          },
+          "borrowInterestGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "借款利息分组ID"
+          },
+          "assetsId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "资产ID"
+          },
+          "value": {
+            "type": "number",
+            "description": "借款利息率"
+          },
+          "assetCode": {
+            "type": "string",
+            "description": "资产CODE"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "borrowInterestGroupId",
+          "assetsId",
+          "value",
+          "assetCode"
+        ],
+        "x-apifox-folder": "Schemas",
+        "description": "借款利息率",
+        "x-apifox-ignore-properties": []
+      },
+      "DictVO": {
+        "type": "object",
+        "properties": {
+          "parentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "上级ID"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "name": {
+            "type": "string",
+            "description": "字典名称"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "显示名称"
+          },
+          "nameTw": {
+            "type": "string",
+            "description": "字典名称TW"
+          },
+          "nameEn": {
+            "type": "string",
+            "description": "字典名称EN"
+          },
+          "code": {
+            "type": "string",
+            "description": "字典代码"
+          },
+          "parentCode": {
+            "type": "string",
+            "description": "上级代码"
+          },
+          "sort": {
+            "type": "integer",
+            "format": "int32",
+            "description": "排序"
+          },
+          "showType": {
+            "type": "string",
+            "description": "字典显示类型"
+          },
+          "extend": {
+            "type": "string",
+            "description": "扩展属性"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "hasLeaf": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否有子节点"
+          }
+        },
+        "x-apifox-orders": [
+          "parentId",
+          "id",
+          "name",
+          "displayName",
+          "nameTw",
+          "nameEn",
+          "code",
+          "parentCode",
+          "sort",
+          "showType",
+          "extend",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "hasLeaf"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BorrowStatus": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID"
+          },
+          "borrowStatusGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "资产是否可借分组ID"
+          },
+          "assetsId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "资产ID"
+          },
+          "value": {
+            "type": "integer",
+            "format": "int32",
+            "description": "资产是否可借 1、2、是、否"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "borrowStatusGroupId",
+          "assetsId",
+          "value"
+        ],
+        "x-apifox-folder": "Schemas",
+        "description": "资产是否可借",
+        "x-apifox-ignore-properties": []
+      },
+      "BorrowLimit": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID"
+          },
+          "borrowListGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "借款利息分组ID"
+          },
+          "assetsId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "资产ID"
+          },
+          "value": {
+            "type": "number",
+            "description": "最大借款限额"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "borrowListGroupId",
+          "assetsId",
+          "value"
+        ],
+        "x-apifox-folder": "Schemas",
+        "description": "最大借款限额",
+        "x-apifox-ignore-properties": []
+      },
+      "BorrowInterest": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "ID"
+          },
+          "borrowInterestGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "借款利息分组ID"
+          },
+          "assetsId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "资产ID"
+          },
+          "value": {
+            "type": "number",
+            "description": "借款利息率"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "borrowInterestGroupId",
+          "assetsId",
+          "value"
+        ],
+        "x-apifox-folder": "Schemas",
+        "description": "借款利息率",
+        "x-apifox-ignore-properties": []
+      },
+      "HolidayTime": {
+        "type": "object",
+        "properties": {
+          "startTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "开始时间，13位时间戳"
+          },
+          "endTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "结束时间，13位时间戳"
+          }
+        },
+        "x-apifox-orders": [
+          "startTime",
+          "endTime"
+        ],
+        "x-apifox-folder": "Schemas",
+        "description": "假期时间",
+        "x-apifox-ignore-properties": []
+      },
+      "QuoteTime": {
+        "type": "object",
+        "properties": {
+          "dayOfWeek": {
+            "type": "integer",
+            "format": "int32",
+            "description": "周几，1-7  星期一至星期日"
+          },
+          "startTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "开始时间，单位秒"
+          },
+          "endTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "结束时间，单位秒"
+          }
+        },
+        "x-apifox-orders": [
+          "dayOfWeek",
+          "startTime",
+          "endTime"
+        ],
+        "x-apifox-folder": "Schemas",
+        "description": "行情时间",
+        "x-apifox-ignore-properties": []
+      },
+      "TradeTime": {
+        "type": "object",
+        "properties": {
+          "dayOfWeek": {
+            "type": "integer",
+            "format": "int32",
+            "description": "周几，1-7  星期一至星期日"
+          },
+          "startTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "开始时间，单位秒"
+          },
+          "endTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "结束时间，单位秒"
+          }
+        },
+        "x-apifox-orders": [
+          "dayOfWeek",
+          "startTime",
+          "endTime"
+        ],
+        "x-apifox-folder": "Schemas",
+        "description": "交易时间",
+        "x-apifox-ignore-properties": []
+      },
+      "MarginSet": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "保证金ID"
+          },
+          "groupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "保证金组ID"
+          },
+          "rangeLeft": {
+            "type": "number",
+            "description": "范围开始"
+          },
+          "rangeRight": {
+            "type": "number",
+            "description": "范围结束"
+          },
+          "percent": {
+            "type": "number",
+            "description": "万分比"
+          },
+          "type": {
+            "type": "string",
+            "description": "类型"
+          },
+          "values": {
+            "type": "string",
+            "description": "数值"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "groupId",
+          "rangeLeft",
+          "rangeRight",
+          "percent",
+          "type",
+          "values"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "MarginInfo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "保证金ID"
+          },
+          "groupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "保证金组ID"
+          },
+          "type": {
+            "type": "string",
+            "description": "类型"
+          },
+          "values": {
+            "type": "string",
+            "description": "数值"
+          },
+          "rangeLeft": {
+            "type": "number",
+            "description": "范围开始"
+          },
+          "rangeRight": {
+            "type": "number",
+            "description": "范围结束"
+          },
+          "percent": {
+            "type": "number",
+            "description": "万分比"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "groupId",
+          "type",
+          "values",
+          "rangeLeft",
+          "rangeRight",
+          "percent"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultListSymbolInfoVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "type": "array",
+            "description": "数据体",
+            "items": {
+              "$ref": "#/components/schemas/SymbolInfoVo"
+            }
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SymbolInfoVo": {
+        "type": "object",
+        "properties": {
+          "tradeType": {
+            "type": "integer",
+            "format": "int64",
+            "description": "玩法"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品ID"
+          },
+          "symbolCode": {
+            "type": "string",
+            "description": "产品代码"
+          },
+          "symbolName": {
+            "type": "string",
+            "description": "产品名称"
+          },
+          "baseCurrency": {
+            "type": "string",
+            "description": "基础货币"
+          },
+          "profitCurrency": {
+            "type": "string",
+            "description": "盈利货币"
+          },
+          "customerGroupIds": {
+            "type": "string",
+            "description": "客户组权限"
+          },
+          "symbolGroupIds": {
+            "type": "string",
+            "description": "产品组关系"
+          },
+          "symbolDigits": {
+            "type": "integer",
+            "format": "int32",
+            "description": "小数位"
+          },
+          "askSpread": {
+            "type": "string",
+            "description": "askSpread"
+          },
+          "bidSpread": {
+            "type": "string",
+            "description": "bidSpread"
+          },
+          "pointRatio": {
+            "type": "integer",
+            "format": "int32",
+            "description": "大点比率"
+          },
+          "dealMode": {
+            "type": "integer",
+            "format": "int32",
+            "description": "成交模式"
+          },
+          "etf": {
+            "type": "boolean",
+            "description": "是否是ETF"
+          },
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "关联基金ID"
+          },
+          "labels": {
+            "type": "string",
+            "description": "标签"
+          },
+          "sortNum": {
+            "type": "integer",
+            "format": "int32",
+            "description": "排序字段"
+          },
+          "enableShortLoan": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否可融券"
+          },
+          "enableLongLoan": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否可融资"
+          },
+          "dividend": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否可交易"
+          }
+        },
+        "x-apifox-orders": [
+          "tradeType",
+          "symbolId",
+          "symbolCode",
+          "symbolName",
+          "baseCurrency",
+          "profitCurrency",
+          "customerGroupIds",
+          "symbolGroupIds",
+          "symbolDigits",
+          "askSpread",
+          "bidSpread",
+          "pointRatio",
+          "dealMode",
+          "etf",
+          "fundId",
+          "labels",
+          "sortNum",
+          "enableShortLoan",
+          "enableLongLoan",
+          "dividend"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SearchSymbolBaseDto": {
+        "type": "object",
+        "properties": {
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组ID"
+          }
+        },
+        "x-apifox-orders": [
+          "customerGroupId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "required": [
+          "customerGroupId"
+        ],
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultOpenFundsVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/OpenFundsVo"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "OpenFundsVo": {
+        "type": "object",
+        "properties": {
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金Id"
+          },
+          "fundName": {
+            "type": "string",
+            "description": "基金名称"
+          },
+          "fundType": {
+            "type": "string",
+            "description": "基金类型"
+          },
+          "managerName": {
+            "type": "string",
+            "description": "经理名称"
+          },
+          "preShare": {
+            "type": "string",
+            "description": "发行份额"
+          },
+          "upDate": {
+            "type": "string",
+            "description": "成立日期"
+          },
+          "shareToken": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金份额代币"
+          },
+          "shareTokenCode": {
+            "type": "string",
+            "description": "基金份额代币Code"
+          },
+          "operationMode": {
+            "type": "integer",
+            "format": "int64",
+            "description": "运作方式"
+          },
+          "trackIndex": {
+            "type": "integer",
+            "format": "int64",
+            "description": "跟踪指数"
+          },
+          "trackIndexOut": {
+            "type": "string",
+            "description": "外部跟踪指数"
+          },
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金公司ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "绑定基金净值账号"
+          },
+          "settlementCompanyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金结算公司ID"
+          },
+          "settlementCustomerNo": {
+            "type": "string",
+            "description": "绑定基金结算账号"
+          },
+          "introduction": {
+            "type": "string",
+            "description": "基金介绍"
+          },
+          "canPurchase": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否可申购。1-是；2-否；"
+          },
+          "purchaseFeeProportion": {
+            "type": "number",
+            "description": "申购手续费率（小数。百分之一=0.01）"
+          },
+          "purchaseCurrencySetting": {
+            "type": "array",
+            "description": "申购资产设置。JSON格式",
+            "items": {
+              "$ref": "#/components/schemas/PurchaseAssetsSet"
+            }
+          },
+          "canRedemption": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否可赎回。1-是；2-否；"
+          },
+          "redemptionFeeProportion": {
+            "type": "number",
+            "description": "赎回手续费率（小数。百分之一=0.01）"
+          },
+          "redemptionCurrencySetting": {
+            "type": "array",
+            "description": "赎回可选币种列表",
+            "items": {
+              "$ref": "#/components/schemas/RedemptionAssetsSet"
+            }
+          },
+          "minRedemptionNum": {
+            "type": "number",
+            "description": "最小赎回份额数"
+          },
+          "newShare": {
+            "type": "string",
+            "description": "最新份额"
+          },
+          "managementFee": {
+            "type": "number",
+            "description": "基金管理费(年。小数。百分之一=0.01)"
+          },
+          "dailySettlementTime": {
+            "type": "integer",
+            "format": "int32",
+            "description": "管理费每日结算时间(UTC。分钟)"
+          },
+          "yearDays": {
+            "type": "integer",
+            "format": "int32",
+            "description": "全年天数"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "绑定基金净值账号ID"
+          },
+          "settlementCustomerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "绑定基金结算账号Id"
+          },
+          "purchaseType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "申购方式。1-按金额申购；2-按份额申购；"
+          },
+          "fundCurrencyList": {
+            "type": "array",
+            "description": "底层资产列表",
+            "items": {
+              "$ref": "#/components/schemas/BaseAssets"
+            }
+          },
+          "shareTokenDigits": {
+            "type": "integer",
+            "format": "int32",
+            "description": "基金份额代币小数位"
+          }
+        },
+        "x-apifox-orders": [
+          "fundId",
+          "fundName",
+          "fundType",
+          "managerName",
+          "preShare",
+          "upDate",
+          "shareToken",
+          "shareTokenCode",
+          "operationMode",
+          "trackIndex",
+          "trackIndexOut",
+          "companyId",
+          "customerNo",
+          "settlementCompanyId",
+          "settlementCustomerNo",
+          "introduction",
+          "canPurchase",
+          "purchaseFeeProportion",
+          "purchaseCurrencySetting",
+          "canRedemption",
+          "redemptionFeeProportion",
+          "redemptionCurrencySetting",
+          "minRedemptionNum",
+          "newShare",
+          "managementFee",
+          "dailySettlementTime",
+          "yearDays",
+          "customerId",
+          "settlementCustomerId",
+          "purchaseType",
+          "fundCurrencyList",
+          "shareTokenDigits"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseAssets": {
+        "type": "object",
+        "properties": {
+          "currencyCode": {
+            "type": "string",
+            "description": "币种编码"
+          },
+          "currencyName": {
+            "type": "string",
+            "description": "币种名称"
+          },
+          "weight": {
+            "type": "string",
+            "description": "权重"
+          }
+        },
+        "x-apifox-orders": [
+          "currencyCode",
+          "currencyName",
+          "weight"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "RedemptionAssetsSet": {
+        "type": "object",
+        "properties": {
+          "currencyCode": {
+            "type": "string",
+            "description": "币种编码"
+          },
+          "currencyName": {
+            "type": "string",
+            "description": "币种名称"
+          },
+          "minRedemptionAmount": {
+            "type": "number",
+            "description": "单笔最小赎回金额"
+          },
+          "minRedemptionNum": {
+            "type": "number",
+            "description": "单笔最小申购份额"
+          },
+          "redemptionFeeProportion": {
+            "type": "number",
+            "description": "赎回手续费率"
+          }
+        },
+        "x-apifox-orders": [
+          "currencyCode",
+          "currencyName",
+          "minRedemptionAmount",
+          "minRedemptionNum",
+          "redemptionFeeProportion"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "PurchaseAssetsSet": {
+        "type": "object",
+        "properties": {
+          "currencyCode": {
+            "type": "string",
+            "description": "币种编码"
+          },
+          "currencyName": {
+            "type": "string",
+            "description": "币种名称"
+          },
+          "minPurchaseAmount": {
+            "type": "number",
+            "description": "单笔最小申购金额"
+          },
+          "minPurchaseNum": {
+            "type": "number",
+            "description": "单笔最小申购份额"
+          },
+          "purchaseFeeProportion": {
+            "type": "number",
+            "description": "申购手续费率"
+          }
+        },
+        "x-apifox-orders": [
+          "currencyCode",
+          "currencyName",
+          "minPurchaseAmount",
+          "minPurchaseNum",
+          "purchaseFeeProportion"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultBasePageVoOpenFundsVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/BasePageVoOpenFundsVo"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BasePageVoOpenFundsVo": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "description": "结果列表",
+            "items": {
+              "$ref": "#/components/schemas/OpenFundsVo"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "总数"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          }
+        },
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultQueryEquityPremiumRateVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/QueryEquityPremiumRateVo"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "QueryEquityPremiumRateVo": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int64",
+            "description": "玩法Id"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "currency": {
+            "type": "string",
+            "description": "币种"
+          },
+          "digits": {
+            "type": "integer",
+            "format": "int32",
+            "description": "资金小数位数"
+          },
+          "currentNav": {
+            "type": "string",
+            "description": "实时净值"
+          },
+          "totalBalance": {
+            "type": "string",
+            "description": "总资产"
+          },
+          "premiumRate": {
+            "type": "string",
+            "description": "溢价率"
+          },
+          "accountInfoMap": {
+            "type": "object",
+            "description": "附带账户信息",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/PremiumRate"
+            },
+            "x-apifox-orders": [],
+            "properties": {},
+            "x-apifox-ignore-properties": []
+          },
+          "newShare": {
+            "type": "string",
+            "description": "最新份额"
+          },
+          "markerCustomer": {
+            "type": "boolean",
+            "description": "marker账号"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "tradeType",
+          "customerNo",
+          "currency",
+          "digits",
+          "currentNav",
+          "totalBalance",
+          "premiumRate",
+          "accountInfoMap",
+          "newShare",
+          "markerCustomer"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "PremiumRate": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int64",
+            "description": "玩法Id"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "系统唯一账户标识"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "assetsId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "资产Id"
+          },
+          "currency": {
+            "type": "string",
+            "description": "开户币种"
+          },
+          "digits": {
+            "type": "integer",
+            "format": "int32",
+            "description": "资金小数位数"
+          },
+          "wholeWarehouseBalance": {
+            "type": "string",
+            "description": "当前账号对全仓账户币种"
+          },
+          "wholeWarehouseRate": {
+            "type": "string",
+            "description": "当前账号对全仓账户汇率"
+          },
+          "weight": {
+            "type": "string",
+            "description": "权重"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "tradeType",
+          "accountId",
+          "customerNo",
+          "assetsId",
+          "currency",
+          "digits",
+          "wholeWarehouseBalance",
+          "wholeWarehouseRate",
+          "weight"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultListAssets": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "type": "array",
+            "description": "数据体",
+            "items": {
+              "$ref": "#/components/schemas/Assets"
+            }
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "Assets": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "name": {
+            "type": "string",
+            "description": "资产名称"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "显示名称"
+          },
+          "code": {
+            "type": "string",
+            "description": "资产代码"
+          },
+          "digits": {
+            "type": "integer",
+            "format": "int32",
+            "description": "小数位"
+          },
+          "initState": {
+            "type": "integer",
+            "format": "int32",
+            "description": "初始化状态 1、2、初始化中、初始化完毕"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32",
+            "description": "资产类型"
+          },
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "关联基金"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "name",
+          "displayName",
+          "code",
+          "digits",
+          "initState",
+          "type",
+          "fundId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CountryDictVo": {
+        "type": "object",
+        "properties": {
+          "parentId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "上级ID"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "name": {
+            "type": "string",
+            "description": "国家地区名称"
+          },
+          "displayName": {
+            "type": "string",
+            "description": "显示名称"
+          },
+          "nameTw": {
+            "type": "string",
+            "description": "国家地区名称TW"
+          },
+          "nameEn": {
+            "type": "string",
+            "description": "国家地区名称EN"
+          },
+          "code": {
+            "type": "string",
+            "description": "国家代码"
+          },
+          "parentCode": {
+            "type": "string",
+            "description": "上级代码"
+          },
+          "nationalCode": {
+            "type": "string",
+            "description": "国家简称"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "电话区号"
+          },
+          "extend": {
+            "type": "string",
+            "description": "扩展属性"
+          },
+          "sort": {
+            "type": "integer",
+            "format": "int32",
+            "description": "排序"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "hasLeaf": {
+            "type": "integer",
+            "format": "int32",
+            "description": "是否有子节点"
+          },
+          "childs": {
+            "type": "array",
+            "description": "子节点数据",
+            "items": {
+              "$ref": "#/components/schemas/CountryDictVo"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "parentId",
+          "id",
+          "name",
+          "displayName",
+          "nameTw",
+          "nameEn",
+          "code",
+          "parentCode",
+          "nationalCode",
+          "countryCode",
+          "extend",
+          "sort",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "hasLeaf",
+          "childs"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      }
+    }
+  }
+}

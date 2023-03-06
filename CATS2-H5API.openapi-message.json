@@ -1,0 +1,1314 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CATS2-H5API",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "消息接口"
+    }
+  ],
+  "paths": {
+    "/global/message.app.VerificationApiService.verifyCodeSend": {
+      "post": {
+        "summary": "发送验证码",
+        "x-apifox-folder": "消息接口",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明：发送验证码。<b style=\"color:red\">根据每种业务类型（`bizType`）和发送人（`toUser`/`customerNo`）,半小时内只允许发送5次短信、5次邮件</b>\n```\nversion=0.0.1\nbizType=message.app.VerificationApiService.verifyCodeSend\n```",
+        "tags": [
+          "消息接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "公司Id"
+                  },
+                  "customerId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "客户Id"
+                  },
+                  "bizType": {
+                    "type": "string",
+                    "title": "业务类型",
+                    "description": "EMAIL_COMMON_VERIFICATION_CODE-邮件通用验证码；EMAIL_LOGIN_VERIFICATION_CODE-邮件登录验证码；EMAIL_REGISTER_VERIFICATION_CODE-邮件注册验证码；EMAIL_PASSWORD_VERIFICATION_CODE-邮件忘记密码验证码；EMAIL_LOGINED_VERIFICATION_CODE-通用验证码-已登录-客户信息中获取接收人；SMS_COMMON_VERIFICATION_CODE-短信通用验证码；SMS_LOGIN_VERIFICATION_CODE-短信登录验证码；SMS_REGISTER_VERIFICATION_CODE-短信注册验证码；SMS_PASSWORD_VERIFICATION_CODE-短信忘记密码验证码；SMS_LOGINED_VERIFICATION_CODE-通用验证码-已登录-客户信息中获取接收人；"
+                  },
+                  "toUser": {
+                    "type": "string",
+                    "title": "接收人",
+                    "description": "`toUser`、`customerNo`必须有一个要填：如果需要从客户信息里获取则传`customerNo`"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "title": "接收人",
+                    "description": "`toUser`、`customerNo`必须有一个要填：如果需要从客户信息里获取则传`customerNo`"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "customerId",
+                  "bizType",
+                  "toUser",
+                  "customerNo"
+                ],
+                "required": [
+                  "companyId",
+                  "bizType"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "title": "发送票据"
+                        }
+                      },
+                      "title": "数据体",
+                      "x-apifox-orders": [
+                        "token"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65333752-run"
+      }
+    },
+    "/global/message.app.VerificationApiService.verifyCodeCheck": {
+      "post": {
+        "summary": "验证验证码",
+        "x-apifox-folder": "消息接口",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明：验证验证码\n```\nversion=0.0.1\nbizType=message.app.VerificationApiService.verifyCodeCheck\n```",
+        "tags": [
+          "消息接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "公司Id"
+                  },
+                  "customerId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "客户Id"
+                  },
+                  "bizType": {
+                    "type": "string",
+                    "title": "业务类型",
+                    "description": "EMAIL_COMMON_VERIFICATION_CODE-邮件通用验证码；EMAIL_LOGIN_VERIFICATION_CODE-邮件登录验证码；EMAIL_REGISTER_VERIFICATION_CODE-邮件注册验证码；EMAIL_PASSWORD_VERIFICATION_CODE-邮件忘记密码验证码；EMAIL_LOGINED_VERIFICATION_CODE-通用验证码-已登录-客户信息中获取接收人；SMS_COMMON_VERIFICATION_CODE-短信通用验证码；SMS_LOGIN_VERIFICATION_CODE-短信登录验证码；SMS_REGISTER_VERIFICATION_CODE-短信注册验证码；SMS_PASSWORD_VERIFICATION_CODE-短信忘记密码验证码；SMS_LOGINED_VERIFICATION_CODE-通用验证码-已登录-客户信息中获取接收人；"
+                  },
+                  "toUser": {
+                    "type": "string",
+                    "title": "接收人"
+                  },
+                  "sendToken": {
+                    "type": "string",
+                    "title": "发送票据"
+                  },
+                  "code": {
+                    "type": "string",
+                    "title": "验证码",
+                    "description": "仅可使用一次，与`verifyCodeToken`必须至少有一个有值"
+                  },
+                  "verifyCodeToken": {
+                    "type": "string",
+                    "title": "验证票据",
+                    "description": "由首次验证验证码后返回。（与`code`必须至少有一个有值，如与`code`同时有值，仅验证此字段）。<b style=\"color:red\">注：验证5次错误，验证票据将直接失效</b>"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "customerId",
+                  "bizType",
+                  "toUser",
+                  "sendToken",
+                  "code",
+                  "verifyCodeToken"
+                ],
+                "required": [
+                  "companyId",
+                  "bizType",
+                  "toUser",
+                  "sendToken"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string",
+                          "title": "验证票据"
+                        }
+                      },
+                      "title": "数据体",
+                      "x-apifox-orders": [
+                        "token"
+                      ],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65333883-run"
+      }
+    },
+    "/global/message.app.PlatFormMessageTempApiService.getPlatformTempParentTypeList": {
+      "post": {
+        "summary": "站内信类型",
+        "x-apifox-folder": "消息接口",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明：获取指定公司下站内信类型列表\n```\nversion=0.0.1\nbizType=message.app.PlatFormMessageTempApiService.getPlatformTempParentTypeList\n```",
+        "tags": [
+          "消息接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "公司Id"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId"
+                ],
+                "required": [
+                  "companyId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string",
+                            "title": "类型值"
+                          },
+                          "desc": {
+                            "type": "string",
+                            "title": "描述"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "type",
+                          "desc"
+                        ],
+                        "required": [
+                          "desc"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65344089-run"
+      }
+    },
+    "/global/message.app.PlatFormMessageLogApiService.queryPlatFormMessageLogList": {
+      "post": {
+        "summary": "站内信列表",
+        "x-apifox-folder": "消息接口",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明：获取指定公司下站内信消息列表\n```\nversion=0.0.1\nbizType=message.app.PlatFormMessageLogApiService.queryPlatFormMessageLogList\n```",
+        "tags": [
+          "消息接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "公司Id"
+                  },
+                  "bizType": {
+                    "type": "string",
+                    "title": "业务类型"
+                  },
+                  "status": {
+                    "type": "integer",
+                    "format": "int32",
+                    "title": "状态",
+                    "description": "1-未读；2-已读；3-删除；"
+                  },
+                  "language": {
+                    "type": "string",
+                    "title": "语种"
+                  },
+                  "accountId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "账户ID"
+                  },
+                  "customerId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "客户ID"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "bizType",
+                  "status",
+                  "language",
+                  "accountId",
+                  "customerId"
+                ],
+                "required": [
+                  "companyId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "bizType": {
+                            "type": "string",
+                            "title": "业务类型"
+                          },
+                          "status": {
+                            "type": "string",
+                            "title": "状态",
+                            "description": "1-未读；2-已读；3-删除；"
+                          },
+                          "title": {
+                            "type": "string",
+                            "title": "标题"
+                          },
+                          "content": {
+                            "type": "string",
+                            "title": "内容"
+                          },
+                          "redirectType": {
+                            "type": "string",
+                            "title": "跳转类型",
+                            "description": "*"
+                          },
+                          "redirectUrl": {
+                            "type": "string",
+                            "title": "跳转地址",
+                            "description": "*"
+                          },
+                          "createdBy": {
+                            "type": "string",
+                            "title": "创建人"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "bizType",
+                          "status",
+                          "title",
+                          "content",
+                          "redirectType",
+                          "redirectUrl",
+                          "createdBy"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65345505-run"
+      }
+    },
+    "/global/message.app.CompanyNoticeApiService.customerViewNoticePage": {
+      "post": {
+        "summary": "公告列表",
+        "x-apifox-folder": "消息接口",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明： 查询公告列表\n```\nversion=0.0.1\nbizType=message.app.CompanyNoticeApiService.customerViewNoticePage\n```",
+        "tags": [
+          "消息接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "公司Id"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "title": "客户编号"
+                  },
+                  "lang": {
+                    "type": "string",
+                    "title": "语种"
+                  },
+                  "size": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "每页条数"
+                  },
+                  "current": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "当前页，从1开始"
+                  },
+                  "pubTimeFrom": {
+                    "type": "integer",
+                    "title": "发布时间-开始",
+                    "format": "long",
+                    "description": "13位时间戳"
+                  },
+                  "pubTimeTo": {
+                    "type": "integer",
+                    "title": "发布时间-结束",
+                    "format": "long",
+                    "description": "13位时间戳"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "customerNo",
+                  "lang",
+                  "size",
+                  "current",
+                  "pubTimeFrom",
+                  "pubTimeTo"
+                ],
+                "required": [
+                  "companyId",
+                  "lang",
+                  "size",
+                  "current"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "title": "名称"
+                          },
+                          "language": {
+                            "type": "string",
+                            "title": "语种"
+                          },
+                          "title": {
+                            "type": "string",
+                            "title": "标题"
+                          },
+                          "content": {
+                            "type": "string",
+                            "title": "内容"
+                          },
+                          "pubTime": {
+                            "type": "integer",
+                            "title": "发布时间",
+                            "format": "long",
+                            "description": "13位时间戳"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "title": "主键id",
+                            "format": "long"
+                          },
+                          "companyId": {
+                            "type": "integer",
+                            "title": "公司ID",
+                            "format": "long"
+                          },
+                          "customerNo": {
+                            "type": "string",
+                            "title": "客户编号"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "name",
+                          "language",
+                          "title",
+                          "content",
+                          "pubTime",
+                          "id",
+                          "companyId",
+                          "customerNo"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65358240-run"
+      }
+    },
+    "/global/message.app.CompanyNoticeApiService.customerViewMsgPage": {
+      "post": {
+        "summary": "消息列表",
+        "x-apifox-folder": "消息接口",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明： 客户查看消息列表\n```\nversion=0.0.1\nbizType=message.app.CompanyNoticeApiService.customerViewMsgPage\n```",
+        "tags": [
+          "消息接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "公司Id"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "title": "客户编号"
+                  },
+                  "lang": {
+                    "type": "string",
+                    "title": "语种"
+                  },
+                  "size": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "每页条数"
+                  },
+                  "current": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "当前页，从1开始"
+                  },
+                  "pubTimeFrom": {
+                    "type": "integer",
+                    "title": "发布时间-开始",
+                    "format": "long",
+                    "description": "13位时间戳"
+                  },
+                  "pubTimeTo": {
+                    "type": "integer",
+                    "title": "发布时间-结束",
+                    "format": "long",
+                    "description": "13位时间戳"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "customerNo",
+                  "lang",
+                  "size",
+                  "current",
+                  "pubTimeFrom",
+                  "pubTimeTo"
+                ],
+                "required": [
+                  "companyId",
+                  "lang",
+                  "size",
+                  "current",
+                  "customerNo"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string",
+                            "title": "名称"
+                          },
+                          "language": {
+                            "type": "string",
+                            "title": "语种"
+                          },
+                          "title": {
+                            "type": "string",
+                            "title": "标题"
+                          },
+                          "content": {
+                            "type": "string",
+                            "title": "内容"
+                          },
+                          "pubTime": {
+                            "type": "integer",
+                            "title": "发布时间",
+                            "format": "long",
+                            "description": "13位时间戳"
+                          },
+                          "id": {
+                            "type": "integer",
+                            "title": "主键id",
+                            "format": "long"
+                          },
+                          "companyId": {
+                            "type": "integer",
+                            "title": "公司ID",
+                            "format": "long"
+                          },
+                          "customerNo": {
+                            "type": "string",
+                            "title": "客户编号"
+                          },
+                          "readStatus": {
+                            "type": "string",
+                            "title": "读取状态",
+                            "description": "1-未读；2-已读；"
+                          }
+                        },
+                        "x-apifox-orders": [
+                          "name",
+                          "language",
+                          "title",
+                          "content",
+                          "pubTime",
+                          "id",
+                          "companyId",
+                          "customerNo",
+                          "readStatus"
+                        ],
+                        "x-apifox-ignore-properties": []
+                      },
+                      "title": "数据体"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65362130-run"
+      }
+    },
+    "/global/message.app.CompanyNoticeApiService.msgRead": {
+      "post": {
+        "summary": "读消息",
+        "x-apifox-folder": "消息接口",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明： 客户读消息\n```\nversion=0.0.1\nbizType=message.app.CompanyNoticeApiService.msgRead\n```",
+        "tags": [
+          "消息接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "公司Id"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "title": "客户编号"
+                  },
+                  "id": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "消息ID"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "customerNo",
+                  "id"
+                ],
+                "required": [
+                  "companyId",
+                  "customerNo",
+                  "id"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {},
+                      "title": "数据体",
+                      "x-apifox-orders": [],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65365355-run"
+      }
+    },
+    "/global/message.app.CompanyNoticeApiService.msgAllRead": {
+      "post": {
+        "summary": "消息全部已读",
+        "x-apifox-folder": "消息接口",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明：客户消息全部已读\n```\nversion=0.0.1\nbizType=message.app.CompanyNoticeApiService.msgAllRead\n```",
+        "tags": [
+          "消息接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "公司Id"
+                  },
+                  "customerNo": {
+                    "type": "string",
+                    "title": "客户编号"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "customerNo"
+                ],
+                "required": [
+                  "companyId",
+                  "customerNo"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {},
+                      "title": "数据体",
+                      "x-apifox-orders": [],
+                      "x-apifox-ignore-properties": []
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65365922-run"
+      }
+    },
+    "/global/messagepush.app.OfflinePushService.clientIdBindCustomer": {
+      "post": {
+        "summary": "unipush账户绑定",
+        "x-apifox-folder": "消息接口",
+        "x-apifox-status": "developing",
+        "deprecated": false,
+        "description": "说明：unipush账户绑定clientId\n```\nbizType=messagepush.app.OfflinePushService.clientIdBindCustomer\n```",
+        "tags": [
+          "消息接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "type": "integer",
+                    "format": "long",
+                    "title": "公司Id"
+                  },
+                  "customerId": {
+                    "type": "integer",
+                    "title": "客户id",
+                    "format": "long"
+                  },
+                  "clientId": {
+                    "type": "string",
+                    "title": "个推客户id"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "customerId",
+                  "clientId"
+                ],
+                "required": [
+                  "companyId",
+                  "clientId"
+                ],
+                "x-apifox-ignore-properties": []
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "bizCode": {
+                      "type": "string",
+                      "title": "模块标识码"
+                    },
+                    "code": {
+                      "type": "string",
+                      "title": "状态返回码"
+                    },
+                    "msg": {
+                      "type": "string",
+                      "title": "状态描述"
+                    },
+                    "tm": {
+                      "type": "integer",
+                      "format": "int64",
+                      "title": "处理时长（毫秒）"
+                    },
+                    "trace": {
+                      "type": "string",
+                      "title": "跟踪码"
+                    },
+                    "msgParams": {
+                      "type": "string",
+                      "title": "返回描述中占位符参数串，多个参数间以,分割"
+                    },
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "fail": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "boolean",
+                      "title": "数据体",
+                      "description": "true-成功；false-失败；"
+                    }
+                  },
+                  "x-apifox-orders": [
+                    "bizCode",
+                    "code",
+                    "msg",
+                    "tm",
+                    "trace",
+                    "msgParams",
+                    "ok",
+                    "fail",
+                    "data"
+                  ],
+                  "x-apifox-refs": {},
+                  "x-apifox-ignore-properties": []
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65380842-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  }
+}
