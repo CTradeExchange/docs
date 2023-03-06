@@ -3867,7 +3867,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.bindEmail\n登录之后可以访问",
-        "operationId": "bindEmail",
+        
         "tags": [
           "客户基础信息"
         ],
@@ -10922,7 +10922,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.bindPhone\n登录之后可以访问",
-        "operationId": "bindEmail",
+        
         "tags": [
           "客户基础信息"
         ],
