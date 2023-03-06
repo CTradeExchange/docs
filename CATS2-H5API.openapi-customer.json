@@ -2636,7 +2636,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerThirdLoginService.register\n游客可访问",
-        "operationId": "register",
+        
         "tags": [
           "社交账号登录"
         ],
@@ -8235,7 +8235,7 @@
         "x-apifox-status": "released",
         "deprecated": false,
         "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.register\n游客可访问",
-        "operationId": "register",
+        
         "tags": [
           "客户基础信息"
         ],
