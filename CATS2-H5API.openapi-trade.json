@@ -16,6 +16,9 @@
       "name": "杠杆交易"
     },
     {
+      "name": "现货交易"
+    },
+    {
       "name": "股票交易"
     }
   ],
@@ -8040,13 +8043,13 @@
                   "accountId": {
                     "type": "integer",
                     "title": "账户ID",
-                    "description": "*",
-                    "format": "long"
+                    "format": "long",
+                    "description": "必须与账户货币二者填其一"
                   },
                   "accountCurrency": {
                     "type": "string",
                     "title": "账户货币",
-                    "description": "*"
+                    "description": "必须与账户ID二者填其一"
                   },
                   "orderId": {
                     "type": "integer",
@@ -8093,10 +8096,7 @@
                   "tradeType",
                   "orderId",
                   "positionId",
-                  "accountDigits",
-                  "stopLoss",
-                  "takeProfit",
-                  "remark"
+                  "accountDigits"
                 ],
                 "x-apifox-ignore-properties": []
               }
@@ -16993,9 +16993,1794 @@
         },
         "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-65971010-run"
       }
+    },
+    "/global/tradeapi.app.SpotOrderApiService.queryCapitalFlowList": {
+      "post": {
+        "summary": "资金流水",
+        "x-apifox-folder": "现货交易",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "说明：分页查询账户资金流水\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.queryCapitalFlowList\n```",
+        "operationId": "queryWaterByPage",
+        "tags": [
+          "现货交易"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpotQueryWaterPageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVoSpotSubjectWaterVo"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257028-run"
+      }
+    },
+    "/global/tradeapi.app.SpotOrderApiService.addOrder": {
+      "post": {
+        "summary": "下单",
+        "x-apifox-folder": "现货交易",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "说明：现货玩法下单\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.addOrder\n```",
+        "operationId": "addOrder",
+        "tags": [
+          "现货交易"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpotOrderAddDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultSpotOrderAddVo"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257029-run"
+      }
+    },
+    "/global/tradeapi.app.SpotOrderApiService.queryOrderPage": {
+      "post": {
+        "summary": "查看订单列表",
+        "x-apifox-folder": "现货交易",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "说明：查看订单列表\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.queryOrderPage\n```",
+        "operationId": "queryOrderPage",
+        "tags": [
+          "现货交易"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpotQueryOrderPageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultSpotQueryOrderPageVo"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257030-run"
+      }
+    },
+    "/global/tradeapi.app.SpotOrderApiService.queryOrderDetail": {
+      "post": {
+        "summary": "查看订单详情",
+        "x-apifox-folder": "现货交易",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "说明：现货玩法查看订单详情\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.queryOrderDetail\n```",
+        "operationId": "queryOrder",
+        "tags": [
+          "现货交易"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpotQueryOrderDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultSpotQueryOrderVo"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257031-run"
+      }
+    },
+    "/global/tradeapi.app.SpotOrderApiService.closeTradePboOrder": {
+      "post": {
+        "summary": "取消限价单",
+        "x-apifox-folder": "现货交易",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "说明：现货玩法取消限价单\n登录后方可访问\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.closeTradePboOrder\n```",
+        "operationId": "cancelPendingOrder",
+        "tags": [
+          "现货交易"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpotOrderUpdateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultSpotQueryOrderVo"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257032-run"
+      }
+    },
+    "/global/tradeapi.app.SpotOrderApiService.queryTradeRecordPage": {
+      "post": {
+        "summary": "查询成交记录列表",
+        "x-apifox-folder": "现货交易",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "说明：查询成交记录列表\n\n```\ngroup=tradeApi\nversion=0.0.1\nbizType=tradeapi.app.SpotOrderApiService.queryTradeRecordPage\n```",
+        "operationId": "queryTradeRecordPage",
+        "tags": [
+          "现货交易"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpotQueryOrderRecordPageDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultSpotTradeRecordVo"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67257033-run"
+      }
     }
   },
   "components": {
-    "schemas": {}
+    "schemas": {
+      "BaseResultSpotTradeRecordVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SpotTradeRecordVo"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotTradeRecordVo": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "totalPage": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "list": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SpotTradeRecordList"
+            }
+          },
+          "bizTypeText": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "x-apifox-orders": [],
+            "properties": {},
+            "x-apifox-ignore-properties": []
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "size",
+          "current",
+          "totalPage",
+          "list",
+          "bizTypeText"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotTradeRecordList": {
+        "type": "object",
+        "properties": {
+          "symbolId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dealId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bizType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "symbolName": {
+            "type": "string"
+          },
+          "direction": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requestPrice": {
+            "type": "string"
+          },
+          "executePrice": {
+            "type": "string"
+          },
+          "requestNum": {
+            "type": "string"
+          },
+          "executeNum": {
+            "type": "string"
+          },
+          "loanAmount": {
+            "type": "string"
+          },
+          "executeTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "outCurrency": {
+            "type": "string"
+          },
+          "inCurrency": {
+            "type": "string"
+          },
+          "stopLoss": {
+            "type": "string"
+          },
+          "takeProfit": {
+            "type": "string"
+          },
+          "commission": {
+            "type": "string"
+          },
+          "profitLoss": {
+            "type": "string"
+          },
+          "overnightInterest": {
+            "type": "string"
+          },
+          "numberStatisticMode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "accountCurrency": {
+            "type": "string"
+          },
+          "moneyAmountCurrency": {
+            "type": "string"
+          },
+          "symbolCode": {
+            "type": "string"
+          },
+          "tradeAmount": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "symbolId",
+          "orderId",
+          "dealId",
+          "bizType",
+          "symbolName",
+          "direction",
+          "requestPrice",
+          "executePrice",
+          "requestNum",
+          "executeNum",
+          "loanAmount",
+          "executeTime",
+          "outCurrency",
+          "inCurrency",
+          "stopLoss",
+          "takeProfit",
+          "commission",
+          "profitLoss",
+          "overnightInterest",
+          "numberStatisticMode",
+          "accountCurrency",
+          "moneyAmountCurrency",
+          "symbolCode",
+          "tradeAmount"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotQueryOrderRecordPageDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "username": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "downloadType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "下载类型 1：直接下载，2：异步下载"
+          },
+          "sortFieldName": {
+            "type": "string"
+          },
+          "sortType": {
+            "type": "string"
+          },
+          "tradeType": {
+            "type": "string"
+          },
+          "orderType": {
+            "type": "string"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "executeStartTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "executeEndTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "direction": {
+            "type": "string"
+          },
+          "accountIds": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "username",
+          "size",
+          "current",
+          "downloadType",
+          "sortFieldName",
+          "sortType",
+          "tradeType",
+          "orderType",
+          "symbolId",
+          "executeStartTime",
+          "executeEndTime",
+          "direction",
+          "accountIds"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotOrderUpdateDto": {
+        "type": "object",
+        "required": [
+          "companyId",
+          "customerGroupId",
+          "customerId",
+          "orderId",
+          "trace",
+          "tradeType"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户Id"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组Id"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "positionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "stopLoss": {
+            "type": "number"
+          },
+          "takeProfit": {
+            "type": "number"
+          },
+          "remark": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "tradeType",
+          "customerGroupId",
+          "orderId",
+          "positionId",
+          "stopLoss",
+          "takeProfit",
+          "remark"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultSpotQueryOrderVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SpotQueryOrderVo"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotQueryOrderVo": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "busiiType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "direction": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userGroupId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "digits": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "contractSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "requestPrice": {
+            "type": "number"
+          },
+          "requestNum": {
+            "type": "number"
+          },
+          "requestTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "executeMarginRate": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "executeMarginRateDigits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "spread": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pointRatio": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "executePrice": {
+            "type": "number"
+          },
+          "executeRate": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "rateDigits": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "fee": {
+            "type": "number"
+          },
+          "feeDigits": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "executeTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "positionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "stopLoss": {
+            "type": "number"
+          },
+          "takeProfit": {
+            "type": "number"
+          },
+          "remark": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "orderId",
+          "busiiType",
+          "direction",
+          "status",
+          "userGroupId",
+          "symbolId",
+          "digits",
+          "contractSize",
+          "requestPrice",
+          "requestNum",
+          "requestTime",
+          "executeMarginRate",
+          "executeMarginRateDigits",
+          "spread",
+          "pointRatio",
+          "executePrice",
+          "executeRate",
+          "rateDigits",
+          "fee",
+          "feeDigits",
+          "executeTime",
+          "createTime",
+          "updateTime",
+          "positionId",
+          "stopLoss",
+          "takeProfit",
+          "remark"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotQueryOrderDto": {
+        "type": "object",
+        "required": [
+          "companyId",
+          "customerGroupId",
+          "customerId",
+          "trace",
+          "tradeType"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户Id"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组Id"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "tradeType",
+          "customerGroupId",
+          "orderId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultSpotQueryOrderPageVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "description": "数据体",
+            "$ref": "#/components/schemas/BasePageVoSpotQueryOrderVo"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BasePageVoSpotQueryOrderVo": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "description": "结果列表",
+            "items": {
+              "$ref": "#/components/schemas/SpotQueryOrderVo"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "总数"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          }
+        },
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotQueryOrderPageDto": {
+        "type": "object",
+        "required": [
+          "companyId",
+          "customerGroupId",
+          "customerId",
+          "trace",
+          "tradeType"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户Id"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组Id"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "sortFieldName": {
+            "type": "string"
+          },
+          "sortType": {
+            "type": "string"
+          },
+          "orderIds": {
+            "type": "string"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bizType": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "direction": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "positionId": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "tradeType",
+          "customerGroupId",
+          "size",
+          "current",
+          "sortFieldName",
+          "sortType",
+          "orderIds",
+          "symbolId",
+          "bizType",
+          "direction",
+          "status",
+          "positionId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultSpotOrderAddVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/SpotOrderAddVo"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotOrderAddVo": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "positionId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "tradeVolume": {
+            "type": "string"
+          },
+          "executePrice": {
+            "type": "string"
+          },
+          "openDirection": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "direction": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "openOrClose": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "symbolName": {
+            "type": "string"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "digits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fee": {
+            "type": "string"
+          },
+          "lockToken": {
+            "type": "string"
+          },
+          "inCurrency": {
+            "type": "string"
+          },
+          "inDigits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "inAmount": {
+            "type": "number"
+          }
+        },
+        "x-apifox-orders": [
+          "orderId",
+          "positionId",
+          "tradeVolume",
+          "executePrice",
+          "openDirection",
+          "direction",
+          "openOrClose",
+          "symbolName",
+          "symbolId",
+          "digits",
+          "fee",
+          "lockToken",
+          "inCurrency",
+          "inDigits",
+          "inAmount"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotOrderAddDto": {
+        "type": "object",
+        "required": [
+          "accountCurrency",
+          "accountDigits",
+          "bizType",
+          "companyId",
+          "customerGroupId",
+          "customerId",
+          "digits",
+          "direction",
+          "requestPrice",
+          "requestTime",
+          "symbolId",
+          "trace",
+          "tradeType"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户Id"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组Id"
+          },
+          "orderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pboOrderNum": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bizType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "direction": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "digits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "lockAmount": {
+            "type": "number"
+          },
+          "lockCurrency": {
+            "type": "string"
+          },
+          "requestTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "requestPrice": {
+            "type": "number"
+          },
+          "executePrice": {
+            "type": "number"
+          },
+          "requestNum": {
+            "type": "number"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "accountCurrency": {
+            "type": "string"
+          },
+          "accountDigits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "source": {
+            "type": "string"
+          },
+          "appointPrice": {
+            "type": "boolean"
+          },
+          "sendOrder": {
+            "type": "boolean"
+          },
+          "sendOrderId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "seq": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "lockToken": {
+            "type": "string"
+          },
+          "assetsId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "dealId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "volumeDigits": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "tradeType",
+          "customerGroupId",
+          "orderId",
+          "pboOrderNum",
+          "bizType",
+          "direction",
+          "symbolId",
+          "digits",
+          "amount",
+          "lockAmount",
+          "lockCurrency",
+          "requestTime",
+          "requestPrice",
+          "executePrice",
+          "requestNum",
+          "remark",
+          "accountCurrency",
+          "accountDigits",
+          "source",
+          "appointPrice",
+          "sendOrder",
+          "sendOrderId",
+          "seq",
+          "lockToken",
+          "assetsId",
+          "dealId",
+          "volumeDigits"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultBasePageVoSpotSubjectWaterVo": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/BasePageVoSubjectWaterVo"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BasePageVoSubjectWaterVo": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "description": "结果列表",
+            "items": {
+              "$ref": "#/components/schemas/SpotSubjectWaterVo"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "总数"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          }
+        },
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotSubjectWaterVo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "remark": {
+            "type": "string"
+          },
+          "createdBy": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "updateBy": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "subjectId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "version": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "bookkeepId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "amountIn": {
+            "type": "string"
+          },
+          "amountOut": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "amountAfter": {
+            "type": "string"
+          },
+          "businessType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "businessType1": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customerNo": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "string"
+          },
+          "digits": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "businessTypeName": {
+            "type": "string"
+          },
+          "businessType1Name": {
+            "type": "string"
+          }
+        },
+        "x-apifox-orders": [
+          "id",
+          "remark",
+          "createdBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "subjectId",
+          "version",
+          "bookkeepId",
+          "amountIn",
+          "amountOut",
+          "status",
+          "amountAfter",
+          "businessType",
+          "businessType1",
+          "customerNo",
+          "amount",
+          "digits",
+          "currency",
+          "businessTypeName",
+          "businessType1Name"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SpotQueryWaterPageDto": {
+        "type": "object",
+        "required": [
+          "companyId",
+          "customerGroupId",
+          "customerId",
+          "trace",
+          "tradeType"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户Id"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "tradeType": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组Id"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "sortFieldName": {
+            "type": "string"
+          },
+          "sortType": {
+            "type": "string"
+          },
+          "businessType": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "businessType1": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customerNoStr": {
+            "type": "string"
+          },
+          "startTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "endTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "operate": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "tradeType",
+          "customerGroupId",
+          "size",
+          "current",
+          "sortFieldName",
+          "sortType",
+          "businessType",
+          "businessType1",
+          "status",
+          "customerNoStr",
+          "startTime",
+          "endTime",
+          "operate"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      }
+    }
   }
 }

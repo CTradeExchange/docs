@@ -1,0 +1,4659 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "基金接口",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "基金申购接口"
+    },
+    {
+      "name": "基金赎回接口"
+    },
+    {
+      "name": "基金信息查询"
+    },
+    {
+      "name": "基金管理接口"
+    }
+  ],
+  "paths": {
+    "/global/fund.app.FundApplyAppDubboService.apply": {
+      "post": {
+        "summary": "基金申购",
+        "x-apifox-folder": "基金申购接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundApplyAppDubboService.apply\n基金申购\n登录后方可访问",
+
+        "tags": [
+          "基金申购接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFundApplyReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultCustomerFundApplyDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019475-run"
+      }
+    },
+    "/global/fund.app.FundApplyAppDubboService.calcApplyShares": {
+      "post": {
+        "summary": "客户申购计算手续费和份额",
+        "x-apifox-folder": "基金申购接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundApplyAppDubboService.calcApplyShares\n客户申购计算手续费和份额\n登录后方可访问",
+
+        "tags": [
+          "基金申购接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFundApplyReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultFundApplyCalcDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019476-run"
+      }
+    },
+    "/global/fund.app.FundApplyAppDubboService.customerPage": {
+      "post": {
+        "summary": "客户申购记录",
+        "x-apifox-folder": "基金申购接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundApplyAppDubboService.customerPage\nH5申购记录\n登录后方可访问",
+
+        "tags": [
+          "基金申购接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundApplyRecordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVoCustomerFundApplyDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019477-run"
+      }
+    },
+    "/global/fund.app.FundApplyAppDubboService.getFundCurrencyList": {
+      "post": {
+        "summary": "获取基金底层资产信息",
+        "x-apifox-folder": "基金申购接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundApplyAppDubboService.getFundCurrencyList\n获取基金底层资产信息\n登录后方可访问",
+
+        "tags": [
+          "基金申购接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundCurrencyQueryReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultListCustomerFundCurrencyDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019478-run"
+      }
+    },
+    "/global/fund.app.FundApplyAppDubboService.page": {
+      "post": {
+        "summary": "客户经理分页查询基金记录",
+        "x-apifox-folder": "基金申购接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundApplyAppDubboService.page\nPCUI客户经理分页查询基金记录\n登录后方可访问",
+
+        "tags": [
+          "基金申购接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundApplyRecordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVoCustomerFundApplyDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019479-run"
+      }
+    },
+    "/global/fund.app.FundManagementFeesAppDubboService.calcDeduct": {
+      "post": {
+        "summary": "合计基金管理费",
+        "x-apifox-folder": "基金管理接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundManagementFeesAppDubboService.calcDeduct\n合计基金管理费\n登录后方可访问",
+
+        "tags": [
+          "基金管理接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundManagementFeesDeductDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultFundManagementFeesCalcDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019481-run"
+      }
+    },
+    "/global/fund.app.FundManagementFeesAppDubboService.deduct": {
+      "post": {
+        "summary": "手动执行管理手续费扣款",
+        "x-apifox-folder": "基金管理接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundManagementFeesAppDubboService.deduct\n手动执行管理手续费扣款\n登录后方可访问",
+
+        "tags": [
+          "基金管理接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundManagementFeesDeductDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultVoid"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019482-run"
+      }
+    },
+    "/global/fund.app.FundManagementFeesAppDubboService.excute": {
+      "post": {
+        "summary": "基金管理费用执行",
+        "x-apifox-folder": "基金管理接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundManagementFeesAppDubboService.excute\n基金管理费用执行\n登录后方可访问",
+
+        "tags": [
+          "基金管理接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BaseModelDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultVoid"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019483-run"
+      }
+    },
+    "/global/fund.app.FundManagementFeesAppDubboService.page": {
+      "post": {
+        "summary": "查询基金管理费分页记录",
+        "x-apifox-folder": "基金管理接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundManagementFeesAppDubboService.page\n查询基金管理费分页记录\n登录后方可访问",
+
+        "tags": [
+          "基金管理接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundManagementFeesRecordDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVoFundManagementFeesDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019484-run"
+      }
+    },
+    "/global/fund.app.FundsApplyExecuteService.confirmFundsApplyExecuteInfo": {
+      "post": {
+        "summary": "确认基金产品申购执行信息",
+        "x-apifox-folder": "基金管理接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundsApplyExecuteService.confirmFundsApplyExecuteInfo\n确认基金产品申购执行信息\n登录后方可访问",
+
+        "tags": [
+          "基金管理接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundsApplyExecuteInfoDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBoolean"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019485-run"
+      }
+    },
+    "/global/fund.app.FundsOrderExecuteStandardService.getOrderExecuteStandardConfigSymbolList": {
+      "post": {
+        "summary": "获取基金产品下单执行标准配置产品列表",
+        "x-apifox-folder": "基金管理接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundsOrderExecuteStandardService.getOrderExecuteStandardConfigSymbolList\n获取基金产品下单执行标准配置产品列表\n登录后方可访问",
+
+        "tags": [
+          "基金管理接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryOrderExecuteStandardConfigSymbolListReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultListOrderExecuteStandardConfigSymbolDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019486-run"
+      }
+    },
+    "/global/fund.app.FundsApplyExecuteService.getFundsApplyExecuteInfo": {
+      "post": {
+        "summary": "获取基金产品申购执行信息",
+        "x-apifox-folder": "基金管理接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundsApplyExecuteService.getFundsApplyExecuteInfo\n获取基金产品申购执行信息\n登录后方可访问",
+
+        "tags": [
+          "基金管理接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryFundsApplyExecuteRecordDetailReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultFundsApplyExecuteInfoDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019487-run"
+      }
+    },
+    "/global/fund.app.FundsOrderExecuteStandardService.getOrderExecuteStandardConfigs": {
+      "post": {
+        "summary": "获取基金产品下单执行标准配置列表",
+        "x-apifox-folder": "基金管理接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundsOrderExecuteStandardService.getOrderExecuteStandardConfigs\n获取基金产品下单执行标准配置列表\n登录后方可访问",
+
+        "tags": [
+          "基金管理接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueryOrderExecuteStandardConfigReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultListOrderExecuteStandardConfigDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019488-run"
+      }
+    },
+    "/global/fund.app.FundsOrderExecuteStandardService.saveOrderExecuteStandardConfigs": {
+      "post": {
+        "summary": "保存金产品下单执行标准配置",
+        "x-apifox-folder": "基金管理接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundsOrderExecuteStandardService.saveOrderExecuteStandardConfigs\n保存金产品下单执行标准配置\n登录后方可访问",
+
+        "tags": [
+          "基金管理接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveOrderExecuteStandardConfigReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBoolean"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019489-run"
+      }
+    },
+    "/global/fund.app.FundOperationInfoAppDubboService.queryFundInfo": {
+      "post": {
+        "summary": "查询基金信息",
+        "x-apifox-folder": "基金信息查询",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundOperationInfoAppDubboService.queryFundInfo\n查询基金信息\n登录后方可访问",
+
+        "tags": [
+          "基金信息查询"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundInfoQueryReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultFundOperationInfoDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019490-run"
+      }
+    },
+    "/global/fund.app.FundRedeemAppDubboService.calFundRedeem": {
+      "post": {
+        "summary": "客户计算赎回份额",
+        "x-apifox-folder": "基金赎回接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundRedeemAppDubboService.calFundRedeem\n客户计算赎回份额\n登录后方可访问",
+
+        "tags": [
+          "基金赎回接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFundRedeemReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultCustomerFundRedeemDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019491-run"
+      }
+    },
+    "/global/fund.app.FundRedeemAppDubboService.calShares": {
+      "post": {
+        "summary": "客户经理计算份额",
+        "x-apifox-folder": "基金赎回接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundRedeemAppDubboService.calShares\n客户经理计算份额\n登录后方可访问",
+
+        "tags": [
+          "基金赎回接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundRedeemSharesCheckReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultFundRedeemSharesCheckRespDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019492-run"
+      }
+    },
+    "/global/fund.app.FundRedeemAppDubboService.checkShares": {
+      "post": {
+        "summary": "客户经理确认赎回份额",
+        "x-apifox-folder": "基金赎回接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundRedeemAppDubboService.checkShares\n客户经理确认赎回份额\n登录后方可访问",
+
+        "tags": [
+          "基金赎回接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundRedeemSharesCheckReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultFundRedeemSharesCheckRespDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019493-run"
+      }
+    },
+    "/global/fund.app.FundRedeemAppDubboService.createFundRedeem": {
+      "post": {
+        "summary": "客户赎回基金",
+        "x-apifox-folder": "基金赎回接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundRedeemAppDubboService.createFundRedeem\n客户赎回基金\n登录后方可访问",
+
+        "tags": [
+          "基金赎回接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateFundRedeemReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultVoid"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019494-run"
+      }
+    },
+    "/global/fund.app.FundRedeemAppDubboService.getFundRedeemCurrencyList": {
+      "post": {
+        "summary": "获取赎回基金底层资产信息",
+        "x-apifox-folder": "基金赎回接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundRedeemAppDubboService.getFundRedeemCurrencyList\n获取赎回基金底层资产信息\n登录后方可访问",
+
+        "tags": [
+          "基金赎回接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundCurrencyQueryReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultListCustomerFundCurrencyDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019495-run"
+      }
+    },
+    "/global/fund.app.FundRedeemAppDubboService.queryManagerPage": {
+      "post": {
+        "summary": "客户经理分页查询基金记录",
+        "x-apifox-folder": "基金赎回接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundRedeemAppDubboService.page\n客户经理分页查询基金记录\n登录后方可访问",
+
+        "tags": [
+          "基金赎回接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundRedeemQueryReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVoCustomerFundRedeemDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019496-run"
+      }
+    },
+    "/global/fund.app.FundRedeemAppDubboService.page": {
+      "post": {
+        "summary": "客户查询赎回记录分页列表",
+        "x-apifox-folder": "基金赎回接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundRedeemAppDubboService.page\nH5分页查询赎回列表\n登录后方可访问",
+
+        "tags": [
+          "基金赎回接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundRedeemQueryReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultBasePageVoCustomerFundRedeemDto"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019497-run"
+      }
+    },
+    "/global/fund.app.FundRedeemAppDubboService.queryNotConfirmedRecs": {
+      "post": {
+        "summary": "基金经理查询未确认的赎回记录数",
+        "x-apifox-folder": "基金赎回接口",
+        "x-apifox-status": "released",
+        "deprecated": false,
+        "description": "bizType=fund.app.FundRedeemAppDubboService.queryNotConfirmedRecs\n客户经理分页查询基金记录\n登录后方可访问",
+
+        "tags": [
+          "基金赎回接口"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FundInfoQueryReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BaseResultLong"
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/2362754/apis/api-67019498-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BaseResultLong": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "type": "integer",
+            "format": "int64",
+            "description": "数据体"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultBasePageVoCustomerFundRedeemDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/BasePageVoCustomerFundRedeemDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BasePageVoCustomerFundRedeemDto": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "description": "结果列表",
+            "items": {
+              "$ref": "#/components/schemas/CustomerFundRedeemDto"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "总数"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          }
+        },
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerFundRedeemDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "proposalNo": {
+            "type": "string",
+            "description": "提按编号"
+          },
+          "companyName": {
+            "type": "string",
+            "description": "公司名称"
+          },
+          "customerNoFun": {
+            "type": "string",
+            "description": "基金经理对应的客户编号"
+          },
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "赎回的基金ID"
+          },
+          "currencyRedeem": {
+            "type": "string",
+            "description": "赎回的币种"
+          },
+          "currencyShares": {
+            "type": "string",
+            "description": "基金币种"
+          },
+          "currencyNet": {
+            "type": "string",
+            "description": "净值币种"
+          },
+          "fees": {
+            "type": "string",
+            "description": "手续费"
+          },
+          "amountRedeem": {
+            "type": "string",
+            "description": "赎回金额"
+          },
+          "shares": {
+            "type": "string",
+            "description": "份额数"
+          },
+          "sharesNet": {
+            "type": "string",
+            "description": "份额的净值"
+          },
+          "sharesStatus": {
+            "type": "integer",
+            "format": "int32",
+            "description": "份额确认状态：0:待确认 1.已确认 2.确认失败"
+          },
+          "fundName": {
+            "type": "string",
+            "description": "基金名称"
+          },
+          "basketTag": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "proposalNo",
+          "companyName",
+          "customerNoFun",
+          "fundId",
+          "currencyRedeem",
+          "currencyShares",
+          "currencyNet",
+          "fees",
+          "amountRedeem",
+          "shares",
+          "sharesNet",
+          "sharesStatus",
+          "fundName",
+          "basketTag"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundRedeemQueryReqDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "username": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "downloadType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "下载类型 1：直接下载，2：异步下载"
+          },
+          "orders": {
+            "type": "array",
+            "description": "排序字段列表",
+            "items": {
+              "$ref": "#/components/schemas/FieldOrderDto"
+            }
+          },
+          "proposalNoList": {
+            "type": "array",
+            "description": "赎回编号",
+            "items": {
+              "type": "string"
+            }
+          },
+          "currencyRedeem": {
+            "type": "string",
+            "description": "客户接受的资产"
+          },
+          "customerCompanyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户白标公司ID"
+          },
+          "customerNoList": {
+            "type": "array",
+            "description": "客户的编号",
+            "items": {
+              "type": "string"
+            }
+          },
+          "sharesStatus": {
+            "type": "integer",
+            "format": "int32",
+            "description": "份额确认状态：0:待确认 1.已确认 2.确认失败"
+          },
+          "startTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "申请开始时间"
+          },
+          "endTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "申请结束时间"
+          },
+          "updateStartTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "最后更新-申请开始时间"
+          },
+          "updateEndTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "最后开始-申请结束时间"
+          },
+          "currencyShares": {
+            "type": "string",
+            "description": "份额代币"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "username",
+          "size",
+          "current",
+          "downloadType",
+          "orders",
+          "proposalNoList",
+          "currencyRedeem",
+          "customerCompanyId",
+          "customerNoList",
+          "sharesStatus",
+          "startTime",
+          "endTime",
+          "updateStartTime",
+          "updateEndTime",
+          "currencyShares"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FieldOrderDto": {
+        "type": "object",
+        "properties": {
+          "column": {
+            "type": "string",
+            "description": "排序字段列"
+          },
+          "asc": {
+            "type": "boolean",
+            "description": "顺序方式"
+          }
+        },
+        "x-apifox-orders": [
+          "column",
+          "asc"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultFundRedeemSharesCheckRespDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/FundRedeemSharesCheckRespDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundRedeemSharesCheckRespDto": {
+        "type": "object",
+        "properties": {
+          "sharesTotal": {
+            "type": "string",
+            "description": "总赎回份额"
+          },
+          "currencyShares": {
+            "type": "string",
+            "description": "份额代币币种"
+          },
+          "sharesNetValue": {
+            "type": "string",
+            "description": "当前份额净值"
+          },
+          "currencyNet": {
+            "type": "string",
+            "description": "净值币种"
+          },
+          "redeemAssetMap": {
+            "type": "object",
+            "description": "赎回的资产列表",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "x-apifox-orders": [],
+            "properties": {},
+            "x-apifox-ignore-properties": []
+          }
+        },
+        "x-apifox-orders": [
+          "sharesTotal",
+          "currencyShares",
+          "sharesNetValue",
+          "currencyNet",
+          "redeemAssetMap"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundRedeemSharesCheckReqDto": {
+        "type": "object",
+        "required": [
+          "fundIdList"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "fundIdList": {
+            "type": "array",
+            "description": "基金ID",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "checkTag": {
+            "type": "boolean",
+            "description": "预览为false,确认份额为true"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "fundIdList",
+          "checkTag"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultCustomerFundRedeemDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerFundRedeemDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CreateFundRedeemReqDto": {
+        "type": "object",
+        "required": [
+          "currencyCode",
+          "fundId",
+          "shares"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金ID"
+          },
+          "shares": {
+            "type": "number",
+            "description": "赎回的份额数"
+          },
+          "currencyCode": {
+            "type": "string",
+            "description": "赎回的资产Code"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "fundId",
+          "shares",
+          "currencyCode"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultFundOperationInfoDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/FundOperationInfoDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundOperationInfoDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金ID"
+          },
+          "sharesIssued": {
+            "type": "number",
+            "description": "发行总份额"
+          },
+          "sharesApply": {
+            "type": "number",
+            "description": "申购总份额"
+          },
+          "sharesConfirm": {
+            "type": "number",
+            "description": "已确认总份额"
+          },
+          "sharesRedeem": {
+            "type": "number",
+            "description": "已赎回总份额"
+          },
+          "sharesCurrent": {
+            "type": "number",
+            "description": "当前最新份额"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "fundId",
+          "sharesIssued",
+          "sharesApply",
+          "sharesConfirm",
+          "sharesRedeem",
+          "sharesCurrent"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundInfoQueryReqDto": {
+        "type": "object",
+        "required": [
+          "fundId"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金ID"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "fundId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "SaveOrderExecuteStandardConfigReqDto": {
+        "type": "object",
+        "required": [
+          "configDtoList",
+          "customerGroupId"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          },
+          "configDtoList": {
+            "type": "array",
+            "description": "下单执行标准配置数组",
+            "items": {
+              "$ref": "#/components/schemas/OrderExecuteStandardConfigDto"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "customerGroupId",
+          "configDtoList"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "OrderExecuteStandardConfigDto": {
+        "type": "object",
+        "required": [
+          "baseCurrency",
+          "profitCurrency",
+          "rate",
+          "symbolId"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "baseCurrency": {
+            "type": "string",
+            "description": "基础货币"
+          },
+          "profitCurrency": {
+            "type": "string",
+            "description": "盈利货币"
+          },
+          "rate": {
+            "type": "number",
+            "description": "下单比例"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品ID"
+          },
+          "symbolName": {
+            "type": "string",
+            "description": "产品名称"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "baseCurrency",
+          "profitCurrency",
+          "rate",
+          "symbolId",
+          "symbolName"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultListOrderExecuteStandardConfigDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "type": "array",
+            "description": "数据体",
+            "items": {
+              "$ref": "#/components/schemas/OrderExecuteStandardConfigDto"
+            }
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "QueryOrderExecuteStandardConfigReqDto": {
+        "type": "object",
+        "required": [
+          "customerGroupId"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "customerGroupId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultFundsApplyExecuteInfoDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/FundsApplyExecuteInfoDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundsApplyExecuteInfoDto": {
+        "type": "object",
+        "required": [
+          "fundsApplyExecuteRecordDto"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          },
+          "applyIds": {
+            "type": "array",
+            "description": "基金产品申购记录id列表",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          "fundsApplyExecuteRecordDto": {
+            "$ref": "#/components/schemas/FundsApplyExecuteRecordDto"
+          },
+          "fundsApplyExecuteRecordDetailDtoList": {
+            "type": "array",
+            "description": "基金产品申购执行明细记录列表",
+            "items": {
+              "$ref": "#/components/schemas/FundsApplyExecuteRecordDetailDto"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "customerGroupId",
+          "applyIds",
+          "fundsApplyExecuteRecordDto",
+          "fundsApplyExecuteRecordDetailDtoList"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundsApplyExecuteRecordDetailDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "amount": {
+            "type": "number",
+            "description": "盈利货币金额"
+          },
+          "baseCurrency": {
+            "type": "string",
+            "description": "基础货币"
+          },
+          "profitCurrency": {
+            "type": "string",
+            "description": "盈利货币"
+          },
+          "rate": {
+            "type": "number",
+            "description": "下单比例"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品ID"
+          },
+          "symbolName": {
+            "type": "string",
+            "description": "产品名称"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "amount",
+          "baseCurrency",
+          "profitCurrency",
+          "rate",
+          "symbolId",
+          "symbolName"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundsApplyExecuteRecordDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "amount": {
+            "type": "number",
+            "description": "盈利货币金额"
+          },
+          "profitCurrency": {
+            "type": "string",
+            "description": "盈利货币"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "amount",
+          "profitCurrency"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "QueryFundsApplyExecuteRecordDetailReqDto": {
+        "type": "object",
+        "required": [
+          "applyIds",
+          "customerGroupId"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          },
+          "applyIds": {
+            "type": "array",
+            "description": "基金产品申购记录id列表",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "customerGroupId",
+          "applyIds"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultListOrderExecuteStandardConfigSymbolDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "type": "array",
+            "description": "数据体",
+            "items": {
+              "$ref": "#/components/schemas/OrderExecuteStandardConfigSymbolDto"
+            }
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "OrderExecuteStandardConfigSymbolDto": {
+        "type": "object",
+        "required": [
+          "baseCurrency",
+          "profitCurrency",
+          "rate",
+          "symbolId"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "baseCurrency": {
+            "type": "string",
+            "description": "基础货币"
+          },
+          "profitCurrency": {
+            "type": "string",
+            "description": "盈利货币"
+          },
+          "rate": {
+            "type": "number",
+            "description": "下单比例"
+          },
+          "symbolId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "产品ID"
+          },
+          "symbolName": {
+            "type": "string",
+            "description": "产品名称"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "baseCurrency",
+          "profitCurrency",
+          "rate",
+          "symbolId",
+          "symbolName"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "QueryOrderExecuteStandardConfigSymbolListReqDto": {
+        "type": "object",
+        "required": [
+          "customerGroupId"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "customerGroupId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultBoolean": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "type": "boolean",
+            "description": "数据体"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CreateFundApplyReqDto": {
+        "type": "object",
+        "required": [
+          "amountPay",
+          "fundId"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金ID"
+          },
+          "currencyPay": {
+            "type": "string",
+            "description": "支付的币种 ，或者是一篮子"
+          },
+          "amountPay": {
+            "type": "number",
+            "description": "按额为：支付的金额， 按份额：申购的份额"
+          },
+          "applyType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "1.按金额，2.按份额"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "fundId",
+          "currencyPay",
+          "amountPay",
+          "applyType"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultBasePageVoFundManagementFeesDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/BasePageVoFundManagementFeesDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BasePageVoFundManagementFeesDto": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "description": "结果列表",
+            "items": {
+              "$ref": "#/components/schemas/FundManagementFeesDto"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "总数"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          }
+        },
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundManagementFeesDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "deductDate": {
+            "type": "integer",
+            "format": "int64",
+            "description": "扣减日期"
+          },
+          "deductExcuteTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "扣减执行时间"
+          },
+          "fees": {
+            "type": "string",
+            "description": "扣减金额"
+          },
+          "currencyFees": {
+            "type": "string",
+            "description": "扣减的币种"
+          },
+          "deductStatus": {
+            "type": "integer",
+            "format": "int32",
+            "description": "扣除状态：1.扣除成功 2.扣除失败"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "deductDate",
+          "deductExcuteTime",
+          "fees",
+          "currencyFees",
+          "deductStatus"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundManagementFeesRecordDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "username": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "downloadType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "下载类型 1：直接下载，2：异步下载"
+          },
+          "deductDate": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "deductStatus": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "username",
+          "size",
+          "current",
+          "downloadType",
+          "deductDate",
+          "deductStatus"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseModelDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultVoid": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/Void"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "Void": {
+        "type": "object",
+        "x-apifox-orders": [],
+        "properties": {},
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultFundManagementFeesCalcDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/FundManagementFeesCalcDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundManagementFeesCalcDto": {
+        "type": "object",
+        "properties": {
+          "amount": {
+            "type": "string",
+            "description": "合计金额"
+          },
+          "currency": {
+            "type": "string",
+            "description": "币种"
+          }
+        },
+        "x-apifox-orders": [
+          "amount",
+          "currency"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundManagementFeesDeductDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "idList": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "idList"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultListCustomerFundCurrencyDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "type": "array",
+            "description": "数据体",
+            "items": {
+              "$ref": "#/components/schemas/CustomerFundCurrencyDto"
+            }
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerFundCurrencyDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "proposalNo": {
+            "type": "string",
+            "description": "提案号"
+          },
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金ID"
+          },
+          "currency": {
+            "type": "string",
+            "description": "币种"
+          },
+          "digits": {
+            "type": "integer",
+            "format": "int32",
+            "description": "资产小数位"
+          },
+          "amount": {
+            "type": "string",
+            "description": "最终申购/赎回的金额"
+          },
+          "fees": {
+            "type": "string",
+            "description": "手续费"
+          },
+          "total": {
+            "type": "string",
+            "description": "支付的总金额"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "proposalNo",
+          "fundId",
+          "currency",
+          "digits",
+          "amount",
+          "fees",
+          "total"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundCurrencyQueryReqDto": {
+        "type": "object",
+        "required": [
+          "proposalNo"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "proposalNo": {
+            "type": "string",
+            "description": "提案号"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "proposalNo"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultBasePageVoCustomerFundApplyDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/BasePageVoCustomerFundApplyDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BasePageVoCustomerFundApplyDto": {
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "description": "结果列表",
+            "items": {
+              "$ref": "#/components/schemas/CustomerFundApplyDto"
+            }
+          },
+          "total": {
+            "type": "integer",
+            "format": "int64",
+            "description": "总数"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          }
+        },
+        "x-apifox-orders": [
+          "records",
+          "total",
+          "size",
+          "current"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "CustomerFundApplyDto": {
+        "type": "object",
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "description": "主键id"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "description": "状态 1、2、3、启用、禁用、删除"
+          },
+          "revision": {
+            "type": "integer",
+            "format": "int32",
+            "description": "乐观锁"
+          },
+          "createBy": {
+            "type": "string",
+            "description": "创建人"
+          },
+          "createTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "创建时间"
+          },
+          "updateBy": {
+            "type": "string",
+            "description": "更新人"
+          },
+          "updateTime": {
+            "type": "integer",
+            "format": "int64",
+            "description": "更新时间"
+          },
+          "proposalNo": {
+            "type": "string",
+            "description": "提案号"
+          },
+          "companyName": {
+            "type": "string",
+            "description": "白标公司名称"
+          },
+          "customerNoFun": {
+            "type": "string",
+            "description": "基金经理对应的客户编号"
+          },
+          "fundId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "基金ID"
+          },
+          "currencyPay": {
+            "type": "string",
+            "description": "支付的币种"
+          },
+          "currencyShares": {
+            "type": "string",
+            "description": "基金币种"
+          },
+          "fees": {
+            "type": "string",
+            "description": "支付的手续费"
+          },
+          "amountPay": {
+            "type": "string",
+            "description": "支付的金额"
+          },
+          "finalAmount": {
+            "type": "string",
+            "description": "最终申购的金额"
+          },
+          "shares": {
+            "type": "string",
+            "description": "确认的份额数"
+          },
+          "sharesNet": {
+            "type": "string",
+            "description": "份额的净值"
+          },
+          "sharesStatus": {
+            "type": "integer",
+            "format": "int32",
+            "description": "份额确认状态：0:待确认 1.已确认 2.确认失败"
+          },
+          "executeStatus": {
+            "type": "integer",
+            "format": "int32",
+            "description": "申购执⾏状态： 0.未确认 1.待执⾏ 2.执⾏成功 3.执⾏失败"
+          },
+          "executeId": {
+            "type": "string",
+            "description": "批次执⾏ID"
+          },
+          "currencyNet": {
+            "type": "string",
+            "description": "净值的币种"
+          },
+          "fundName": {
+            "type": "string",
+            "description": "基金名称"
+          },
+          "executeList": {
+            "type": "array",
+            "description": "执行标准列表",
+            "items": {
+              "$ref": "#/components/schemas/FundsApplyExecuteRecordDetailDto"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "id",
+          "status",
+          "revision",
+          "createBy",
+          "createTime",
+          "updateBy",
+          "updateTime",
+          "proposalNo",
+          "companyName",
+          "customerNoFun",
+          "fundId",
+          "currencyPay",
+          "currencyShares",
+          "fees",
+          "amountPay",
+          "finalAmount",
+          "shares",
+          "sharesNet",
+          "sharesStatus",
+          "executeStatus",
+          "executeId",
+          "currencyNet",
+          "fundName",
+          "executeList"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundApplyRecordDto": {
+        "type": "object",
+        "required": [
+          "customerGroupId"
+        ],
+        "properties": {
+          "companyId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "公司ID"
+          },
+          "customerId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户ID"
+          },
+          "customerNo": {
+            "type": "string",
+            "description": "客户编号"
+          },
+          "accountId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "账户ID"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "ip": {
+            "type": "string",
+            "description": "操作ip"
+          },
+          "lang": {
+            "type": "string",
+            "description": "请求语言"
+          },
+          "username": {
+            "type": "string"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64",
+            "description": "每页条数"
+          },
+          "current": {
+            "type": "integer",
+            "format": "int64",
+            "description": "当前页"
+          },
+          "downloadType": {
+            "type": "integer",
+            "format": "int32",
+            "description": "下载类型 1：直接下载，2：异步下载"
+          },
+          "startTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "endTime": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "currencyPay": {
+            "type": "string"
+          },
+          "customerCompanyId": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "proposalNo": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "customerSelfNo": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "executeId": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "executeStatus": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "currencyShares": {
+            "type": "string"
+          },
+          "type": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "customerGroupId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "客户组id"
+          }
+        },
+        "x-apifox-orders": [
+          "companyId",
+          "customerId",
+          "customerNo",
+          "accountId",
+          "trace",
+          "ip",
+          "lang",
+          "username",
+          "size",
+          "current",
+          "downloadType",
+          "startTime",
+          "endTime",
+          "currencyPay",
+          "customerCompanyId",
+          "proposalNo",
+          "customerSelfNo",
+          "executeId",
+          "executeStatus",
+          "currencyShares",
+          "type",
+          "customerGroupId"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultFundApplyCalcDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/FundApplyCalcDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "FundApplyCalcDto": {
+        "type": "object",
+        "properties": {
+          "fees": {
+            "type": "string",
+            "description": "手续费"
+          },
+          "shares": {
+            "type": "string",
+            "description": "预计得到的份额"
+          },
+          "sharesNet": {
+            "type": "string",
+            "description": "净值"
+          },
+          "rate": {
+            "type": "string",
+            "description": "汇率"
+          },
+          "currencyNet": {
+            "type": "string",
+            "description": "净值的币种"
+          },
+          "currencyPay": {
+            "type": "string",
+            "description": "手续费的币种"
+          },
+          "amountPay": {
+            "type": "string",
+            "description": "需要支付的资产金额"
+          },
+          "list": {
+            "type": "array",
+            "description": "一篮子资产列表",
+            "items": {
+              "$ref": "#/components/schemas/CustomerFundCurrencyDto"
+            }
+          }
+        },
+        "x-apifox-orders": [
+          "fees",
+          "shares",
+          "sharesNet",
+          "rate",
+          "currencyNet",
+          "currencyPay",
+          "amountPay",
+          "list"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      },
+      "BaseResultCustomerFundApplyDto": {
+        "type": "object",
+        "properties": {
+          "bizCode": {
+            "type": "string",
+            "description": "模块标识码"
+          },
+          "code": {
+            "type": "string",
+            "description": "状态返回码"
+          },
+          "msg": {
+            "type": "string",
+            "description": "状态描述"
+          },
+          "tm": {
+            "type": "integer",
+            "format": "int64",
+            "description": "处理时长（毫秒）"
+          },
+          "trace": {
+            "type": "string",
+            "description": "跟踪码"
+          },
+          "msgParams": {
+            "type": "string",
+            "description": "返回描述中占位符参数串，多个参数间以,分割"
+          },
+          "data": {
+            "$ref": "#/components/schemas/CustomerFundApplyDto"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "fail": {
+            "type": "boolean"
+          }
+        },
+        "x-apifox-orders": [
+          "bizCode",
+          "code",
+          "msg",
+          "tm",
+          "trace",
+          "msgParams",
+          "data",
+          "ok",
+          "fail"
+        ],
+        "x-apifox-folder": "Schemas",
+        "x-apifox-ignore-properties": []
+      }
+    }
+  }
+}
