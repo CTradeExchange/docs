@@ -1,25 +1,25 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "客户资料API",
+    "title": "资金服务相关",
     "description": "",
     "version": "1.0.0"
   },
   "tags": [
     {
-      "name": "客户服务相关"
+      "name": "资金服务相关"
     }
   ],
   "paths": {
-    "/global/customer.app.CustomerWebApiService.checkCustomerExist": {
+    "/global/fund.admin.CustomerAdjustProposalAdminDubboService.addCustomerAdjustProposal": {
       "post": {
-        "summary": "检测客户信息是否存在",
-        "x-apifox-folder": "客户服务相关",
+        "summary": "各玩法额度调整",
+        "x-apifox-folder": "资金服务相关",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.app.CustomerWebApiService.checkCustomerExist",
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerAdjustProposalAdminDubboService.addCustomerAdjustProposal",
         "tags": [
-          "客户服务相关"
+          "资金服务相关"
         ],
         "parameters": [
           {
@@ -43,104 +43,9 @@
             }
           },
           {
-            "name": "version",
-            "in": "header",
-            "description": "接口版本号",
-            "required": true,
-            "example": "0.0.1",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "integer",
-                    "description": "注册登录方式：1邮箱，2手机号码，3客户账号"
-                  },
-                  "loginName": {
-                    "type": "string",
-                    "description": "账号：邮箱/手机号码"
-                  },
-                  "phoneArea": {
-                    "type": "string",
-                    "description": "手机区号，区号默认为+86"
-                  },
-                  "emailArea": {
-                    "type": "string",
-                    "description": "邮箱区号，区号默认为+86"
-                  }
-                },
-                "required": [
-                  "type",
-                  "loginName"
-                ],
-                "x-apifox-ignore-properties": [],
-                "x-apifox-orders": [
-                  "type",
-                  "loginName",
-                  "phoneArea",
-                  "emailArea"
-                ]
-              },
-              "example": {
-                "type": 2,
-                "loginName": "{{mock_phone}}",
-                "protocol": "true",
-                "emailArea": "+86",
-                "phoneArea": "+86"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-12179212-run"
-      }
-    },
-    "/global/customer.admin.WhiteCustomerAdminApiService.addCusAndOpenAccountAndKyc": {
-      "post": {
-        "summary": "客户注册",
-        "x-apifox-folder": "客户服务相关",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "```\n公司默认客户组资产列表示例：*通过前端H5/PCUI数据提供*\n\"tradeTypeCurrencyList\":\n [\n    {\n      \"allCurrency\": \"USDT\",\n      \"tradeType\": \"1\",\n      \"isWallet\": \"\",\n      \"alias\": \"\",\n      \"id\": \"1\",\n      \"name\": \"合约全仓\"\n    },\n    {\n      \"allCurrency\": \"USDT\",\n      \"tradeType\": \"2\",\n      \"isWallet\": \"\",\n      \"alias\": \"\",\n      \"id\": \"2\",\n      \"name\": \"合约逐仓\"\n    },\n    {\n      \"allCurrency\": \"USDT,USD,BTC,SAND,LINK,AAVE,DOGE,BCH,ETH,BNB,SOL,AVAX,SHIB,UNI,DOT,XRP,ADA,FIL,V10\",\n      \"tradeType\": \"3\",\n      \"isWallet\": \"\",\n      \"alias\": \"\",\n      \"id\": \"3\",\n      \"name\": \"杠杆\"\n    },\n    {\n      \"allCurrency\": \n      \"USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX4,BNB,DOGE,ARX10,V10,qa001,qa002,M10,XRP,SHIB,EOS,XEC,FIL,FFT,NFT,QA003,QA004,QA005,QA006,QA007,QA008\",\n      \"tradeType\": \"5\",\n      \"isWallet\": \"\",\n      \"alias\": \"\",\n      \"id\": \"5\",\n      \"name\": \"现货\"\n    }\n  ]\n```\n```\n邮箱注册示例：*登录密码(pwd)MD5加密*\n{\n  \"email\": \"16612339304927@qq.com\",\n  \"emailArea\": \"+86\",\n  \"pwd\": \"dc483e80a7a0bd9ef71d8cf973673924\",\n  \"country\": \"CN\",\n  \"customerGroupId\": 1,\n  \"registerSource\": 1,\n  \"tradeTypeCurrencyList\": [...]\n}\n```\n```\n手机注册示例：*登录密码(pwd)MD5加密*\n{\n  \"phone\": \"15167651757\",\n  \"country\": \"CN\",\n  \"customerGroupId\": 1,\n  \"registerSource\": 1,\n  \"tradeTypeCurrencyList\": [...],\n  \"phoneArea\": \"+86\",\n  \"pwd\": \"dc483e80a7a0bd9ef71d8cf973673924\"\n}\n```",
-        "tags": [
-          "客户服务相关"
-        ],
-        "parameters": [
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "全局链路唯一标志",
-            "required": true,
-            "example": "{{mock_trace}}",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "token",
             "in": "header",
-            "description": "鉴权码",
+            "description": "",
             "required": true,
             "example": "{{auto_token}}",
             "schema": {
@@ -156,16 +61,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "公司ID",
-            "required": true,
-            "example": "{{company}}",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "requestBody": {
@@ -174,134 +69,70 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "phone": {
+                  "customerNo": {
                     "type": "string",
-                    "description": "账号：手机号码"
+                    "description": "客户编号"
                   },
-                  "email": {
-                    "type": "string",
-                    "description": "账号：邮箱"
-                  },
-                  "phoneArea": {
-                    "type": "string",
-                    "description": "手机区号，区号默认为+86"
-                  },
-                  "emailArea": {
-                    "type": "string",
-                    "description": "邮箱区号，区号默认为+86"
-                  },
-                  "pwd": {
-                    "type": "string",
-                    "description": "登录密码，MD5加密、a123456"
-                  },
-                  "country": {
-                    "type": "string",
-                    "description": "国家:CN=中国"
-                  },
-                  "registerSource": {
-                    "type": "integer",
-                    "description": "注册来源:1=移动端web：H5，2=pcweb：PC_Web，3=系统&后台平仓：System，4=安卓原生app：Android，5=苹果原生app：iOS，6=鸿蒙OS：HOS，7=pc windows客户端：PC_Win,8=pc mac客户端：PC_Mac，9=不属于以上的：其他"
-                  },
-                  "customerGroupId": {
+                  "accountId": {
                     "type": "number",
-                    "description": "客户组ID:1=默认客户组; customerFroupId与tradeTypeCurrencyList相互对应"
+                    "description": "账户id"
+                  },
+                  "accountCurrency": {
+                    "type": "string",
+                    "description": "账户币种编码"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法id，可填1、2、3、5"
+                  },
+                  "businessType": {
+                    "type": "integer",
+                    "description": "固定值 4: 4=额度调整-赠金"
+                  },
+                  "amount": {
+                    "type": "number",
+                    "description": "金额，可填正负数，整数加额，负数减额"
+                  },
+                  "withdraw": {
+                    "type": "boolean",
+                    "description": "赠金是否可提取， true：可提，false：不可提\n（amount如果为负数，设置不可提将会同时减掉账户不可提金额科目）"
                   },
                   "remark": {
                     "type": "string",
                     "description": "备注"
-                  },
-                  "registerDevice": {
-                    "type": "string",
-                    "description": "注册的设备型号"
-                  },
-                  "utmSource": {
-                    "type": "string",
-                    "description": "广告来源(开户链接参数source)"
-                  },
-                  "utmMedium": {
-                    "type": "string",
-                    "description": "广告媒介(开户链接参数medium)"
-                  },
-                  "utmCampaign": {
-                    "type": "string",
-                    "description": "广告系列(开户链接参数campaign)"
-                  },
-                  "utmContent": {
-                    "type": "string",
-                    "description": "广告组(开户链接参数content)"
-                  },
-                  "utmTerm": {
-                    "type": "string",
-                    "description": "关键词(开户链接参数term)"
-                  },
-                  "tradeTypeCurrencyList": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "allCurrency": {
-                          "type": "string",
-                          "description": "资产币种，多个资产以,拼接"
-                        },
-                        "tradeType": {
-                          "type": "string",
-                          "description": "玩法类型"
-                        }
-                      },
-                      "required": [
-                        "allCurrency",
-                        "tradeType"
-                      ],
-                      "x-apifox-orders": [
-                        "allCurrency",
-                        "tradeType"
-                      ],
-                      "x-apifox-ignore-properties": []
-                    },
-                    "description": "玩法币种集合"
                   }
                 },
                 "required": [
-                  "phone",
-                  "country",
-                  "customerGroupId",
-                  "registerSource",
-                  "tradeTypeCurrencyList",
-                  "pwd"
+                  "customerNo",
+                  "accountId",
+                  "accountCurrency",
+                  "tradeType",
+                  "businessType",
+                  "amount",
+                  "withdraw",
+                  "remark"
                 ],
                 "x-apifox-orders": [
-                  "phone",
-                  "email",
-                  "phoneArea",
-                  "emailArea",
-                  "pwd",
-                  "country",
-                  "registerSource",
-                  "customerGroupId",
-                  "remark",
-                  "registerDevice",
-                  "utmSource",
-                  "utmMedium",
-                  "utmCampaign",
-                  "utmContent",
-                  "utmTerm",
-                  "tradeTypeCurrencyList"
+                  "customerNo",
+                  "accountId",
+                  "accountCurrency",
+                  "tradeType",
+                  "businessType",
+                  "amount",
+                  "withdraw",
+                  "remark"
                 ],
                 "x-apifox-ignore-properties": []
               },
               "example": {
-                "phone": "{{mock_phone}}",
-                "pwd": "dc483e80a7a0bd9ef71d8cf973673924",
-                "country": "{{national_code}}",
-                "registerSource": 1,
-                "customerGroupId": 1,
-                "tradeTypeCurrencyList": [
-                  {
-                    "allCurrency": "USDT",
-                    "tradeType": "1"
-                  }
-                ],
-                "phoneArea": "+86"
+                "customerNo": "{{customer}}",
+                "accountId": 2354122,
+                "accountCurrency": "{{currency}}",
+                "tradeType": 1,
+                "businessType": 4,
+                "amount": 1000,
+                "withdraw": true,
+                "remark": "赠金调整"
               }
             }
           }
@@ -313,91 +144,26 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "string",
-                      "description": "系统通用返回码。0-成功，其他异常"
-                    },
-                    "msg": {
-                      "type": "string",
-                      "description": "返回信息"
-                    },
-                    "bizCode": {
-                      "type": "string",
-                      "description": "模块标识码"
-                    },
-                    "tm": {
-                      "description": "处理时长（毫秒）",
-                      "type": "number"
-                    },
-                    "trace": {
-                      "type": "string",
-                      "description": "全局链路标志信息"
-                    },
-                    "msgParams": {
-                      "description": "返回描述中占位符参数串，多个参数间以,分割",
-                      "type": [
-                        "string",
-                        "null"
-                      ]
-                    },
-                    "data": {
-                      "type": "string",
-                      "description": "返回结果,客户编号"
-                    }
-                  },
-                  "x-apifox-orders": [
-                    "code",
-                    "msg",
-                    "bizCode",
-                    "tm",
-                    "trace",
-                    "msgParams",
-                    "data"
-                  ],
-                  "required": [
-                    "code",
-                    "msg",
-                    "bizCode",
-                    "tm",
-                    "trace",
-                    "msgParams",
-                    "data"
-                  ],
-                  "x-apifox-ignore-properties": []
-                },
-                "examples": {
-                  "1": {
-                    "summary": "成功示例 ",
-                    "value": {
-                      "msg": "Success",
-                      "fail": false,
-                      "trace": "t-h2jv9x-4to64-9mp4wd7-793nv-1661227305",
-                      "code": "0",
-                      "data": "86021976",
-                      "bizCode": "",
-                      "tm": 236026513,
-                      "msgParams": null,
-                      "ok": true
-                    }
-                  }
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
                 }
               }
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-12205052-run"
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-12276599-run"
       }
     },
-    "/global/customer.admin.WhiteCustomerAdminApiService.page": {
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.operationBonus": {
       "post": {
-        "summary": "客户基础信息",
-        "x-apifox-folder": "客户服务相关",
+        "summary": "现货发放/扣回赠金",
+        "x-apifox-folder": "资金服务相关",
         "x-apifox-status": "released",
         "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.admin.WhiteCustomerAdminApiService.page",
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.operationBonus\n\n**accountId 变成非必填",
         "tags": [
-          "客户服务相关"
+          "资金服务相关"
         ],
         "parameters": [
           {
@@ -411,9 +177,19 @@
             }
           },
           {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "token",
             "in": "header",
-            "description": "鉴权码",
+            "description": "鉴权token",
             "required": true,
             "example": "{{auto_token}}",
             "schema": {
@@ -429,16 +205,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "公司ID",
-            "required": true,
-            "example": "{{company}}",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "requestBody": {
@@ -451,29 +217,72 @@
                     "type": "string",
                     "description": "客户编号"
                   },
-                  "size": {
-                    "type": "number",
-                    "description": "每页显示多少行，默认20"
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法类型；目前只支持现货玩法"
                   },
-                  "current": {
+                  "accountId": {
+                    "type": "string",
+                    "description": "帐户ID"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  },
+                  "activityId": {
+                    "type": "string",
+                    "description": "活动记录ID"
+                  },
+                  "currencyBonus": {
+                    "type": "string",
+                    "description": "赠金币种"
+                  },
+                  "bonus": {
                     "type": "number",
-                    "description": "当前页，默认1"
+                    "description": "赠金金额"
+                  },
+                  "activityCustomerNo": {
+                    "type": "string",
+                    "description": "活动帐户"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型，1.发放，2.扣回"
                   }
                 },
                 "required": [
-                  "customerNo"
+                  "customerNo",
+                  "companyId",
+                  "activityId",
+                  "activityCustomerNo",
+                  "bonus",
+                  "currencyBonus",
+                  "type",
+                  "tradeType"
                 ],
                 "x-apifox-ignore-properties": [],
                 "x-apifox-orders": [
                   "customerNo",
-                  "size",
-                  "current"
+                  "tradeType",
+                  "accountId",
+                  "companyId",
+                  "activityId",
+                  "currencyBonus",
+                  "bonus",
+                  "activityCustomerNo",
+                  "type"
                 ]
               },
               "example": {
-                "customerNo": null,
-                "size": 20,
-                "current": 1
+                "customerNo": "{{customer}}",
+                "companyId": "{{company}}",
+                "activityId": "87",
+                "activityCustomerNo": "",
+                "bonus": 58,
+                "currencyBonus": "",
+                "type": 52,
+                "tradeType": 5,
+                "accountId": "40"
               }
             }
           }
@@ -493,127 +302,18 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-12239890-run"
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-13533421-run"
       }
     },
-    "/global/customer.admin.WhiteCustomerAdminApiService.detail": {
+    "/global/fund.admin.CompanyPaymentConfigAdminDubboServiceImpl.queryCompanyPaymentConfigPage": {
       "post": {
-        "summary": "客户详情",
-        "x-apifox-folder": "客户服务相关",
-        "x-apifox-status": "released",
-        "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.admin.WhiteCustomerAdminApiService.detail",
-        "tags": [
-          "客户服务相关"
-        ],
-        "parameters": [
-          {
-            "name": "trace",
-            "in": "header",
-            "description": "全局链路唯一标志",
-            "required": true,
-            "example": "{{mock_trace}}",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "token",
-            "in": "header",
-            "description": "鉴权码",
-            "required": true,
-            "example": "{{auto_token}}",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "version",
-            "in": "header",
-            "description": "接口版本号",
-            "required": true,
-            "example": "0.0.1",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "companyId",
-            "in": "header",
-            "description": "公司ID",
-            "required": true,
-            "example": "{{company}}",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "type": {
-                    "type": "string",
-                    "description": "类型信息，baseInfo=基础信息，tradeAccount=交易账户，kyc=kyc信息，allKyc=详情页面kyc信息，bankList=银行卡列表,walletList=钱包地址，otherInfo=其他"
-                  },
-                  "id": {
-                    "type": "string",
-                    "description": "客户id"
-                  },
-                  "customerNo": {
-                    "type": "string",
-                    "description": "客户编号"
-                  }
-                },
-                "required": [
-                  "type",
-                  "id",
-                  "customerNo"
-                ],
-                "x-apifox-ignore-properties": [],
-                "x-apifox-orders": [
-                  "type",
-                  "id",
-                  "customerNo"
-                ]
-              },
-              "example": {
-                "type": "tradeAccount",
-                "id": "{{customerId}}",
-                "customerNo": "{{customer}}"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "成功",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {},
-                  "x-apifox-ignore-properties": [],
-                  "x-apifox-orders": []
-                }
-              }
-            }
-          }
-        },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-12240750-run"
-      }
-    },
-    "/global/customer.admin.CustomerGroupAdminApiService.groupList": {
-      "post": {
-        "summary": "获取指定公司下所有客户组列表",
-        "x-apifox-folder": "客户服务相关",
+        "summary": "获取公司存款支付通道【下游接口不存在】",
+        "x-apifox-folder": "资金服务相关",
         "x-apifox-status": "testing",
         "deprecated": false,
-        "description": "bizType=customer.admin.CustomerGroupAdminApiService.groupList\nversion=0.0.1",
+        "description": "bizType=fund.admin.CompanyPaymentConfigAdminDubboServiceImpl.queryCompanyPaymentConfigPage",
         "tags": [
-          "客户服务相关"
+          "资金服务相关"
         ],
         "parameters": [
           {
@@ -645,16 +345,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "name": "version",
-            "in": "header",
-            "description": "版本号",
-            "required": true,
-            "example": "0.0.1",
-            "schema": {
-              "type": "string"
-            }
           }
         ],
         "requestBody": {
@@ -662,11 +352,35 @@
             "application/json": {
               "schema": {
                 "type": "object",
-                "properties": {},
-                "x-apifox-orders": [],
+                "properties": {
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  },
+                  "current": {
+                    "type": "integer",
+                    "description": "当前页，默认1"
+                  },
+                  "size": {
+                    "type": "integer",
+                    "description": "每页显示多少行，默认20"
+                  }
+                },
+                "x-apifox-orders": [
+                  "companyId",
+                  "current",
+                  "size"
+                ],
+                "required": [
+                  "companyId"
+                ],
                 "x-apifox-ignore-properties": []
               },
-              "example": {}
+              "example": {
+                "companyId": "{{company}}",
+                "current": 1,
+                "size": 20
+              }
             }
           }
         },
@@ -683,1626 +397,13 @@
                 },
                 "examples": {
                   "1": {
-                    "summary": "成功示例",
+                    "summary": "异常示例",
                     "value": {
-                      "msg": "Success",
-                      "fail": false,
-                      "trace": "t-qdf269r-r2m1t-ey52-j3pe-1668764681",
-                      "code": "0",
-                      "data": [
-                        {
-                          "openAccountType": 1,
-                          "assets": "USDT",
-                          "name": "默认客户组",
-                          "id": 1,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 1,
-                          "assets": "USDT",
-                          "name": "默认客户组",
-                          "id": 1,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 1,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE,DOGE,BCH,ETH,BNB,SOL,AVAX,SHIB,UNI,DOT,XRP,ADA,FIL,V10,THB",
-                          "name": "默认客户组",
-                          "id": 1,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 1,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX4,BNB,DOGE,ARX10,V10,qa001,qa002,M10,XRP,SHIB,EOS,XEC,FIL,FFT,NFT,QA003,QA004,QA005,QA006,QA007,QA008,LUNC,PHP,THB,TRX",
-                          "name": "默认客户组",
-                          "id": 1,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "游客组",
-                          "id": 2,
-                          "type": 2,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "游客组",
-                          "id": 2,
-                          "type": 2,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "游客组",
-                          "id": 2,
-                          "type": 2,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "游客组",
-                          "id": 2,
-                          "type": 2,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "转组默认客户组",
-                          "id": 3,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "转组默认客户组",
-                          "id": 3,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK",
-                          "name": "转组默认客户组",
-                          "id": 3,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,AVAX",
-                          "name": "转组默认客户组",
-                          "id": 3,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1639802223693",
-                          "id": 4,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1639802223693",
-                          "id": 4,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK",
-                          "name": "默认客户组1639802223693",
-                          "id": 4,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF",
-                          "name": "默认客户组1639802223693",
-                          "id": 4,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "IOTA",
-                          "name": "345345",
-                          "id": 5,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "IOTA",
-                          "name": "345345",
-                          "id": 5,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "IOTA",
-                          "name": "345345",
-                          "id": 5,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "IOTA,USDT",
-                          "name": "345345",
-                          "id": 5,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1639802338324",
-                          "id": 6,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1639802338324",
-                          "id": 6,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK",
-                          "name": "默认客户组1639802338324",
-                          "id": 6,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF",
-                          "name": "默认客户组1639802338324",
-                          "id": 6,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1639802445919",
-                          "id": 7,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1639802445919",
-                          "id": 7,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK",
-                          "name": "默认客户组1639802445919",
-                          "id": 7,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF",
-                          "name": "默认客户组1639802445919",
-                          "id": 7,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1639803076021",
-                          "id": 8,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1639803076021",
-                          "id": 8,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK",
-                          "name": "默认客户组1639803076021",
-                          "id": 8,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF",
-                          "name": "默认客户组1639803076021",
-                          "id": 8,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组-sarah2",
-                          "id": 9,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组-sarah2",
-                          "id": 9,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK",
-                          "name": "默认客户组-sarah2",
-                          "id": 9,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF",
-                          "name": "默认客户组-sarah2",
-                          "id": 9,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组-sarah",
-                          "id": 10,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组-sarah",
-                          "id": 10,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK",
-                          "name": "默认客户组-sarah",
-                          "id": 10,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF",
-                          "name": "默认客户组-sarah",
-                          "id": 10,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "mina用来演示的客户组",
-                          "id": 11,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "mina用来演示的客户组",
-                          "id": 11,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,ETH,KSM,LTC,REEF,DOT,DOGE,ADA,USD,SAND,LINK",
-                          "name": "mina用来演示的客户组",
-                          "id": 11,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,ETH,KSM,LTC,REEF,DOT,DOGE,ADA,LINK,SAND,USD,V10",
-                          "name": "mina用来演示的客户组",
-                          "id": 11,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "34测试",
-                          "id": 12,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "34测试",
-                          "id": 12,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "34测试",
-                          "id": 12,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "34测试",
-                          "id": 12,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "复制默认客户组",
-                          "id": 13,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "复制默认客户组",
-                          "id": 13,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK",
-                          "name": "复制默认客户组",
-                          "id": 13,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF",
-                          "name": "复制默认客户组",
-                          "id": 13,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "summer测试客户组1",
-                          "id": 15,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "summer测试客户组1",
-                          "id": 15,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE",
-                          "name": "summer测试客户组1",
-                          "id": 15,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX20",
-                          "name": "summer测试客户组1",
-                          "id": 15,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "SPOT",
-                          "name": "23423",
-                          "id": 16,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "SPOT",
-                          "name": "234231641611647624",
-                          "id": 17,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "SPOT",
-                          "name": "234231641611657897",
-                          "id": 18,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "summer测试客户组（兼容）",
-                          "id": 19,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "summer测试客户组（兼容）",
-                          "id": 19,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE",
-                          "name": "summer测试客户组（兼容）",
-                          "id": 19,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX20,USDC,FTM",
-                          "name": "summer测试客户组（兼容）",
-                          "id": 19,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "ARX19,BTC,ETH,LUNA,BNB,ADA,SOL,DOT,AVAX,DOGE,SHIB,MATIC,LINK,UNI,ATOM,ALGO,NEAR,LTC,BCH,TRX,USDT",
-                          "name": "ARX19基金经理组",
-                          "id": 20,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "测试划转",
-                          "id": 21,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "测试划转",
-                          "id": 21,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE",
-                          "name": "测试划转",
-                          "id": 21,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX20",
-                          "name": "测试划转",
-                          "id": 21,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "转组",
-                          "id": 23,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "转组",
-                          "id": 23,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE",
-                          "name": "转组",
-                          "id": 23,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX20",
-                          "name": "转组",
-                          "id": 23,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "ARX5,TRX,LTC,BTC,ETH,BNB,USDT",
-                          "name": "ARX5基金经理组",
-                          "id": 25,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,ETH,BNB,DOGE",
-                          "name": "ARX4基金经理客户组",
-                          "id": 26,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组-BETHY",
-                          "id": 27,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组-BETHY",
-                          "id": 27,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE",
-                          "name": "默认客户组-BETHY",
-                          "id": 27,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX4",
-                          "name": "默认客户组-BETHY",
-                          "id": 27,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "ARX10基金经理客户组",
-                          "id": 28,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "ARX10基金经理客户组",
-                          "id": 28,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC",
-                          "name": "ARX10基金经理客户组",
-                          "id": 28,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,BNB,DOGE,LINK,SAND,DOT,ATOM,LTC,SOL,ETH",
-                          "name": "ARX10基金经理客户组",
-                          "id": 28,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "leaset默认客户组",
-                          "id": 29,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "leaset默认客户组",
-                          "id": 29,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE,DOGE",
-                          "name": "leaset默认客户组",
-                          "id": 29,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX4,BNB,DOGE,ARX10",
-                          "name": "leaset默认客户组",
-                          "id": 29,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,ETH,BNB,SOL,ADA,XRP,LUNA,DOT,AVAX,DOGE,USDT",
-                          "name": "V10基金经理客户组",
-                          "id": 30,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组115",
-                          "id": 31,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组115",
-                          "id": 31,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE,DOGE",
-                          "name": "默认客户组115",
-                          "id": 31,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX4,BNB,DOGE,ARX10,V10",
-                          "name": "默认客户组115",
-                          "id": 31,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "qa001,BTC,USDT,SAND,SOL,AVAX,LUNA,XRP,LTC,BNB,DOGE,DOT,LINK",
-                          "name": "QA001客户组",
-                          "id": 43,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "bethy测试",
-                          "id": 46,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "bethy测试",
-                          "id": 46,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "cathy01,USD",
-                          "name": "bethy测试",
-                          "id": 46,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD,FTM",
-                          "name": "bethy测试",
-                          "id": 46,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "bethy测试1643012805469",
-                          "id": 47,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "bethy测试1643012805469",
-                          "id": 47,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "cathy01,USD",
-                          "name": "bethy测试1643012805469",
-                          "id": 47,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD,FTM",
-                          "name": "bethy测试1643012805469",
-                          "id": 47,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "qa002,USDT,BTC,BNB,SOL,ETH,DOGE,SAND,DOT,LINK,LTC,ADA,AVAX,LUNA,XRP",
-                          "name": "QA002基金经理客户组",
-                          "id": 49,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "market客户组",
-                          "id": 50,
-                          "type": 1,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "market客户组",
-                          "id": 50,
-                          "type": 1,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "market客户组",
-                          "id": 50,
-                          "type": 1,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,ETH,USD",
-                          "name": "market客户组",
-                          "id": 50,
-                          "type": 1,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "morse单玩法",
-                          "id": 51,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "morse单玩法",
-                          "id": 51,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,ADA,DOGE,ATOM,ETH,SHIB,LINK,DOT,SAND,BNB,LTC,BTC,FFT,LUNA,MANA,NFT,UNI,FIL,NEAR,ARX4,testK",
-                          "name": "morse单玩法",
-                          "id": 51,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC",
-                          "name": "增量开户客户组",
-                          "id": 52,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "增量开户客户组",
-                          "id": 52,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,USDT,LUNA,DOT,ATOM",
-                          "name": "增量开户客户组",
-                          "id": 52,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,AVAX,ETH,LINK,DOGE,DOT,ATOM",
-                          "name": "增量开户客户组",
-                          "id": 52,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "增量开户客户组01",
-                          "id": 53,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "增量开户客户组01",
-                          "id": 53,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,FTM,FFT,FIL,NFT,NEAR,LUNA,MANA,UNI,LINK,SAND,ATOM,MATIC,XMR,SPOT,SHIB,ARX4,XTZ,GALA,DYDX,AVAX,AXS,ARX20,SOL,AAVE,IOTA,OKB,OMG,BSV",
-                          "name": "增量开户客户组01",
-                          "id": 53,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,USDT,ATOM,AVAX,AAVE,USD,DOT,DOGE,XLM,XRP,FTM,FFT,FIL,UNI,LUNA,LINK,LTC,MANA,ARX4,ARX5,OMG,ARX10,XMR,KSM,MATIC,ALGO,NEAR,SPOT,GALA,SHIB,RACA,AXS,ARX20,IOTA,TRX,WBTC,THETA,SUSHI,BTT,VET,REEF,HOBI,NFT,BNB,SAND,BAT,OKB,BSV,EOS,V10",
-                          "name": "增量开户客户组01",
-                          "id": 53,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "测试短信客户组",
-                          "id": 56,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "测试短信客户组",
-                          "id": 56,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC",
-                          "name": "测试短信客户组",
-                          "id": 56,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC",
-                          "name": "测试短信客户组",
-                          "id": 56,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "增量客户组03",
-                          "id": 57,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "增量客户组03",
-                          "id": 57,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "FFT,USDT",
-                          "name": "增量客户组03",
-                          "id": 57,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,USDT",
-                          "name": "增量客户组03",
-                          "id": 57,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "增量开户",
-                          "id": 58,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "增量开户",
-                          "id": 58,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,USDT,LINK,OMG,LUNA",
-                          "name": "增量开户",
-                          "id": 58,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,USDT,FTM,GALA,ATOM,AVAX,AXS",
-                          "name": "增量开户",
-                          "id": 58,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "bethy测试组1",
-                          "id": 59,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "bethy测试组1",
-                          "id": 59,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD,USDT,BTC",
-                          "name": "bethy测试组1",
-                          "id": 59,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,USDT,USD",
-                          "name": "bethy测试组1",
-                          "id": 59,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "testK",
-                          "name": "55",
-                          "id": 60,
-                          "type": 1,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "MCL验收客户组",
-                          "id": 62,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "MCL验收客户组",
-                          "id": 62,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD,EUR",
-                          "name": "MCL验收客户组",
-                          "id": 62,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "USD客户组",
-                          "id": 65,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "USD客户组",
-                          "id": 65,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD,BTC,ETH,BCH,USDT",
-                          "name": "USD客户组",
-                          "id": 65,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD,BTC,ETH,BCH,USDT",
-                          "name": "USD客户组",
-                          "id": 65,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USD",
-                          "name": "kidy组",
-                          "id": 66,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "kidy组",
-                          "id": 66,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BAT",
-                          "name": "kidy组",
-                          "id": 66,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "qa002",
-                          "name": "kidy组",
-                          "id": 66,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "2个玩法客户组",
-                          "id": 68,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,USDT,ADA",
-                          "name": "2个玩法客户组",
-                          "id": 68,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "cathy",
-                          "id": 69,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,ENJ",
-                          "name": "cathy",
-                          "id": 69,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC",
-                          "name": "cathy",
-                          "id": 69,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "QA004,QA006,USDT",
-                          "name": "test",
-                          "id": 77,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "cathy测试组",
-                          "id": 91,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC",
-                          "name": "cathy测试组",
-                          "id": 91,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "GBP",
-                          "name": "Dylan-test",
-                          "id": 94,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "GBP",
-                          "name": "Dylan-test",
-                          "id": 94,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "HKD,CAD,EUR",
-                          "name": "Dylan-test",
-                          "id": 94,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "GBP,CNY,AUD,999,JPY",
-                          "name": "Dylan-test",
-                          "id": 94,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "测试入金页面",
-                          "id": 1010,
-                          "type": 1,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "测试入金页面",
-                          "id": 1010,
-                          "type": 1,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "测试入金页面",
-                          "id": 1010,
-                          "type": 1,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,ETH",
-                          "name": "测试入金页面",
-                          "id": 1010,
-                          "type": 1,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "GBP",
-                          "name": "Dylan-test1663053567970",
-                          "id": 1718,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "GBP",
-                          "name": "Dylan-test1663053567970",
-                          "id": 1718,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "HKD,CAD,EUR",
-                          "name": "Dylan-test1663053567970",
-                          "id": 1718,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "GBP,CNY,AUD,999,JPY",
-                          "name": "Dylan-test1663053567970",
-                          "id": 1718,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC",
-                          "name": "PeterWong勿删",
-                          "id": 1960,
-                          "type": 1,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "TEST别名组",
-                          "id": 2113,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "TEST别名组",
-                          "id": 2113,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "test0001",
-                          "id": 2156,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "test0001",
-                          "id": 2156,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC",
-                          "name": "test0001",
-                          "id": 2156,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC",
-                          "name": "test0001",
-                          "id": 2156,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,USDT,V10",
-                          "name": "AAAA",
-                          "id": 2159,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "BTC,USDT,V10",
-                          "name": "AAAA1664077793480",
-                          "id": 2252,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "bethytest",
-                          "id": 2256,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "bethytest",
-                          "id": 2256,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,USD,V10,GBP",
-                          "name": "bethytest",
-                          "id": 2256,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,V10,USD",
-                          "name": "bethytest",
-                          "id": 2256,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "bethytest1664084338572",
-                          "id": 2258,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "bethytest1664084338572",
-                          "id": 2258,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,USD,V10,GBP",
-                          "name": "bethytest1664084338572",
-                          "id": 2258,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,V10,USD",
-                          "name": "bethytest1664084338572",
-                          "id": 2258,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY",
-                          "name": "SSSSSSSS",
-                          "id": 2265,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "SSSSSSSS",
-                          "id": 2265,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY,GBP,AUD",
-                          "name": "SSSSSSSS",
-                          "id": 2265,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY,GBP,AUD,JPY",
-                          "name": "SSSSSSSS",
-                          "id": 2265,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY",
-                          "name": "SSSSSSSS1664088245806",
-                          "id": 2266,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "SSSSSSSS1664088245806",
-                          "id": 2266,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY,GBP,AUD",
-                          "name": "SSSSSSSS1664088245806",
-                          "id": 2266,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY,GBP,AUD,JPY",
-                          "name": "SSSSSSSS1664088245806",
-                          "id": 2266,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY",
-                          "name": "演示客户组勿删除",
-                          "id": 2273,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY",
-                          "name": "演示客户组勿删除",
-                          "id": 2273,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY,普小麦303,普小麦304,晚籼稻301,早籼稻211,鲜苹果210,尿素201",
-                          "name": "演示客户组勿删除",
-                          "id": 2273,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "CNY,普小麦303,早籼稻211,普小麦304,晚籼稻301,鲜苹果210,尿素201,合家汇丝苗米001,45%撒可富001,45%嘉施利001",
-                          "name": "演示客户组勿删除",
-                          "id": 2273,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1664178366541",
-                          "id": 2286,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "默认客户组1664178366541",
-                          "id": 2286,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE,DOGE,BCH,ETH,BNB,SOL,AVAX,SHIB,UNI,DOT,XRP,ADA,FIL,V10,THB",
-                          "name": "默认客户组1664178366541",
-                          "id": 2286,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX4,BNB,DOGE,ARX10,V10,qa001,qa002,M10,XRP,SHIB,EOS,XEC,FIL,FFT,NFT,QA003,QA004,QA005,QA006,QA007,QA008,LUNC,PHP,THB",
-                          "name": "默认客户组1664178366541",
-                          "id": 2286,
-                          "type": 0,
-                          "tradeType": 5
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "summer出金客户组",
-                          "id": 3057,
-                          "type": 0,
-                          "tradeType": 1
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT",
-                          "name": "summer出金客户组",
-                          "id": 3057,
-                          "type": 0,
-                          "tradeType": 2
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,USD,BTC,SAND,LINK,AAVE,DOGE,BCH,ETH,BNB,SOL,AVAX,SHIB,UNI,DOT,XRP,ADA,FIL,V10,THB",
-                          "name": "summer出金客户组",
-                          "id": 3057,
-                          "type": 0,
-                          "tradeType": 3
-                        },
-                        {
-                          "openAccountType": 0,
-                          "assets": "USDT,BTC,LINK,ETH,SAND,USD,REEF,ADA,AAVE,DOT,ARX4,BNB,DOGE,ARX10,V10,qa001,qa002,M10,XRP,SHIB,EOS,XEC,FIL,FFT,NFT,QA003,QA004,QA005,QA006,QA007,QA008,LUNC,PHP,THB",
-                          "name": "summer出金客户组",
-                          "id": 3057,
-                          "type": 0,
-                          "tradeType": 5
-                        }
-                      ],
-                      "bizCode": "",
-                      "tm": 12701293,
-                      "msgParams": null,
-                      "ok": true
+                      "msg": "下游接口不存在",
+                      "trace": "t-8142d05-53e4-d92j-8487687-1668768865",
+                      "code": "GATEWAY_CODE_010",
+                      "data": "message.admin.VerificationApiService.queryVerificationByPage",
+                      "bizCode": "G"
                     }
                   }
                 }
@@ -2310,18 +411,18 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50208671-run"
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50220385-run"
       }
     },
-    "/global/rtc.admin.RtcAccountQueryService.checkCustomerPosition": {
+    "/global/fund.admin.CustomerFundAdminDubboService.getExchangeRate": {
       "post": {
-        "summary": "校验客户是否存在持仓【下游接口不存在】",
-        "x-apifox-folder": "客户服务相关",
+        "summary": "批量获取充值提现汇率",
+        "x-apifox-folder": "资金服务相关",
         "x-apifox-status": "testing",
         "deprecated": false,
-        "description": "bizType=rtc.admin.RtcAccountQueryService.checkCustomerPosition\nversion=0.0.1",
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerFundAdminDubboService.getExchangeRate",
         "tags": [
-          "客户服务相关"
+          "资金服务相关"
         ],
         "parameters": [
           {
@@ -2357,7 +458,7 @@
           {
             "name": "version",
             "in": "header",
-            "description": "版本号",
+            "description": "接口版本号",
             "required": true,
             "example": "0.0.1",
             "schema": {
@@ -2373,37 +474,53 @@
                 "properties": {
                   "companyId": {
                     "type": "string",
-                    "description": "公司Id"
+                    "description": "公司ID"
                   },
-                  "customerId": {
-                    "type": "number",
-                    "description": "客户Id"
+                  "currencyMap": {
+                    "type": "object",
+                    "properties": {
+                      "BTC": {
+                        "type": "string"
+                      },
+                      "BNB": {
+                        "type": "string"
+                      }
+                    },
+                    "description": "key:来源货币 value:兑换货币",
+                    "x-apifox-orders": [
+                      "BTC",
+                      "BNB"
+                    ],
+                    "required": [
+                      "BTC",
+                      "BNB"
+                    ],
+                    "x-apifox-ignore-properties": []
                   },
-                  "accountId": {
-                    "type": "number",
-                    "description": "账户Id。精确到账户查询是否存在持仓"
-                  },
-                  "trace": {
-                    "type": "string",
-                    "description": "跟踪码。最好有，方便定位问题"
+                  "type": {
+                    "type": "integer",
+                    "description": "类型：1.充值 2.提现"
                   }
                 },
                 "x-apifox-orders": [
                   "companyId",
-                  "customerId",
-                  "accountId",
-                  "trace"
+                  "currencyMap",
+                  "type"
                 ],
                 "required": [
                   "companyId",
-                  "customerId",
-                  "accountId"
+                  "type",
+                  "currencyMap"
                 ],
                 "x-apifox-ignore-properties": []
               },
               "example": {
                 "companyId": "{{company}}",
-                "customerId": 9
+                "type": 1,
+                "currencyMap": {
+                  "BTC": "USDT",
+                  "BNB": "USDT"
+                }
               }
             }
           }
@@ -2418,23 +535,50 @@
                   "properties": {},
                   "x-apifox-ignore-properties": [],
                   "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-7e3s5yi-y18svvj-68bj9lv1-5z5i-1668770226",
+                      "code": "0",
+                      "data": [
+                        {
+                          "targetCurrency": "USDT",
+                          "rate": 16755.38,
+                          "formulaSymbol": "multiply",
+                          "targetDigits": 4,
+                          "sourceCurrency": "BTC",
+                          "class": "com.cats.fund.api.dto.ExchangeRateConvertDto",
+                          "sourceDigits": 8
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 69,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
                 }
               }
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50209291-run"
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50222136-run"
       }
     },
-    "/global/customer.admin.CustomerAdminApiService.queryAccountList": {
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.lockTradeAccount": {
       "post": {
-        "summary": "查询客户交易账户信息",
-        "x-apifox-folder": "客户服务相关",
+        "summary": "锁定客户指定玩法账户的转入转出功能",
+        "x-apifox-folder": "资金服务相关",
         "x-apifox-status": "testing",
         "deprecated": false,
-        "description": "version=0.0.1\nbizType=customer.admin.CustomerAdminApiService.queryAccountList",
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.lockTradeAccount",
         "tags": [
-          "客户服务相关"
+          "资金服务相关"
         ],
         "parameters": [
           {
@@ -2484,33 +628,52 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "tradeType": {
-                    "type": "integer",
-                    "description": "玩法类型。1-合约全仓；"
-                  },
                   "customerNo": {
                     "type": "string",
-                    "description": "公司唯一客户编码"
+                    "description": "客户编号"
                   },
-                  "trace": {
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "companyId": {
                     "type": "string",
-                    "description": "全局链路唯一标志"
+                    "description": "公司id"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型:1=转入,2=转出,3=转入转出"
+                  },
+                  "lockTime": {
+                    "type": "number",
+                    "description": "锁定时长，单位秒，不传则使用平台默认值"
+                  },
+                  "lockEndTime": {
+                    "type": "number",
+                    "description": "锁定截至时间-时间戳，不传则使用平台默认值：优先使用lockEndTime"
                   }
                 },
                 "x-apifox-orders": [
-                  "tradeType",
                   "customerNo",
-                  "trace"
+                  "tradeType",
+                  "companyId",
+                  "type",
+                  "lockTime",
+                  "lockEndTime"
                 ],
                 "required": [
+                  "customerNo",
                   "tradeType",
-                  "customerNo"
+                  "companyId",
+                  "type"
                 ],
                 "x-apifox-ignore-properties": []
               },
               "example": {
+                "customerNo": "86000020",
                 "tradeType": 5,
-                "customerNo": "86000020"
+                "companyId": "{{company}}",
+                "type": 1
               }
             }
           }
@@ -2532,1457 +695,14 @@
                     "value": {
                       "msg": "Success",
                       "fail": false,
-                      "trace": "t-yzl66v8-0y4u7d7-3p6fzoj9-02428-1668771715",
+                      "trace": "t-pi33x33-1b94r-9x5c-38183s2-1668770770",
                       "code": "0",
-                      "data": [
-                        {
-                          "netAssets": "59846060.6094",
-                          "available": "59846060.6094",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "59846060.6094",
-                          "firstDepositTime": 1640095766993,
-                          "lockMargin": "0.0000",
-                          "balance": "59846160.9894",
-                          "interest": "0.0000",
-                          "customerId": 21,
-                          "liabilities": "0.0000",
-                          "currency": "USDT",
-                          "activateStatus": 2,
-                          "withdrawAmount": "59846060.6094",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": 1662680004827,
-                          "activateTime": 1643206760667,
-                          "frozen": "100.3800",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1000642,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.0000",
-                          "interestProportion": null,
-                          "createTime": 1640077647523,
-                          "lockAmount": "100.3800",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.0000",
-                          "availableLoan": null,
-                          "digits": 4,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 13
-                        },
-                        {
-                          "netAssets": "892.10786394",
-                          "available": "892.10786394",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "892.10786394",
-                          "firstDepositTime": 1640095785217,
-                          "lockMargin": "0.00000000",
-                          "balance": "892.10573594",
-                          "interest": "0.00000000",
-                          "customerId": 21,
-                          "liabilities": "0.00000000",
-                          "currency": "BTC",
-                          "activateStatus": 2,
-                          "withdrawAmount": "892.10573594",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1000643,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000000",
-                          "interestProportion": null,
-                          "createTime": 1640077647526,
-                          "lockAmount": "0.00000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000000",
-                          "availableLoan": null,
-                          "digits": 8,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 16
-                        },
-                        {
-                          "netAssets": "0.00000000",
-                          "available": "0.00000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00000000",
-                          "balance": "0.00000000",
-                          "interest": "0.00000000",
-                          "customerId": 21,
-                          "liabilities": "0.00000000",
-                          "currency": "REEF",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.00000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1000645,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000000",
-                          "interestProportion": null,
-                          "createTime": 1640077647532,
-                          "lockAmount": "0.00000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000000",
-                          "availableLoan": null,
-                          "digits": 8,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 21
-                        },
-                        {
-                          "netAssets": "2.309755",
-                          "available": "2.309755",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "2.309755",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "2.309755",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "SAND",
-                          "activateStatus": 2,
-                          "withdrawAmount": "2.309755",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1000646,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1640077647535,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 29
-                        },
-                        {
-                          "netAssets": "0.000",
-                          "available": "0.000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000",
-                          "balance": "0.000",
-                          "interest": "0.000",
-                          "customerId": 21,
-                          "liabilities": "0.000",
-                          "currency": "LINK",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1000647,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000",
-                          "interestProportion": null,
-                          "createTime": 1640077647539,
-                          "lockAmount": "0.000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000",
-                          "availableLoan": null,
-                          "digits": 3,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 32
-                        },
-                        {
-                          "netAssets": "0.00000",
-                          "available": "0.00000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00000",
-                          "balance": "0.00000",
-                          "interest": "0.00000",
-                          "customerId": 21,
-                          "liabilities": "0.00000",
-                          "currency": "AAVE",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.00000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1001283,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000",
-                          "interestProportion": null,
-                          "createTime": 1640914135864,
-                          "lockAmount": "0.00000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000",
-                          "availableLoan": null,
-                          "digits": 5,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 81
-                        },
-                        {
-                          "netAssets": "0.000000",
-                          "available": "0.000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.000000",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "ADA",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1001284,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1640914135868,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 69
-                        },
-                        {
-                          "netAssets": "0.000000",
-                          "available": "0.000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.000000",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "DOT",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1001285,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1640914135871,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 31
-                        },
-                        {
-                          "netAssets": "0.00000000",
-                          "available": "0.00000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00000000",
-                          "balance": "0.00000000",
-                          "interest": "0.00000000",
-                          "customerId": 21,
-                          "liabilities": "0.00000000",
-                          "currency": "ARX20",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.00000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1001666,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000000",
-                          "interestProportion": null,
-                          "createTime": 1641559869210,
-                          "lockAmount": "0.00000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000000",
-                          "availableLoan": null,
-                          "digits": 8,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 83
-                        },
-                        {
-                          "netAssets": "0.000000",
-                          "available": "0.000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.000000",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "ARX19",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1002082,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1641782842561,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 96
-                        },
-                        {
-                          "netAssets": "22.09539890",
-                          "available": "22.09539890",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "22.09539890",
-                          "firstDepositTime": 1643089716013,
-                          "lockMargin": "0.00000000",
-                          "balance": "22.09539890",
-                          "interest": "0.00000000",
-                          "customerId": 21,
-                          "liabilities": "0.00000000",
-                          "currency": "ARX4",
-                          "activateStatus": 2,
-                          "withdrawAmount": "22.09539890",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1002405,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000000",
-                          "interestProportion": null,
-                          "createTime": 1641885383539,
-                          "lockAmount": "0.00000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000000",
-                          "availableLoan": null,
-                          "digits": 8,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 99
-                        },
-                        {
-                          "netAssets": "0.857096",
-                          "available": "0.857096",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.857096",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.857096",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "ETH",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.857096",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1002406,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1641885383543,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 100
-                        },
-                        {
-                          "netAssets": "0.29628276",
-                          "available": "0.29628276",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.29628276",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00000000",
-                          "balance": "0.29628276",
-                          "interest": "0.00000000",
-                          "customerId": 21,
-                          "liabilities": "0.00000000",
-                          "currency": "BNB",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.29628276",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1002791,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000000",
-                          "interestProportion": null,
-                          "createTime": 1641983545455,
-                          "lockAmount": "0.00000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000000",
-                          "availableLoan": null,
-                          "digits": 8,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 19
-                        },
-                        {
-                          "netAssets": "0.000000",
-                          "available": "0.000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.000000",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "DOGE",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1002792,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1641983545458,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 68
-                        },
-                        {
-                          "netAssets": "0.00000000",
-                          "available": "0.00000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00000000",
-                          "balance": "0.00000000",
-                          "interest": "0.00000000",
-                          "customerId": 21,
-                          "liabilities": "0.00000000",
-                          "currency": "ARX10",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.00000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1003925,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000000",
-                          "interestProportion": null,
-                          "createTime": 1642159809217,
-                          "lockAmount": "0.00000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000000",
-                          "availableLoan": null,
-                          "digits": 8,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 97
-                        },
-                        {
-                          "netAssets": "4910.31",
-                          "available": "4910.31",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "4910.31",
-                          "firstDepositTime": 1643035939618,
-                          "lockMargin": "0.00",
-                          "balance": "4910.31",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "V10",
-                          "activateStatus": 2,
-                          "withdrawAmount": "4910.31",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1003926,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1642159809221,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 111
-                        },
-                        {
-                          "netAssets": "447.026",
-                          "available": "447.026",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "447.026",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000",
-                          "balance": "447.026",
-                          "interest": "0.000",
-                          "customerId": 21,
-                          "liabilities": "0.000",
-                          "currency": "qa001",
-                          "activateStatus": 2,
-                          "withdrawAmount": "447.026",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1004768,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000",
-                          "interestProportion": null,
-                          "createTime": 1643008405432,
-                          "lockAmount": "0.000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000",
-                          "availableLoan": null,
-                          "digits": 3,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 116
-                        },
-                        {
-                          "netAssets": "0.00",
-                          "available": "0.00",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00",
-                          "balance": "0.00",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "USD",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.00",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1004769,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1643008405458,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 114
-                        },
-                        {
-                          "netAssets": "0.000",
-                          "available": "0.000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000",
-                          "balance": "0.000",
-                          "interest": "0.000",
-                          "customerId": 21,
-                          "liabilities": "0.000",
-                          "currency": "qa002",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1004892,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000",
-                          "interestProportion": null,
-                          "createTime": 1643165852087,
-                          "lockAmount": "0.000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000",
-                          "availableLoan": null,
-                          "digits": 3,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 117
-                        },
-                        {
-                          "netAssets": "10.00",
-                          "available": "10.00",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "10.00",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00",
-                          "balance": "10.00",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "M10",
-                          "activateStatus": 2,
-                          "withdrawAmount": "10.00",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": 1643206760667,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1005027,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1643175701292,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 118
-                        },
-                        {
-                          "netAssets": "23.58574960",
-                          "available": "23.58574960",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "23.58574960",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00000000",
-                          "balance": "23.58574960",
-                          "interest": "0.00000000",
-                          "customerId": 21,
-                          "liabilities": "0.00000000",
-                          "currency": "XRP",
-                          "activateStatus": 2,
-                          "withdrawAmount": "23.58574960",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1006010,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000000",
-                          "interestProportion": null,
-                          "createTime": 1645082491157,
-                          "lockAmount": "0.00000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000000",
-                          "availableLoan": null,
-                          "digits": 8,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 27
-                        },
-                        {
-                          "netAssets": "0.000000",
-                          "available": "0.000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.000000",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "EOS",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1027502,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1646295285996,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 42
-                        },
-                        {
-                          "netAssets": "0.000000",
-                          "available": "0.000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.000000",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "SHIB",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1027503,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1646295285999,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 90
-                        },
-                        {
-                          "netAssets": "0.00000",
-                          "available": "0.00000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00000",
-                          "balance": "0.00000",
-                          "interest": "0.00000",
-                          "customerId": 21,
-                          "liabilities": "0.00000",
-                          "currency": "XEC",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.00000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1027983,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000",
-                          "interestProportion": null,
-                          "createTime": 1646653782420,
-                          "lockAmount": "0.00000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000",
-                          "availableLoan": null,
-                          "digits": 5,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 125
-                        },
-                        {
-                          "netAssets": "0.000000",
-                          "available": "0.000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.000000",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "FIL",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1028409,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1646896348810,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 38
-                        },
-                        {
-                          "netAssets": "0.000000",
-                          "available": "0.000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.000000",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "FFT",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1028410,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1646896348815,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 43
-                        },
-                        {
-                          "netAssets": "0.000000000000",
-                          "available": "0.000000000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000000000",
-                          "balance": "0.000000000000",
-                          "interest": "0.000000000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000000000",
-                          "currency": "NFT",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.000000000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1028572,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000000000",
-                          "interestProportion": null,
-                          "createTime": 1646972047108,
-                          "lockAmount": "0.000000000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000000000",
-                          "availableLoan": null,
-                          "digits": 12,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 26
-                        },
-                        {
-                          "netAssets": "0.00",
-                          "available": "0.00",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00",
-                          "balance": "0.00",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "QA003",
-                          "activateStatus": 1,
-                          "withdrawAmount": "0.00",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1029936,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1647782198558,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 126
-                        },
-                        {
-                          "netAssets": "0.00",
-                          "available": "0.00",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00",
-                          "balance": "0.00",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "QA004",
-                          "activateStatus": 1,
-                          "withdrawAmount": "0.00",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1029937,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1647782198558,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 127
-                        },
-                        {
-                          "netAssets": "0.00",
-                          "available": "0.00",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00",
-                          "balance": "0.00",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "QA005",
-                          "activateStatus": 1,
-                          "withdrawAmount": "0.00",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1029938,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1647782198558,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 128
-                        },
-                        {
-                          "netAssets": "0.00",
-                          "available": "0.00",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00",
-                          "balance": "0.00",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "QA006",
-                          "activateStatus": 1,
-                          "withdrawAmount": "0.00",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1029939,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1647782198558,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 129
-                        },
-                        {
-                          "netAssets": "0.00",
-                          "available": "0.00",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00",
-                          "balance": "0.00",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "QA007",
-                          "activateStatus": 1,
-                          "withdrawAmount": "0.00",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1029940,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1647782198558,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 130
-                        },
-                        {
-                          "netAssets": "0.00",
-                          "available": "0.00",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00",
-                          "balance": "0.00",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "QA008",
-                          "activateStatus": 1,
-                          "withdrawAmount": "0.00",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1029941,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1647782198559,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 131
-                        },
-                        {
-                          "netAssets": "0.00000000",
-                          "available": "0.00000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00000000",
-                          "balance": "0.00000000",
-                          "interest": "0.00000000",
-                          "customerId": 21,
-                          "liabilities": "0.00000000",
-                          "currency": "LUNC",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.00000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1497713,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000000",
-                          "interestProportion": null,
-                          "createTime": 1654519739093,
-                          "lockAmount": "0.00000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000000",
-                          "availableLoan": null,
-                          "digits": 8,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 148
-                        },
-                        {
-                          "netAssets": "0.00",
-                          "available": "0.00",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00",
-                          "balance": "0.00",
-                          "interest": "0.00",
-                          "customerId": 21,
-                          "liabilities": "0.00",
-                          "currency": "PHP",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.00",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1502393,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00",
-                          "interestProportion": null,
-                          "createTime": 1656590005360,
-                          "lockAmount": "0.00",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00",
-                          "availableLoan": null,
-                          "digits": 2,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 147
-                        },
-                        {
-                          "netAssets": "0.00000",
-                          "available": "0.00000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.00000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.00000",
-                          "balance": "0.00000",
-                          "interest": "0.00000",
-                          "customerId": 21,
-                          "liabilities": "0.00000",
-                          "currency": "THB",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.00000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.00000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 1664970,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.00000",
-                          "interestProportion": null,
-                          "createTime": 1661740819398,
-                          "lockAmount": "0.00000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.00000",
-                          "availableLoan": null,
-                          "digits": 5,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 170
-                        },
-                        {
-                          "netAssets": "0.000000",
-                          "available": "0.000000",
-                          "remark": null,
-                          "type": 1,
-                          "equity": "0.000000",
-                          "firstDepositTime": null,
-                          "lockMargin": "0.000000",
-                          "balance": "0.000000",
-                          "interest": "0.000000",
-                          "customerId": 21,
-                          "liabilities": "0.000000",
-                          "currency": "TRX",
-                          "activateStatus": 2,
-                          "withdrawAmount": "0.000000",
-                          "profit": "0",
-                          "tradeType": 5,
-                          "wholeWarehouseBalance": null,
-                          "freeMargin": "0",
-                          "margin": "0",
-                          "firstWithdrawTime": null,
-                          "activateTime": null,
-                          "frozen": "0.000000",
-                          "wholeWarehouseRate": null,
-                          "accountId": 2278964,
-                          "openAccountStatus": true,
-                          "companyId": 360,
-                          "liabilitiesPrincipal": "0.000000",
-                          "interestProportion": null,
-                          "createTime": 1667879247463,
-                          "lockAmount": "0.000000",
-                          "marginRadio": null,
-                          "notWithdrawAmount": "0.000000",
-                          "availableLoan": null,
-                          "digits": 6,
-                          "customerNo": "86000020",
-                          "status": 2,
-                          "assetsId": 39
-                        }
-                      ],
-                      "bizCode": "C",
-                      "tm": 31099799,
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 54,
                       "msgParams": null,
-                      "ok": true
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
                     }
                   }
                 }
@@ -3990,7 +710,415 @@
             }
           }
         },
-        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50224116-run"
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50222519-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.unlockTradeAccount": {
+      "post": {
+        "summary": "解锁客户指定玩法账户的转入转出功能",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "version=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.unlockTradeAccount",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型:1=转入,2=转出,3=转入转出"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "required": [
+                  "customerNo",
+                  "type",
+                  "companyId",
+                  "tradeType"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "86000020",
+                "type": 1,
+                "companyId": "{{company}}",
+                "tradeType": 5
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-7sga7o-6d29n-pbsk-wt4mpb3-1668771006",
+                      "code": "0",
+                      "data": null,
+                      "bizCode": "",
+                      "tm": 3,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50222668-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.queryOneLockTradeAccount": {
+      "post": {
+        "summary": "单个查询客户锁定状态",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "说明：锁定状态单个查询：客户指定玩法账户的转入转出功能，只查询指定类型（转入转出）的\nversion=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.queryOneLockTradeAccount",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  },
+                  "type": {
+                    "type": "integer",
+                    "description": "类型:1=转入,2=转出,3=转入转出"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId",
+                  "type"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "86000020",
+                "tradeType": 5,
+                "companyId": "{{company}}",
+                "type": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-npfw73-5i09153-vxf6745-dqip8-1668771342",
+                      "code": "0",
+                      "data": false,
+                      "bizCode": "",
+                      "tm": 1,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50223743-run"
+      }
+    },
+    "/global/fund.admin.CustomerActivityBonusAdminDubboService.queryTradeTypeLockTradeAccount": {
+      "post": {
+        "summary": "批量查询客户锁定状态",
+        "x-apifox-folder": "资金服务相关",
+        "x-apifox-status": "testing",
+        "deprecated": false,
+        "description": "说明：锁定状态查询，一个玩法的全部：客户指定玩法账户的转入转出功能\nversion=0.0.1\nbizType=fund.admin.CustomerActivityBonusAdminDubboService.queryTradeTypeLockTradeAccount",
+        "tags": [
+          "资金服务相关"
+        ],
+        "parameters": [
+          {
+            "name": "trace",
+            "in": "header",
+            "description": "全局链路唯一标志",
+            "required": true,
+            "example": "{{mock_trace}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "companyId",
+            "in": "header",
+            "description": "公司ID",
+            "required": true,
+            "example": "{{company}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "B端鉴权后token",
+            "required": true,
+            "example": "{{auto_token}}",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "header",
+            "description": "接口版本号",
+            "required": true,
+            "example": "0.0.1",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerNo": {
+                    "type": "string",
+                    "description": "客户编号"
+                  },
+                  "tradeType": {
+                    "type": "integer",
+                    "description": "玩法ID"
+                  },
+                  "companyId": {
+                    "type": "string",
+                    "description": "公司id"
+                  }
+                },
+                "x-apifox-orders": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId"
+                ],
+                "required": [
+                  "customerNo",
+                  "tradeType",
+                  "companyId"
+                ],
+                "x-apifox-ignore-properties": []
+              },
+              "example": {
+                "customerNo": "86000020",
+                "tradeType": 5,
+                "companyId": "{{company}}"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "成功",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {},
+                  "x-apifox-ignore-properties": [],
+                  "x-apifox-orders": []
+                },
+                "examples": {
+                  "1": {
+                    "summary": "成功示例",
+                    "value": {
+                      "msg": "Success",
+                      "fail": false,
+                      "trace": "t-gooy7-y1fg9-663j2h-426tq-1668771452",
+                      "code": "0",
+                      "data": [
+                        {
+                          "lockStatus": false,
+                          "type": 1,
+                          "class": "com.cats.fund.api.dto.CustomerQueryTradeTypeLockTradeAccountDto"
+                        },
+                        {
+                          "lockStatus": false,
+                          "type": 2,
+                          "class": "com.cats.fund.api.dto.CustomerQueryTradeTypeLockTradeAccountDto"
+                        },
+                        {
+                          "lockStatus": false,
+                          "type": 3,
+                          "class": "com.cats.fund.api.dto.CustomerQueryTradeTypeLockTradeAccountDto"
+                        }
+                      ],
+                      "bizCode": "",
+                      "tm": 3,
+                      "msgParams": null,
+                      "ok": true,
+                      "class": "com.cats.common.core.base.vo.BaseResult"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apifox": "https://www.apifox.cn/web/project/659461/apis/api-50223815-run"
       }
     }
   },
