@@ -1,6 +1,6 @@
-# 什么是CATS
+# 什么是 MultiMarkets
 
-CATS——Comprehensive Assets Trading System，综合资产交易系统
+MultiMarkets，综合资产交易系统
 
 基于SAAS架构的一站式主白标交易系统
 
